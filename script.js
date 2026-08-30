@@ -13,7 +13,7 @@
    so the live site never shows a dead link.
    --------------------------------------------------------- */
 var PROFILE = {
-  linkedin: "",                 // e.g. "https://www.linkedin.com/in/your-handle/"
+  linkedin: "https://www.linkedin.com/in/sadhanala-nischay-prasad-0b0978389/",
   resume:   ""                  // e.g. "assets/Nischay-Prasad-Resume.pdf"
 };
 
