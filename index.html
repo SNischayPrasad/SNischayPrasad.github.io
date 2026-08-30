@@ -13,447 +13,344 @@
 <meta property="og:description" content="ESP32 and Arduino builds that sense, decide, and report — with the dashboards on top. 16 public repositories, 87 logic tests green, one live city dashboard.">
 <meta property="og:url" content="https://snischayprasad.github.io/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#060A10">
+<meta name="theme-color" content="#FFFFFF">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D2B2E'/%3E%3Cpath d='M6 22h5l4-12 4 12 3-6h4' fill='none' stroke='%23F0A845' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23FFFFFF'/%3E%3Cpath d='M6 22h5l4-12 4 12 3-6h4' fill='none' stroke='%230071E3' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=4">
+
+<!-- Arm the scroll reveal only if this browser can actually undo it. Without
+     this class the panels render fully visible, so a blocked or failed script
+     can never leave the page blank. -->
+<script>
+(function(){
+  var canReveal = "IntersectionObserver" in window &&
+    !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  if (canReveal) document.documentElement.className += " js-reveal";
+})();
+</script>
 </head>
 <body>
 
-<a class="skip" href="#work">Skip to work</a>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="topbar">
-  <div class="shell topbar-in">
-    <a class="mark" href="#top" aria-label="Sadhanala Nischay Prasad — home">
-      <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
+<!-- what the glass refracts -->
+<div class="ambience" aria-hidden="true">
+  <span class="orb orb-a"></span>
+  <span class="orb orb-b"></span>
+  <span class="orb orb-c"></span>
+  <span class="orb orb-d"></span>
+</div>
+
+<nav class="nav" aria-label="Sections">
+  <div class="nav-in">
+    <a class="mark" href="#top">
+      <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
         <path d="M4 22h5l4-12 4 12 3-6h8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span>S.N.P.</span>
+      <span>Sadhanala Nischay Prasad</span>
     </a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#work">Work</a>
-      <a href="#stack">Stack</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="btn btn-ghost topbar-cta" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">
-      GitHub <span aria-hidden="true">&#8599;</span>
-    </a>
+    <ul class="nav-links">
+      <li><a href="#practice">How I work</a></li>
+      <li><a href="#builds">Builds</a></li>
+      <li><a href="#register">Also built</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
-</header>
+</nav>
 
-<main id="top">
+<main class="shell" id="main">
+<span id="top"></span>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-glow" aria-hidden="true"></div>
-
-  <div class="shell hero-grid">
-
-    <div class="hero-copy">
-      <p class="eyebrow"><span class="pip" aria-hidden="true"></span>Embedded systems &middot; IoT &middot; India</p>
-      <h1 class="display">Sadhanala<br><span class="grad">Nischay Prasad</span></h1>
-      <p class="lede">
-        I build devices that sense something physical, decide what to do about it,
-        and report it somewhere useful. Ultrasonic ranging, sensor fusion, GSM alerting &mdash;
-        and the dashboards that make the data worth collecting.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-solid" href="#work">See the work</a>
-        <a class="btn btn-ghost" href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">
-          Open live dashboard <span aria-hidden="true">&#8599;</span>
-        </a>
-      </div>
+  <header class="hero">
+    <p class="eyebrow">Embedded systems &amp; IoT &nbsp;&middot;&nbsp; India</p>
+    <h1>Devices that sense,<br>decide, and report.</h1>
+    <p class="lede">
+      I build hardware that measures something physical and acts on it &mdash; and I write the
+      deciding part so it can be proven before a sensor is ever wired up.
+    </p>
+    <div class="cta">
+      <a class="btn btn-solid" href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">Open the live dashboard</a>
+      <a class="btn btn-glass" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">View GitHub &#8250;</a>
     </div>
 
-    <!-- SIGNATURE: the board -->
-    <div class="rig">
-      <div class="stage" id="stage">
-        <div class="board" id="board">
-
-          <div class="board-under" aria-hidden="true"></div>
-
-          <svg class="board-face" viewBox="0 0 520 400" aria-hidden="true">
-            <defs>
-              <linearGradient id="mask" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0"   stop-color="#12393B"/>
-                <stop offset="0.55" stop-color="#0D2B2E"/>
-                <stop offset="1"   stop-color="#0A2124"/>
-              </linearGradient>
-              <radialGradient id="sheen" cx="0.3" cy="0.15" r="0.9">
-                <stop offset="0" stop-color="#3E8F86" stop-opacity=".30"/>
-                <stop offset="1" stop-color="#3E8F86" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-
-            <rect x="4" y="4" width="512" height="392" rx="18" fill="url(#mask)" stroke="#2C6E63" stroke-width="1.5"/>
-            <rect x="4" y="4" width="512" height="392" rx="18" fill="url(#sheen)"/>
-
-            <!-- mounting holes -->
-            <g fill="#060A10" stroke="#2C6E63" stroke-width="1.5">
-              <circle cx="30"  cy="30"  r="8"/><circle cx="490" cy="30"  r="8"/>
-              <circle cx="30"  cy="370" r="8"/><circle cx="490" cy="370" r="8"/>
-            </g>
-
-            <!-- ground pour hatch -->
-            <g stroke="#194C4A" stroke-width="1" opacity=".5">
-              <path d="M20 60H500M20 100H500M20 140H500M20 180H500M20 220H500M20 260H500M20 300H500M20 340H500"/>
-            </g>
-
-            <!-- copper traces, each keyed to the component it feeds -->
-            <g class="traces" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
-              <path class="trace" data-for="esp"   d="M150 110H196V150"/>
-              <path class="trace" data-for="hcsr"  d="M370 96H332V150H300"/>
-              <path class="trace" data-for="hcsr"  d="M382 112V132H316V160"/>
-              <path class="trace" data-for="sim"   d="M370 300H330V250H300"/>
-              <path class="trace" data-for="rfid"  d="M138 112V150H196V178"/>
-              <path class="trace" data-for="pulse" d="M138 292V250H196V228"/>
-              <path class="trace" data-for="esp"   d="M300 210H360V210"/>
-            </g>
-
-            <!-- vias -->
-            <g class="vias" fill="#0A2124" stroke="#B8853A" stroke-width="2.5">
-              <circle cx="332" cy="132" r="4"/><circle cx="330" cy="250" r="4"/>
-              <circle cx="196" cy="150" r="4"/><circle cx="196" cy="228" r="4"/>
-            </g>
-
-            <text x="30" y="392" class="silk">SNP&#8209;01 &nbsp; REV&#8209;C</text>
-          </svg>
-
-          <!-- components sit above the board in Z -->
-          <button class="comp comp-esp" id="c-esp" type="button"
-                  data-name="ESP32-WROOM-32"
-                  data-role="Wi-Fi MCU · the brain on four of these builds"
-                  data-projects="Smart Dustbin · Smart Parking · Heartbeat Monitor · Smart Home"
-                  data-target="#p-dustbin">
-            <span class="comp-body">
-              <span class="can" aria-hidden="true"></span>
-              <span class="comp-t">ESP32</span>
-            </span>
-            <span class="sr">ESP32 microcontroller — jump to Smart Dustbin</span>
-          </button>
-
-          <button class="comp comp-hcsr" id="c-hcsr" type="button"
-                  data-name="HC-SR04"
-                  data-role="Ultrasonic ranging · 10 µs trigger, echo width is the distance"
-                  data-projects="Smart Dustbin · Smart Parking"
-                  data-target="#p-parking">
-            <span class="comp-body comp-sonar">
-              <span class="eye" aria-hidden="true"></span><span class="eye" aria-hidden="true"></span>
-              <span class="comp-t">HC-SR04</span>
-            </span>
-            <span class="sr">HC-SR04 ultrasonic sensor — jump to Smart Parking</span>
-          </button>
-
-          <button class="comp comp-rfid" id="c-rfid" type="button"
-                  data-name="MFRC522 + R305"
-                  data-role="RFID reader and fingerprint sensor · either one opens the lock"
-                  data-projects="Anti-Theft Locker"
-                  data-target="#p-locker">
-            <span class="comp-body">
-              <span class="coil" aria-hidden="true"></span>
-              <span class="comp-t">RFID</span>
-            </span>
-            <span class="sr">RFID and fingerprint modules — jump to Anti-Theft Locker</span>
-          </button>
-
-          <button class="comp comp-sim" id="c-sim" type="button"
-                  data-name="SIM800L"
-                  data-role="GSM radio · sends the SMS when a bad card is presented"
-                  data-projects="Anti-Theft Locker"
-                  data-target="#p-locker">
-            <span class="comp-body">
-              <span class="ant" aria-hidden="true"></span>
-              <span class="comp-t">SIM800L</span>
-            </span>
-            <span class="sr">SIM800L GSM module — jump to Anti-Theft Locker</span>
-          </button>
-
-          <button class="comp comp-pulse" id="c-pulse" type="button"
-                  data-name="PulseSensor"
-                  data-role="Optical heart rate · alerts on the transition, not every sample"
-                  data-projects="Heartbeat Monitor"
-                  data-target="#p-heart">
-            <span class="comp-body">
-              <span class="beat" aria-hidden="true"></span>
-              <span class="comp-t">PULSE</span>
-            </span>
-            <span class="sr">PulseSensor — jump to Heartbeat Monitor</span>
-          </button>
-
-        </div>
-      </div>
-
-      <!-- readout driven by whichever component is active -->
-      <div class="readout" id="readout" aria-live="polite">
-        <p class="ro-hint" id="ro-hint">Hover a component &mdash; or tab through them &mdash; to see what it does.</p>
-        <div class="ro-body" id="ro-body" hidden>
-          <p class="ro-name" id="ro-name"></p>
-          <p class="ro-role" id="ro-role"></p>
-          <p class="ro-proj"><span class="ro-k">used in</span> <span id="ro-projects"></span></p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="shell">
-    <dl class="stats">
-      <div><dt>Public repositories</dt><dd>16</dd></div>
+    <dl class="readout glass reveal">
+      <div><dt>Public repos</dt><dd>16</dd></div>
       <div><dt>Hardware builds</dt><dd>5</dd></div>
-      <div><dt>Logic tests green</dt><dd>87</dd></div>
+      <div><dt>Logic tests green</dt><dd class="tested">87</dd></div>
       <div><dt>Live dashboards</dt><dd>1</dd></div>
     </dl>
-  </div>
-</section>
+  </header>
 
-<!-- ============ WORK ============ -->
-<section id="work" class="band">
-  <div class="shell">
-    <div class="band-head">
-      <h2 class="h2">Selected work</h2>
-      <p class="band-sub">Four builds, each with firmware, a wiring map, a test suite, and a way to run it without owning the hardware.</p>
+  <!-- ============ HOW I WORK ============ -->
+  <section id="practice">
+    <div class="section-head">
+      <h2>Two habits behind every build</h2>
+      <p class="section-sub">They are the reason the numbers above exist at all.</p>
+    </div>
+    <div class="pair">
+      <div class="habit glass reveal">
+        <h3>The decision logic is tested off the hardware.</h3>
+        <p>
+          Thresholds, escalation ladders, and alert de-duplication live in code that runs on a
+          laptop. That is where the 87 passing tests come from &mdash; they prove the rules before
+          anything is flashed, so a failure on the bench is a wiring problem rather than an open
+          question about the firmware.
+        </p>
+      </div>
+      <div class="habit glass reveal">
+        <h3>Every build runs without the parts.</h3>
+        <p>
+          Each project ships a Wokwi diagram or a Python harness alongside the firmware. A reviewer
+          who does not own an HC&#8209;SR04 can still watch the bin fill, the ladder escalate, and
+          the alarm fire. A project a reviewer cannot run is a project they will not read.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BUILDS ============ -->
+  <section id="builds">
+    <div class="section-head">
+      <h2>Selected builds</h2>
+      <p class="section-sub">Four devices, each framed by the decision that actually mattered.</p>
     </div>
 
-    <div class="cards">
+    <div class="builds">
 
-      <article class="card card-lead" id="p-dustbin">
-        <div class="card-top">
+      <article class="build glass reveal">
+        <div class="build-top">
           <h3>Smart Dustbin</h3>
-          <p class="bom">ESP32 / UNO &middot; 3&times;HC&#8209;SR04 &middot; servo &middot; RGB &middot; buzzer</p>
+          <span class="chip">ESP32 / UNO</span>
+          <span class="chip">3&times; HC-SR04 &middot; servo &middot; RGB &middot; buzzer</span>
         </div>
-        <p class="card-body">
+        <p>
           A public bin lid is one of the dirtiest surfaces in a building, and fixed-schedule
-          collection burns fuel visiting bins that are nearly empty. This bin opens itself when
-          a hand comes within 25&nbsp;cm, and two more sensors mounted on opposite diagonals
-          inside measure the air above the rubbish. Fusing the pair is the whole point &mdash;
-          a single sensor reads a lopsided pile as full when it is not.
+          collection burns fuel visiting bins that are nearly empty. This bin opens itself when a
+          hand comes within 25&nbsp;cm, and two more sensors mounted on opposite diagonals inside
+          measure the air above the rubbish. Fusing that pair is the whole point &mdash; a single
+          sensor reads a lopsided pile as full when it is not.
         </p>
-        <ul class="facts">
-          <li><b>Escalation</b> green under 75%, blinking red from 75%, solid red plus a chirp at 90%</li>
-          <li><b>Telemetry</b> serial or Wi&#8209;Fi to a city dashboard with a bin map and remote control</li>
-          <li><b>Verified</b> 64 logic tests passing &middot; 75% flash, 14% RAM on ESP32</li>
-          <li><b>No hardware needed</b> the full circuit imports into Wokwi, Wi&#8209;Fi included</li>
-        </ul>
-        <div class="card-links">
-          <a class="btn btn-solid btn-sm" href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">Live dashboard <span aria-hidden="true">&#8599;</span></a>
-          <a class="btn btn-ghost btn-sm" href="https://github.com/SNischayPrasad/Smart-Dustbin-Embedded-System" target="_blank" rel="noopener">Code</a>
-        </div>
+        <dl class="ev">
+          <div><dt>75 / 90&nbsp;%</dt><dd>Escalation ladder: green below 75%, blinking red from 75%, solid red plus a chirp at 90%</dd></div>
+          <div><dt class="ok">64 tests</dt><dd>Fill fusion, escalation, and lid timing proven on a laptop before anything is flashed</dd></div>
+          <div><dt>75 / 14&nbsp;%</dt><dd>Flash and RAM used on the ESP32 &mdash; room left over for the Wi-Fi stack</dd></div>
+          <div><dt>Wi-Fi</dt><dd>Telemetry to a city dashboard with a bin map and remote control; the whole circuit imports into Wokwi</dd></div>
+        </dl>
+        <p class="links">
+          <a href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">Open the live dashboard &#8250;</a>
+          <a href="https://github.com/SNischayPrasad/Smart-Dustbin-Embedded-System" target="_blank" rel="noopener">Source &#8250;</a>
+        </p>
       </article>
 
-      <article class="card" id="p-parking">
-        <div class="card-top">
+      <article class="build glass reveal">
+        <div class="build-top">
           <h3>Smart Parking</h3>
-          <p class="bom">ESP32 &middot; 4&times;HC&#8209;SR04 &middot; 16&times;2 LCD &middot; servo barrier</p>
+          <span class="chip">ESP32</span>
+          <span class="chip">4&times; HC-SR04 &middot; 16&times;2 LCD &middot; servo barrier</span>
         </div>
-        <p class="card-body">
+        <p>
           You circle a mall car park with no way to know whether the next floor is full until you
           have already driven up the ramp. A sensor above each slot compares echo time against a
           threshold &mdash; a long return means floor, a short one means car roof &mdash; and the
-          entrance LCD reads <span class="mono">Available: 2/4</span> before you commit.
+          entrance LCD reads <span class="mono-inline">Available: 2/4</span> before you commit to
+          the ramp.
         </p>
-        <ul class="facts">
-          <li><b>Loop</b> 300&nbsp;ms sweep, 10&nbsp;&micro;s trigger per sensor in turn</li>
-          <li><b>Output</b> per-slot red and green LEDs, full alert, servo barrier drop</li>
-          <li><b>Verified</b> 23/23 logic tests &middot; runs in Wokwi and Tinkercad</li>
-        </ul>
-        <div class="card-links">
-          <a class="btn btn-ghost btn-sm" href="https://github.com/SNischayPrasad/Smart-Parking-Ultrasonic-Embedded-System" target="_blank" rel="noopener">Code</a>
-        </div>
+        <dl class="ev">
+          <div><dt>300&nbsp;ms</dt><dd>Full sweep of the deck, firing a 10&nbsp;&micro;s trigger per sensor in turn so the echoes cannot collide</dd></div>
+          <div><dt class="ok">23 / 23</dt><dd>Logic tests passing on slot occupancy and the full-deck alert</dd></div>
+          <div><dt>Outputs</dt><dd>Per-slot red and green LEDs, full-deck alert, servo barrier drop</dd></div>
+        </dl>
+        <p class="links">
+          <a href="https://github.com/SNischayPrasad/Smart-Parking-Ultrasonic-Embedded-System" target="_blank" rel="noopener">Source &#8250;</a>
+        </p>
       </article>
 
-      <article class="card" id="p-locker">
-        <div class="card-top">
+      <article class="build glass reveal">
+        <div class="build-top">
           <h3>Anti-Theft Locker</h3>
-          <p class="bom">Arduino UNO &middot; MFRC522 &middot; R305 &middot; SIM800L &middot; solenoid</p>
+          <span class="chip">Arduino UNO</span>
+          <span class="chip">MFRC522 &middot; R305 &middot; SIM800L &middot; solenoid</span>
         </div>
-        <p class="card-body">
+        <p>
           A locker that opens for either an authorised RFID card or an enrolled fingerprint, and
-          texts the owner the moment neither matches. The interesting part is the failure path:
-          unknown card IDs go out over GSM with a cooldown so a jammed reader cannot flood the
-          phone, and the relay is driven to a known locked state at boot.
+          texts the owner the moment neither matches. The interesting engineering sits on the
+          failure path rather than the happy one: unknown card IDs go out over GSM behind a
+          cooldown, so a jammed reader cannot flood the owner&rsquo;s phone, and the relay is driven
+          to a known locked state at boot rather than inheriting whatever the pin happened to float
+          to.
         </p>
-        <ul class="facts">
-          <li><b>Auth</b> RFID or fingerprint, 5&nbsp;s unlock pulse then automatic relock</li>
-          <li><b>Alerting</b> SMS on unmatched card or finger, rate-limited</li>
-          <li><b>Interfaces</b> SPI reader, I&sup2;C display, UART to the fingerprint and GSM modules</li>
-        </ul>
-        <div class="card-links">
-          <a class="btn btn-ghost btn-sm" href="https://github.com/SNischayPrasad/Arduino-Anti-Theft-Locker-System" target="_blank" rel="noopener">Code</a>
-        </div>
+        <dl class="ev">
+          <div><dt>5&nbsp;s</dt><dd>Unlock pulse, then an automatic relock &mdash; the door cannot be left open by walking away</dd></div>
+          <div><dt>Rate-limited</dt><dd>SMS on an unmatched card or finger, with a cooldown between alerts</dd></div>
+          <div><dt>Boot state</dt><dd>Relay forced locked before the readers come up</dd></div>
+        </dl>
+        <p class="links">
+          <a href="https://github.com/SNischayPrasad/Arduino-Anti-Theft-Locker-System" target="_blank" rel="noopener">Source &#8250;</a>
+        </p>
       </article>
 
-      <article class="card" id="p-heart">
-        <div class="card-top">
+      <article class="build glass reveal">
+        <div class="build-top">
           <h3>Heartbeat Monitor</h3>
-          <p class="bom">ESP32 &middot; PulseSensor &middot; Blynk IoT</p>
+          <span class="chip">ESP32</span>
+          <span class="chip">PulseSensor &middot; Blynk IoT</span>
         </div>
-        <p class="card-body">
-          Reads BPM and pushes a phone notification outside 60&ndash;100. The design problem here
-          was not the sensor, it was the alert: a naive threshold check fires on every sample and
-          buries the phone. Alerts are transition-based, so a sustained abnormal reading sends
-          once and a return to normal rearms it.
+        <p>
+          Reads BPM and pushes a phone notification outside 60&ndash;100. The design problem here was
+          never the sensor, it was the alert: a naive threshold check fires on every sample and
+          buries the phone in duplicates. Alerts are transition-based instead, so a sustained
+          abnormal reading sends once and a return to normal rearms it.
         </p>
-        <ul class="facts">
-          <li><b>Tunable live</b> thresholds change from the app over V2/V3 without a reflash</li>
-          <li><b>Verified</b> 10/10 scenarios in Wokwi and a Python harness</li>
-          <li><b>Scope</b> educational prototype &mdash; not a medical device</li>
-        </ul>
-        <div class="card-links">
-          <a class="btn btn-ghost btn-sm" href="https://github.com/SNischayPrasad/Heartbeat-Monitor-with-Alert-System" target="_blank" rel="noopener">Code</a>
-        </div>
+        <dl class="ev">
+          <div><dt>V2 / V3</dt><dd>Thresholds retune live from the app, with no reflash needed to change them</dd></div>
+          <div><dt class="ok">10 / 10</dt><dd>Alert scenarios verified in Wokwi and a Python harness</dd></div>
+          <div><dt>Scope</dt><dd>Educational prototype &mdash; not a medical device</dd></div>
+        </dl>
+        <p class="links">
+          <a href="https://github.com/SNischayPrasad/Heartbeat-Monitor-with-Alert-System" target="_blank" rel="noopener">Source &#8250;</a>
+        </p>
       </article>
 
     </div>
+  </section>
 
-    <h3 class="h3 also-head">Also built</h3>
-    <div class="table-wrap">
-      <table class="reg">
-        <caption class="sr">Additional projects with platform and summary</caption>
-        <thead>
-          <tr><th scope="col">Project</th><th scope="col">Platform</th><th scope="col">What it does</th><th scope="col"><span class="sr">Link</span></th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Smart Home Controller</th>
-            <td class="mono">ESP32 &middot; Blynk</td>
-            <td>Two relay channels, DHT11 temperature and humidity, PIR motion; relay state resyncs to the app on reconnect.</td>
-            <td><a href="https://github.com/SNischayPrasad/Smart-Home-Controller-" target="_blank" rel="noopener">Code<span class="sr"> for Smart Home Controller</span> <span aria-hidden="true">&#8599;</span></a></td>
-          </tr>
-          <tr>
-            <th scope="row">Encryption / Decryption Tool</th>
-            <td class="mono">Java &middot; Swing &middot; JCA</td>
-            <td>AES-256-GCM with PBKDF2-HMAC-SHA-256, a fresh salt and IV per file, and a versioned header authenticated as AAD so it cannot be silently altered.</td>
-            <td><a href="https://github.com/SNischayPrasad/Encryption-Decryption-Tool-Using-Java-GUI" target="_blank" rel="noopener">Code<span class="sr"> for Encryption Decryption Tool</span> <span aria-hidden="true">&#8599;</span></a></td>
-          </tr>
-          <tr>
-            <th scope="row">Complaint Management System</th>
-            <td class="mono">Java &middot; REST</td>
-            <td>Register and log in for a token, then carry it on protected routes via an <span class="mono">X-Auth</span> header.</td>
-            <td><a href="https://github.com/SNischayPrasad/Online-Complaint-Management-System-using-Java" target="_blank" rel="noopener">Code<span class="sr"> for Complaint Management System</span> <span aria-hidden="true">&#8599;</span></a></td>
-          </tr>
-          <tr>
-            <th scope="row">Hotel Booking System</th>
-            <td class="mono">Java 17 &middot; console</td>
-            <td>Date-range availability search that rejects overlapping bookings, with billing on <span class="mono">BigDecimal</span> rather than floats.</td>
-            <td><a href="https://github.com/SNischayPrasad/Hotel-Room-booking-console" target="_blank" rel="noopener">Code<span class="sr"> for Hotel Booking System</span> <span aria-hidden="true">&#8599;</span></a></td>
-          </tr>
-          <tr>
-            <th scope="row">Socket Chat</th>
-            <td class="mono">Python &middot; TCP</td>
-            <td>Multi-client console chat on raw sockets &mdash; public messages, private messages, and nickname management.</td>
-            <td><a href="https://github.com/SNischayPrasad/Chat-App-with-Socket-Programming" target="_blank" rel="noopener">Code<span class="sr"> for Socket Chat</span> <span aria-hidden="true">&#8599;</span></a></td>
-          </tr>
-          <tr>
-            <th scope="row">Listful &amp; Taskflow</th>
-            <td class="mono">HTML &middot; CSS &middot; JS</td>
-            <td>Two dependency-free task managers with localStorage persistence, JSON import and export, keyboard shortcuts, and labelled accessible controls.</td>
-            <td><a href="https://github.com/SNischayPrasad/To-Do-List-2" target="_blank" rel="noopener">Code<span class="sr"> for Listful and Taskflow</span> <span aria-hidden="true">&#8599;</span></a></td>
-          </tr>
-          <tr>
-            <th scope="row">AI &amp; ML Training</th>
-            <td class="mono">Python</td>
-            <td>Coursework and practice notebooks from machine learning training.</td>
-            <td><a href="https://github.com/SNischayPrasad/Training-AI-AND-ML" target="_blank" rel="noopener">Code<span class="sr"> for AI and ML Training</span> <span aria-hidden="true">&#8599;</span></a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ============ STACK ============ -->
-<section id="stack" class="band band-alt">
-  <div class="shell">
-    <div class="band-head">
-      <h2 class="h2">Stack</h2>
-      <p class="band-sub">What I have actually shipped something with.</p>
+  <!-- ============ ALSO BUILT ============ -->
+  <section id="register">
+    <div class="section-head">
+      <h2>Also built</h2>
+      <p class="section-sub">Software, where the same habits show up with no sensor attached.</p>
     </div>
 
-    <div class="stack-grid">
-      <div class="stack-col">
-        <h3 class="stack-h">Firmware</h3>
-        <ul class="chips">
-          <li>Embedded C / C++</li><li>ESP32</li><li>Arduino UNO</li>
-          <li>Arduino IDE &amp; CLI</li><li>Timed control loops</li><li>State machines</li>
+    <div class="panel glass reveal">
+      <div class="table-wrap">
+        <table>
+          <caption class="sr">Additional projects, with platform, summary, and a link to the source.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col">Platform</th>
+              <th scope="col">What it does</th>
+              <th scope="col"><span class="sr">Source</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Smart Home Controller</th>
+              <td class="plat">ESP32 &middot; Blynk</td>
+              <td class="what">Two relay channels, DHT11 temperature and humidity, PIR motion; relay state resyncs to the app on reconnect.</td>
+              <td class="src"><a href="https://github.com/SNischayPrasad/Smart-Home-Controller-" target="_blank" rel="noopener">Source<span class="sr"> for Smart Home Controller</span> &#8250;</a></td>
+            </tr>
+            <tr>
+              <th scope="row">Encryption Tool</th>
+              <td class="plat">Java &middot; Swing &middot; JCA</td>
+              <td class="what">AES-256-GCM with PBKDF2-HMAC-SHA-256, a fresh salt and IV per file, and a versioned header authenticated as AAD so it cannot be silently altered.</td>
+              <td class="src"><a href="https://github.com/SNischayPrasad/Encryption-Decryption-Tool-Using-Java-GUI" target="_blank" rel="noopener">Source<span class="sr"> for Encryption Tool</span> &#8250;</a></td>
+            </tr>
+            <tr>
+              <th scope="row">Complaint Management</th>
+              <td class="plat">Java &middot; REST</td>
+              <td class="what">Register and log in for a token, then carry it on protected routes via an <span class="mono-inline">X-Auth</span> header.</td>
+              <td class="src"><a href="https://github.com/SNischayPrasad/Online-Complaint-Management-System-using-Java" target="_blank" rel="noopener">Source<span class="sr"> for Complaint Management</span> &#8250;</a></td>
+            </tr>
+            <tr>
+              <th scope="row">Hotel Booking</th>
+              <td class="plat">Java 17 &middot; console</td>
+              <td class="what">Date-range availability search that rejects overlapping bookings, with billing on <span class="mono-inline">BigDecimal</span> rather than floats.</td>
+              <td class="src"><a href="https://github.com/SNischayPrasad/Hotel-Room-booking-console" target="_blank" rel="noopener">Source<span class="sr"> for Hotel Booking</span> &#8250;</a></td>
+            </tr>
+            <tr>
+              <th scope="row">Socket Chat</th>
+              <td class="plat">Python &middot; TCP</td>
+              <td class="what">Multi-client console chat on raw sockets &mdash; public messages, private messages, and nickname management.</td>
+              <td class="src"><a href="https://github.com/SNischayPrasad/Chat-App-with-Socket-Programming" target="_blank" rel="noopener">Source<span class="sr"> for Socket Chat</span> &#8250;</a></td>
+            </tr>
+            <tr>
+              <th scope="row">Listful &amp; Taskflow</th>
+              <td class="plat">HTML &middot; CSS &middot; JS</td>
+              <td class="what">Two dependency-free task managers with localStorage persistence, JSON import and export, keyboard shortcuts, and labelled accessible controls.</td>
+              <td class="src"><a href="https://github.com/SNischayPrasad/To-Do-List-2" target="_blank" rel="noopener">Source<span class="sr"> for Listful and Taskflow</span> &#8250;</a></td>
+            </tr>
+            <tr>
+              <th scope="row">AI &amp; ML Training</th>
+              <td class="plat">Python</td>
+              <td class="what">Coursework and practice notebooks from machine learning training.</td>
+              <td class="src"><a href="https://github.com/SNischayPrasad/Training-AI-AND-ML" target="_blank" rel="noopener">Source<span class="sr"> for AI and ML Training</span> &#8250;</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section id="stack">
+    <div class="section-head">
+      <h2>Stack</h2>
+      <p class="section-sub">What I have actually shipped something with.</p>
+    </div>
+
+    <div class="glass reveal">
+      <div class="stack-group">
+        <p class="stack-h">Firmware</p>
+        <ul class="pills">
+          <li>Embedded C / C++</li> <li>ESP32</li> <li>Arduino UNO</li>
+          <li>Arduino IDE &amp; CLI</li> <li>Timed control loops</li> <li>State machines</li>
         </ul>
       </div>
-      <div class="stack-col">
-        <h3 class="stack-h">Sensors &amp; peripherals</h3>
-        <ul class="chips">
-          <li>HC-SR04</li><li>MFRC522 RFID</li><li>R305 fingerprint</li><li>DHT11</li>
-          <li>PIR</li><li>PulseSensor</li><li>SIM800L GSM</li><li>Servo &amp; relay</li><li>16&times;2 I&sup2;C LCD</li>
+      <div class="stack-group">
+        <p class="stack-h">Sensors</p>
+        <ul class="pills">
+          <li>HC-SR04</li> <li>MFRC522 RFID</li> <li>R305 fingerprint</li> <li>DHT11</li>
+          <li>PIR</li> <li>PulseSensor</li> <li>SIM800L GSM</li> <li>Servo &amp; relay</li>
+          <li>16&times;2 I&sup2;C LCD</li>
         </ul>
       </div>
-      <div class="stack-col">
-        <h3 class="stack-h">Buses &amp; protocols</h3>
-        <ul class="chips">
-          <li>I&sup2;C</li><li>SPI</li><li>UART</li><li>GPIO / PWM</li><li>Wi-Fi</li><li>REST</li><li>TCP sockets</li>
+      <div class="stack-group">
+        <p class="stack-h">Buses</p>
+        <ul class="pills">
+          <li>I&sup2;C</li> <li>SPI</li> <li>UART</li> <li>GPIO / PWM</li> <li>Wi-Fi</li>
+          <li>REST</li> <li>TCP sockets</li>
         </ul>
       </div>
-      <div class="stack-col">
-        <h3 class="stack-h">Software</h3>
-        <ul class="chips">
-          <li>Java 17</li><li>Python</li><li>JavaScript</li><li>HTML &amp; CSS</li>
-          <li>Maven</li><li>Git &amp; GitHub</li><li>Blynk IoT</li><li>Wokwi</li><li>Tinkercad</li>
+      <div class="stack-group">
+        <p class="stack-h">Software</p>
+        <ul class="pills">
+          <li>Java 17</li> <li>Python</li> <li>JavaScript</li> <li>HTML &amp; CSS</li>
+          <li>Maven</li> <li>Git &amp; GitHub</li> <li>Blynk IoT</li> <li>Wokwi</li> <li>Tinkercad</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ ABOUT ============ -->
-<section id="about" class="band">
-  <div class="shell about-grid">
-    <div><h2 class="h2">About</h2></div>
-    <div class="about-body">
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="closing glass reveal">
+      <h2>Let&rsquo;s talk</h2>
       <p>
-        I work on the layer where software meets something physical. Most of my projects start
-        from an annoyance with a measurable cause &mdash; a bin that overflows before the van is
-        due, a car park with no way to tell you it is full &mdash; and end with a board that
-        measures it and does something about it.
+        Open to embedded, firmware, and IoT roles, and to internships. The fastest way to judge the
+        work is to
+        <a class="inline" href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">open the live dashboard</a>
+        and watch a bin cross its threshold.
       </p>
-      <p>
-        Two habits show up across everything here. The first is that I write the tests for the
-        decision logic separately from the hardware, so thresholds, escalation rules, and alert
-        de-duplication can be proven on a laptop before a sensor is ever wired up. The second is
-        that every build ships a way to run it without owning the parts &mdash; a Wokwi diagram
-        or a Python harness &mdash; because a project a reviewer cannot run is a project they
-        will not read.
-      </p>
-      <p>
-        I am looking for embedded, firmware, or IoT roles where I can keep working close to the
-        hardware.
-      </p>
+      <div class="cta" id="contact-actions">
+        <a class="btn btn-solid" href="mailto:nischayprasuna@gmail.com">nischayprasuna@gmail.com</a>
+        <a class="btn btn-glass" href="https://www.linkedin.com/in/sadhanala-nischay-prasad-0b0978389/" target="_blank" rel="noopener">LinkedIn &#8250;</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ CONTACT ============ -->
-<section id="contact" class="band band-alt">
-  <div class="shell contact">
-    <h2 class="display display-sm">Let&rsquo;s <span class="grad">talk</span></h2>
-    <p class="contact-sub">Open to embedded, firmware, and IoT roles, and to internships.</p>
-    <div class="contact-actions" id="contact-actions">
-      <a class="btn btn-solid" href="mailto:nischayprasuna@gmail.com">nischayprasuna@gmail.com</a>
-      <a class="btn btn-ghost" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&#8599;</span></a>
-    </div>
-  </div>
-</section>
+  <footer class="foot">
+    <span>Sadhanala Nischay Prasad &nbsp;&middot;&nbsp; Embedded systems &amp; IoT</span>
+    <span><a href="https://github.com/SNischayPrasad/SNischayPrasad.github.io" target="_blank" rel="noopener">Source</a></span>
+  </footer>
 
 </main>
 
-<footer class="foot">
-  <div class="shell foot-in">
-    <span class="mono">Sadhanala Nischay Prasad</span>
-    <span class="mono foot-dim">Built by hand, no framework &middot; <a href="https://github.com/SNischayPrasad/SNischayPrasad.github.io" target="_blank" rel="noopener">source</a></span>
-  </div>
-</footer>
-
-<script src="script.js?v=3"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>

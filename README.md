@@ -9,49 +9,62 @@ work on it locally.
 
 ```
 index.html    markup and copy
-styles.css    tokens, 3D board, layout
-script.js     board interaction, scroll reveal, profile links
+styles.css    tokens, liquid glass material, layout
+script.js     scroll reveal, optional profile links
 assets/       put the resume PDF here
 ```
 
-## The hero
+## The design
 
-The hero is a PCB rendered with CSS 3D transforms, carrying the parts these
-projects actually run on. It tilts toward the pointer, each component lifts in Z
-and lights the copper traces feeding it, and the readout underneath names the
-build that part belongs to. Clicking a component scrolls to its project.
+White ground, Apple-style type (SF Pro on Apple devices, Inter everywhere else),
+and panels built from a liquid glass material rather than flat cards.
 
-Wiring lives in the markup, not the script:
+The page commits to a single light theme. Every colour is painted explicitly
+instead of inherited, so nothing depends on the visitor's system theme.
 
-- a component is a `.comp` button with `id="c-<key>"`
-- its traces are `<path class="trace" data-for="<key>">` on the board SVG
-- `data-target` points at the project card to scroll to
+### Liquid glass
 
-Adding a component means adding the button, at least one matching trace, and a
-placement rule in `styles.css`. Nothing in `script.js` needs to change.
+`.glass` is the material. It combines four things, and all four matter — drop
+any one and it stops reading as glass:
+
+- `backdrop-filter: blur(32px) saturate(185%)` — the frosting
+- a `::before` diagonal specular sweep across the face
+- a `::after` inset rim, brightest along the top edge
+- an outer cast shadow for lift
+
+Glass is invisible over flat white, so `.ambience` sits behind everything: four
+large, slowly drifting colour orbs at 12–16% opacity. They are faint enough that
+the page still reads white, and strong enough that the panels have something to
+refract as you scroll.
+
+Visitors who set **reduced transparency** get solid white panels and no orbs.
+Visitors who set **reduced motion** get no drift and no reveal animation.
+
+### Adding a section
+
+Add a `<section>` inside `.shell`, give its panel `class="glass reveal"`, and
+add a `<li>` to `.nav-links` pointing at its `id`. The reveal is wired by class,
+so nothing in `script.js` needs to change.
 
 ## Adding your resume
 
-The resume button is built by JavaScript and is only created when a path is
-set, so an unconfigured link never reaches the page. Edit the `PROFILE` block at
-the top of `script.js`:
+The resume button is built by JavaScript and is only created when a path is set,
+so an unconfigured link never reaches the page. Drop the PDF into `assets/` and
+edit the `PROFILE` block at the top of `script.js`:
 
 ```js
 var PROFILE = {
-  linkedin: "https://www.linkedin.com/in/sadhanala-nischay-prasad-0b0978389/",
-  resume:   "assets/Nischay-Prasad-Resume.pdf"
+  resume: "assets/Nischay-Prasad-Resume.pdf"
 };
 ```
 
-Drop the PDF into `assets/` with a matching filename, then commit and push.
-
 ## Cache busting
 
-`styles.css` and `script.js` are referenced with a `?v=N` query in
-`index.html`. Bump that number whenever you change either file, or returning
-visitors keep the old copy.
+`index.html` links the stylesheet and script with a version query —
+`styles.css?v=4`, `script.js?v=4`. Bump both numbers when you change either
+file, otherwise returning visitors keep the cached copy.
 
-## Deploying
+## Previous design
 
-Pushing to `main` publishes automatically through GitHub Pages. A build takes
-about a minute.
+The dark PCB homepage — a CSS 3D board that tilted toward the pointer and lit
+its copper traces — is in git history at `b5054b9`.
