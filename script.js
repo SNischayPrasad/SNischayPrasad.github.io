@@ -1,7 +1,7 @@
 /* =========================================================
    Portfolio behaviour
    1. Optional profile links (LinkedIn, resume)
-   2. Hero signature: HC-SR04 trigger/echo scope
+   2. Hero signature: the board — cursor tilt, component focus
    3. Scroll reveal
    ========================================================= */
 
@@ -9,158 +9,149 @@
    1. PROFILE LINKS
 
    Fill these in and the buttons appear on the contact panel.
-   Leave a value as an empty string and its button stays hidden,
-   so the live site never shows a dead link.
+   Leave a value empty and no element is created at all, so the
+   live site can never show a dead link.
    --------------------------------------------------------- */
 var PROFILE = {
   linkedin: "https://www.linkedin.com/in/sadhanala-nischay-prasad-0b0978389/",
   resume:   ""                  // e.g. "assets/Nischay-Prasad-Resume.pdf"
 };
 
-(function applyProfileLinks(){
-  var map = [
-    ["link-linkedin", PROFILE.linkedin, null],
-    ["link-resume",   PROFILE.resume,   "Nischay-Prasad-Resume.pdf"]
-  ];
-  map.forEach(function(entry){
-    var el = document.getElementById(entry[0]);
-    if (!el || !entry[1]) return;
-    el.href = entry[1];
-    if (entry[2]) el.setAttribute("download", entry[2]);
-    el.hidden = false;
-  });
+(function profileLinks(){
+  var host = document.getElementById("contact-actions");
+  if (!host) return;
+
+  function add(url, label, opts){
+    if (!url) return;                       // nothing rendered when unset
+    var a = document.createElement("a");
+    a.className = "btn btn-ghost";
+    a.href = url;
+    a.textContent = label;
+    if (opts && opts.external){
+      a.target = "_blank";
+      a.rel = "noopener";
+      var c = document.createElement("span");
+      c.setAttribute("aria-hidden", "true");
+      c.textContent = " ↗";
+      a.appendChild(c);
+    }
+    if (opts && opts.download) a.setAttribute("download", opts.download);
+    host.appendChild(a);
+  }
+
+  add(PROFILE.linkedin, "LinkedIn", { external:true });
+  add(PROFILE.resume,   "Download resume", { download:"Nischay-Prasad-Resume.pdf" });
 })();
 
 
 /* ---------------------------------------------------------
-   2. SCOPE
+   2. THE BOARD
 
-   An HC-SR04 fires a 10 us trigger pulse, then holds ECHO high
-   for the round-trip flight time of the burst. Distance follows
-   from the speed of sound:
-
-       t_ms = 2 * d_cm / 34300 * 1000  =>  d_cm = t_ms * 17.15
-
-   The scenarios below are the actual decision points in the
-   Smart Parking and Smart Dustbin firmware.
+   The hero is a PCB carrying the parts these projects actually
+   run on. It tilts toward the pointer, each component lifts in Z
+   and lights the traces that feed it, and the readout says which
+   build the part belongs to. Clicking jumps to that project.
    --------------------------------------------------------- */
+(function board(){
+  var stage = document.getElementById("stage");
+  var board = document.getElementById("board");
+  if (!stage || !board) return;
 
-(function scope(){
-  var svg = document.querySelector(".scope-svg");
-  if (!svg) return;
-
-  var trig  = document.getElementById("trace-trig");
-  var echo  = document.getElementById("trace-echo");
-  var bar   = document.getElementById("tof-bar");
-  var barTx = document.getElementById("tof-text");
-  var vDist = document.getElementById("v-dist");
-  var vTof  = document.getElementById("v-tof");
-  var vState= document.getElementById("v-state");
-  var vLed  = document.getElementById("v-led");
-
-  // plot geometry, in viewBox units
-  var X0 = 52, X1 = 408;            // horizontal extent of the traces
-  var SPAN_MS = 10;                 // full-width timebase
-  var PX_PER_MS = (X1 - X0) / SPAN_MS;
-  var TRIG_BASE = 44,  TRIG_HIGH = 20;
-  var ECHO_BASE = 116, ECHO_HIGH = 88;
-  var TRIG_W = 6;                   // 10 us is sub-pixel here; drawn at a legible minimum
-  var GAP    = 5;                   // burst-to-echo lead-in
-
-  var SOUND = 17.15;                // cm per ms of echo width
-
-  // Targets the trace sweeps between.
-  var SCENARIOS = [142.0, 29.8, 18.4, 4.2];
-
-  // Thresholds, read against whatever the trace currently shows — so the verdict
-  // flips mid-sweep at the crossing point, exactly as the firmware does.
-  var BANDS = [
-    { min: 60, state: "slot free",       led: "" },
-    { min: 25, state: "slot occupied",   led: "is-warn" },
-    { min: 10, state: "hand · lid open", led: "" },
-    { min:  0, state: "bin full · alert",led: "is-alert" }
-  ];
-
-  function bandFor(d){
-    for (var b = 0; b < BANDS.length; b++){
-      if (d >= BANDS[b].min) return BANDS[b];
-    }
-    return BANDS[BANDS.length - 1];
-  }
-
-  function draw(d){
-    var tof = d / SOUND;                        // ms
-    var e0  = X0 + TRIG_W + GAP;
-    var e1  = Math.min(e0 + tof * PX_PER_MS, X1 - 4);
-
-    trig.setAttribute("d",
-      "M" + X0 + "," + TRIG_BASE +
-      "V" + TRIG_HIGH +
-      "H" + (X0 + TRIG_W) +
-      "V" + TRIG_BASE +
-      "H" + X1);
-
-    echo.setAttribute("d",
-      "M" + X0 + "," + ECHO_BASE +
-      "H" + e0 +
-      "V" + ECHO_HIGH +
-      "H" + e1.toFixed(1) +
-      "V" + ECHO_BASE +
-      "H" + X1);
-
-    // measurement bracket under the echo pulse
-    bar.setAttribute("d",
-      "M" + e0 + ",134V146M" + e0 + ",140H" + e1.toFixed(1) +
-      "M" + e1.toFixed(1) + ",134V146");
-    barTx.setAttribute("x", ((e0 + e1) / 2).toFixed(1));
-    barTx.textContent = tof.toFixed(2) + " ms";
-
-    vDist.textContent = d.toFixed(1);
-    vTof.textContent  = tof.toFixed(2);
-
-    var band = bandFor(d);
-    if (vState.textContent !== band.state){
-      vState.textContent = band.state;
-      vLed.className = "led " + band.led;
-    }
-  }
+  var comps    = [].slice.call(board.querySelectorAll(".comp"));
+  var traces   = [].slice.call(board.querySelectorAll(".trace"));
+  var hint     = document.getElementById("ro-hint");
+  var roBody   = document.getElementById("ro-body");
+  var roName   = document.getElementById("ro-name");
+  var roRole   = document.getElementById("ro-role");
+  var roProj   = document.getElementById("ro-projects");
 
   var still = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  if (still.matches) {
-    draw(SCENARIOS[1]);
-    return;
-  }
+  /* -- readout ------------------------------------------------ */
+  function activate(el){
+    comps.forEach(function(c){ c.classList.toggle("is-active", c === el); });
 
-  var HOLD = 2200, SWEEP = 900;
-  var i = 0, from = SCENARIOS[0], to = SCENARIOS[0], t0 = 0, phase = "hold";
+    var key = el ? el.id.replace("c-", "") : null;
+    traces.forEach(function(t){
+      t.classList.toggle("is-hot", !!key && t.getAttribute("data-for") === key);
+    });
 
-  draw(from);
-
-  function easeInOut(x){
-    return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
-  }
-
-  function frame(now){
-    if (!t0) t0 = now;
-    var dt = now - t0;
-
-    if (phase === "hold") {
-      if (dt >= HOLD) {
-        i = (i + 1) % SCENARIOS.length;
-        from = to;
-        to = SCENARIOS[i];
-        phase = "sweep";
-        t0 = now;
-      }
-    } else {
-      var p = Math.min(dt / SWEEP, 1);
-      draw(from + (to - from) * easeInOut(p));
-      if (p === 1) { phase = "hold"; t0 = now; }
+    if (!el){
+      roBody.hidden = true;
+      hint.hidden = false;
+      return;
     }
-    requestAnimationFrame(frame);
+    roName.textContent = el.getAttribute("data-name");
+    roRole.textContent = el.getAttribute("data-role");
+    roProj.textContent = el.getAttribute("data-projects");
+    hint.hidden = true;
+    roBody.hidden = false;
   }
-  requestAnimationFrame(frame);
+
+  comps.forEach(function(c){
+    c.addEventListener("mouseenter", function(){ activate(c); });
+    c.addEventListener("focus",      function(){ activate(c); });
+    c.addEventListener("mouseleave", function(){ activate(null); });
+    c.addEventListener("blur",       function(){ activate(null); });
+    c.addEventListener("click", function(){
+      var sel = c.getAttribute("data-target");
+      var target = sel && document.querySelector(sel);
+      if (target) target.scrollIntoView({ behavior: still.matches ? "auto" : "smooth", block:"center" });
+    });
+  });
+
+  /* -- cursor tilt -------------------------------------------- */
+  var REST_X = 16, REST_Y = -16;      // the angle it sits at untouched
+  var SWING  = 13;                    // degrees of travel either way
+  var tx = REST_X, ty = REST_Y;       // target
+  var cx = REST_X, cy = REST_Y;       // current
+  var raf = null, engaged = false;
+
+  function apply(){
+    board.style.transform = "rotateX(" + cx.toFixed(2) + "deg) rotateY(" + cy.toFixed(2) + "deg)";
+  }
+
+  function tick(){
+    cx += (tx - cx) * 0.1;
+    cy += (ty - cy) * 0.1;
+    apply();
+    if (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05){
+      raf = requestAnimationFrame(tick);
+    } else {
+      cx = tx; cy = ty; apply();
+      raf = null;
+    }
+  }
+
+  function nudge(){
+    if (raf === null) raf = requestAnimationFrame(tick);
+  }
+
+  // A pointer that reports no hover (touch) should not drive the tilt.
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  function onMove(e){
+    if (still.matches || !canHover.matches) return;
+    var r = stage.getBoundingClientRect();
+    var px = (e.clientX - r.left) / r.width  - 0.5;   // -0.5 .. 0.5
+    var py = (e.clientY - r.top)  / r.height - 0.5;
+    tx = REST_X - py * SWING * 2;
+    ty = REST_Y + px * SWING * 2;
+    engaged = true;
+    nudge();
+  }
+
+  function onLeave(){
+    if (!engaged) return;
+    tx = REST_X; ty = REST_Y;
+    engaged = false;
+    nudge();
+  }
+
+  stage.addEventListener("pointermove", onMove);
+  stage.addEventListener("pointerleave", onLeave);
+
+  apply();
 })();
 
 
@@ -182,7 +173,7 @@ var PROFILE = {
       e.target.classList.add("in");
       io.unobserve(e.target);
     });
-  }, { rootMargin: "0px 0px -60px 0px", threshold: 0.06 });
+  }, { rootMargin:"0px 0px -60px 0px", threshold:0.06 });
 
   targets.forEach(function(el){ io.observe(el); });
 })();

@@ -13,13 +13,14 @@
 <meta property="og:description" content="ESP32 and Arduino builds that sense, decide, and report — with the dashboards on top. 16 public repositories, 87 logic tests green, one live city dashboard.">
 <meta property="og:url" content="https://snischayprasad.github.io/">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#060A10">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230E1820'/%3E%3Cpath d='M5 20h5l2-8 3 12 3-9 2 5h7' fill='none' stroke='%23C98B3E' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D2B2E'/%3E%3Cpath d='M6 22h5l4-12 4 12 3-6h4' fill='none' stroke='%23F0A845' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -28,8 +29,8 @@
 <header class="topbar">
   <div class="shell topbar-in">
     <a class="mark" href="#top" aria-label="Sadhanala Nischay Prasad — home">
-      <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
-        <path d="M4 20h5l2-8 3 12 3-9 2 5h9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
+        <path d="M4 22h5l4-12 4 12 3-6h8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <span>S.N.P.</span>
     </a>
@@ -49,13 +50,13 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+
   <div class="shell hero-grid">
 
     <div class="hero-copy">
-      <p class="eyebrow">Embedded systems &middot; IoT &middot; India</p>
-      <h1 class="display">
-        Sadhanala<br>Nischay Prasad
-      </h1>
+      <p class="eyebrow"><span class="pip" aria-hidden="true"></span>Embedded systems &middot; IoT &middot; India</p>
+      <h1 class="display">Sadhanala<br><span class="grad">Nischay Prasad</span></h1>
       <p class="lede">
         I build devices that sense something physical, decide what to do about it,
         and report it somewhere useful. Ultrasonic ranging, sensor fusion, GSM alerting &mdash;
@@ -69,50 +70,134 @@
       </div>
     </div>
 
-    <!-- SIGNATURE: live trigger/echo scope -->
-    <figure class="scope">
-      <figcaption class="scope-head">
-        <span class="scope-title">HC&#8209;SR04 &middot; time&#8209;of&#8209;flight</span>
-        <span class="scope-live"><i class="dot" aria-hidden="true"></i>ranging</span>
-      </figcaption>
+    <!-- SIGNATURE: the board -->
+    <div class="rig">
+      <div class="stage" id="stage">
+        <div class="board" id="board">
 
-      <svg class="scope-svg" viewBox="0 0 420 190" role="img"
-           aria-label="Oscilloscope trace showing an ultrasonic trigger pulse and the returning echo, with the measured distance below.">
-        <defs>
-          <pattern id="grid" width="35" height="31.6" patternUnits="userSpaceOnUse">
-            <path d="M35 0V31.6M0 31.6H35" fill="none" stroke="rgba(120,152,170,.16)" stroke-width="1"/>
-          </pattern>
-        </defs>
-        <rect x="0" y="0" width="420" height="190" fill="url(#grid)"/>
+          <div class="board-under" aria-hidden="true"></div>
 
-        <text x="10" y="34" class="ch-label">TRIG</text>
-        <path id="trace-trig" d="" fill="none" stroke="#4E93A6" stroke-width="2" stroke-linejoin="round"/>
+          <svg class="board-face" viewBox="0 0 520 400" aria-hidden="true">
+            <defs>
+              <linearGradient id="mask" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0"   stop-color="#12393B"/>
+                <stop offset="0.55" stop-color="#0D2B2E"/>
+                <stop offset="1"   stop-color="#0A2124"/>
+              </linearGradient>
+              <radialGradient id="sheen" cx="0.3" cy="0.15" r="0.9">
+                <stop offset="0" stop-color="#3E8F86" stop-opacity=".30"/>
+                <stop offset="1" stop-color="#3E8F86" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
 
-        <text x="10" y="106" class="ch-label">ECHO</text>
-        <path id="trace-echo" d="" fill="none" stroke="#F2B863" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="4" y="4" width="512" height="392" rx="18" fill="url(#mask)" stroke="#2C6E63" stroke-width="1.5"/>
+            <rect x="4" y="4" width="512" height="392" rx="18" fill="url(#sheen)"/>
 
-        <g id="tof-mark">
-          <path id="tof-bar" d="" fill="none" stroke="#C98B3E" stroke-width="1" stroke-dasharray="3 3"/>
-          <text id="tof-text" x="0" y="160" class="ch-tick" text-anchor="middle"></text>
-        </g>
-      </svg>
+            <!-- mounting holes -->
+            <g fill="#060A10" stroke="#2C6E63" stroke-width="1.5">
+              <circle cx="30"  cy="30"  r="8"/><circle cx="490" cy="30"  r="8"/>
+              <circle cx="30"  cy="370" r="8"/><circle cx="490" cy="370" r="8"/>
+            </g>
 
-      <div class="scope-read">
-        <div class="read">
-          <span class="read-k">distance</span>
-          <span class="read-v"><span id="v-dist">&mdash;</span><em>cm</em></span>
-        </div>
-        <div class="read">
-          <span class="read-k">echo width</span>
-          <span class="read-v"><span id="v-tof">&mdash;</span><em>ms</em></span>
-        </div>
-        <div class="read read-verdict">
-          <span class="read-k">state</span>
-          <span class="read-v"><i class="led" id="v-led" aria-hidden="true"></i><span id="v-state">&mdash;</span></span>
+            <!-- ground pour hatch -->
+            <g stroke="#194C4A" stroke-width="1" opacity=".5">
+              <path d="M20 60H500M20 100H500M20 140H500M20 180H500M20 220H500M20 260H500M20 300H500M20 340H500"/>
+            </g>
+
+            <!-- copper traces, each keyed to the component it feeds -->
+            <g class="traces" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+              <path class="trace" data-for="esp"   d="M150 110H196V150"/>
+              <path class="trace" data-for="hcsr"  d="M370 96H332V150H300"/>
+              <path class="trace" data-for="hcsr"  d="M382 112V132H316V160"/>
+              <path class="trace" data-for="sim"   d="M370 300H330V250H300"/>
+              <path class="trace" data-for="rfid"  d="M138 112V150H196V178"/>
+              <path class="trace" data-for="pulse" d="M138 292V250H196V228"/>
+              <path class="trace" data-for="esp"   d="M300 210H360V210"/>
+            </g>
+
+            <!-- vias -->
+            <g class="vias" fill="#0A2124" stroke="#B8853A" stroke-width="2.5">
+              <circle cx="332" cy="132" r="4"/><circle cx="330" cy="250" r="4"/>
+              <circle cx="196" cy="150" r="4"/><circle cx="196" cy="228" r="4"/>
+            </g>
+
+            <text x="30" y="392" class="silk">SNP&#8209;01 &nbsp; REV&#8209;C</text>
+          </svg>
+
+          <!-- components sit above the board in Z -->
+          <button class="comp comp-esp" id="c-esp" type="button"
+                  data-name="ESP32-WROOM-32"
+                  data-role="Wi-Fi MCU · the brain on four of these builds"
+                  data-projects="Smart Dustbin · Smart Parking · Heartbeat Monitor · Smart Home"
+                  data-target="#p-dustbin">
+            <span class="comp-body">
+              <span class="can" aria-hidden="true"></span>
+              <span class="comp-t">ESP32</span>
+            </span>
+            <span class="sr">ESP32 microcontroller — jump to Smart Dustbin</span>
+          </button>
+
+          <button class="comp comp-hcsr" id="c-hcsr" type="button"
+                  data-name="HC-SR04"
+                  data-role="Ultrasonic ranging · 10 µs trigger, echo width is the distance"
+                  data-projects="Smart Dustbin · Smart Parking"
+                  data-target="#p-parking">
+            <span class="comp-body comp-sonar">
+              <span class="eye" aria-hidden="true"></span><span class="eye" aria-hidden="true"></span>
+              <span class="comp-t">HC-SR04</span>
+            </span>
+            <span class="sr">HC-SR04 ultrasonic sensor — jump to Smart Parking</span>
+          </button>
+
+          <button class="comp comp-rfid" id="c-rfid" type="button"
+                  data-name="MFRC522 + R305"
+                  data-role="RFID reader and fingerprint sensor · either one opens the lock"
+                  data-projects="Anti-Theft Locker"
+                  data-target="#p-locker">
+            <span class="comp-body">
+              <span class="coil" aria-hidden="true"></span>
+              <span class="comp-t">RFID</span>
+            </span>
+            <span class="sr">RFID and fingerprint modules — jump to Anti-Theft Locker</span>
+          </button>
+
+          <button class="comp comp-sim" id="c-sim" type="button"
+                  data-name="SIM800L"
+                  data-role="GSM radio · sends the SMS when a bad card is presented"
+                  data-projects="Anti-Theft Locker"
+                  data-target="#p-locker">
+            <span class="comp-body">
+              <span class="ant" aria-hidden="true"></span>
+              <span class="comp-t">SIM800L</span>
+            </span>
+            <span class="sr">SIM800L GSM module — jump to Anti-Theft Locker</span>
+          </button>
+
+          <button class="comp comp-pulse" id="c-pulse" type="button"
+                  data-name="PulseSensor"
+                  data-role="Optical heart rate · alerts on the transition, not every sample"
+                  data-projects="Heartbeat Monitor"
+                  data-target="#p-heart">
+            <span class="comp-body">
+              <span class="beat" aria-hidden="true"></span>
+              <span class="comp-t">PULSE</span>
+            </span>
+            <span class="sr">PulseSensor — jump to Heartbeat Monitor</span>
+          </button>
+
         </div>
       </div>
-      <p class="scope-note">Real thresholds from the Smart Dustbin and Smart Parking firmware.</p>
-    </figure>
+
+      <!-- readout driven by whichever component is active -->
+      <div class="readout" id="readout" aria-live="polite">
+        <p class="ro-hint" id="ro-hint">Hover a component &mdash; or tab through them &mdash; to see what it does.</p>
+        <div class="ro-body" id="ro-body" hidden>
+          <p class="ro-name" id="ro-name"></p>
+          <p class="ro-role" id="ro-role"></p>
+          <p class="ro-proj"><span class="ro-k">used in</span> <span id="ro-projects"></span></p>
+        </div>
+      </div>
+    </div>
 
   </div>
 
@@ -136,7 +221,7 @@
 
     <div class="cards">
 
-      <article class="card card-lead">
+      <article class="card card-lead" id="p-dustbin">
         <div class="card-top">
           <h3>Smart Dustbin</h3>
           <p class="bom">ESP32 / UNO &middot; 3&times;HC&#8209;SR04 &middot; servo &middot; RGB &middot; buzzer</p>
@@ -160,7 +245,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" id="p-parking">
         <div class="card-top">
           <h3>Smart Parking</h3>
           <p class="bom">ESP32 &middot; 4&times;HC&#8209;SR04 &middot; 16&times;2 LCD &middot; servo barrier</p>
@@ -181,7 +266,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" id="p-locker">
         <div class="card-top">
           <h3>Anti-Theft Locker</h3>
           <p class="bom">Arduino UNO &middot; MFRC522 &middot; R305 &middot; SIM800L &middot; solenoid</p>
@@ -202,7 +287,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" id="p-heart">
         <div class="card-top">
           <h3>Heartbeat Monitor</h3>
           <p class="bom">ESP32 &middot; PulseSensor &middot; Blynk IoT</p>
@@ -351,13 +436,11 @@
 <!-- ============ CONTACT ============ -->
 <section id="contact" class="band band-alt">
   <div class="shell contact">
-    <h2 class="display display-sm">Let&rsquo;s talk</h2>
+    <h2 class="display display-sm">Let&rsquo;s <span class="grad">talk</span></h2>
     <p class="contact-sub">Open to embedded, firmware, and IoT roles, and to internships.</p>
-    <div class="contact-actions">
+    <div class="contact-actions" id="contact-actions">
       <a class="btn btn-solid" href="mailto:nischayprasuna@gmail.com">nischayprasuna@gmail.com</a>
       <a class="btn btn-ghost" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&#8599;</span></a>
-      <a class="btn btn-ghost" id="link-linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn <span aria-hidden="true">&#8599;</span></a>
-      <a class="btn btn-ghost" id="link-resume" href="#" hidden>Download resume</a>
     </div>
   </div>
 </section>
@@ -371,6 +454,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>
