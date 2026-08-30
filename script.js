@@ -69,12 +69,24 @@ var PROFILE = {
 
   var SOUND = 17.15;                // cm per ms of echo width
 
-  var SCENARIOS = [
-    { d: 142.0, state: "slot free",        led: "" },
-    { d: 29.8,  state: "slot occupied",    led: "is-warn" },
-    { d: 18.4,  state: "hand · lid open",  led: "" },
-    { d: 4.2,   state: "bin 92% · alert",  led: "is-alert" }
+  // Targets the trace sweeps between.
+  var SCENARIOS = [142.0, 29.8, 18.4, 4.2];
+
+  // Thresholds, read against whatever the trace currently shows — so the verdict
+  // flips mid-sweep at the crossing point, exactly as the firmware does.
+  var BANDS = [
+    { min: 60, state: "slot free",       led: "" },
+    { min: 25, state: "slot occupied",   led: "is-warn" },
+    { min: 10, state: "hand · lid open", led: "" },
+    { min:  0, state: "bin full · alert",led: "is-alert" }
   ];
+
+  function bandFor(d){
+    for (var b = 0; b < BANDS.length; b++){
+      if (d >= BANDS[b].min) return BANDS[b];
+    }
+    return BANDS[BANDS.length - 1];
+  }
 
   function draw(d){
     var tof = d / SOUND;                        // ms
@@ -105,25 +117,24 @@ var PROFILE = {
 
     vDist.textContent = d.toFixed(1);
     vTof.textContent  = tof.toFixed(2);
-  }
 
-  function setState(s){
-    vState.textContent = s.state;
-    vLed.className = "led " + s.led;
+    var band = bandFor(d);
+    if (vState.textContent !== band.state){
+      vState.textContent = band.state;
+      vLed.className = "led " + band.led;
+    }
   }
 
   var still = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   if (still.matches) {
-    draw(SCENARIOS[1].d);
-    setState(SCENARIOS[1]);
+    draw(SCENARIOS[1]);
     return;
   }
 
   var HOLD = 2200, SWEEP = 900;
-  var i = 0, from = SCENARIOS[0].d, to = SCENARIOS[0].d, t0 = 0, phase = "hold";
+  var i = 0, from = SCENARIOS[0], to = SCENARIOS[0], t0 = 0, phase = "hold";
 
-  setState(SCENARIOS[0]);
   draw(from);
 
   function easeInOut(x){
@@ -138,8 +149,7 @@ var PROFILE = {
       if (dt >= HOLD) {
         i = (i + 1) % SCENARIOS.length;
         from = to;
-        to = SCENARIOS[i].d;
-        setState(SCENARIOS[i]);
+        to = SCENARIOS[i];
         phase = "sweep";
         t0 = now;
       }
