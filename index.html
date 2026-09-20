@@ -3,354 +3,558 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sadhanala Nischay Prasad — Embedded Systems &amp; IoT Engineer</title>
-<meta name="description" content="Embedded systems and IoT engineer. I build devices that sense something physical, decide what to do about it, and report it somewhere useful — ESP32, Arduino, sensor fusion, and the dashboards on top.">
+<title>Sadhanala Nischay Prasad — Full-stack engineer</title>
+<meta name="description" content="Full-stack engineer with an embedded background. Six deployed projects you can open right now — Next.js and Postgres web apps, an on-device Android scam detector, and ESP32 firmware.">
 <meta name="author" content="Sadhanala Nischay Prasad">
 <link rel="canonical" href="https://snischayprasad.github.io/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Sadhanala Nischay Prasad — Embedded Systems &amp; IoT Engineer">
-<meta property="og:description" content="ESP32 and Arduino builds that sense, decide, and report — with the dashboards on top. 16 public repositories, 87 logic tests green, one live city dashboard.">
+<meta property="og:title" content="Sadhanala Nischay Prasad — Full-stack engineer">
+<meta property="og:description" content="Six deployed projects you can open right now. Next.js and Postgres web apps, an on-device Android scam detector, and ESP32 firmware.">
 <meta property="og:url" content="https://snischayprasad.github.io/">
+<meta property="og:image" content="https://snischayprasad.github.io/assets/shots/commons.webp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#0A0A0B">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23FFFFFF'/%3E%3Cpath d='M6 22h5l4-12 4 12 3-6h4' fill='none' stroke='%230071E3' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%234ADE80'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=5">
 
-<!-- Arm the scroll reveal only if this browser can actually undo it. Without
-     this class the panels render fully visible, so a blocked or failed script
-     can never leave the page blank. -->
+<!-- Arm the scroll reveal only if this browser can undo it. Without the class
+     everything renders visible, so a blocked script cannot leave a blank page. -->
 <script>
 (function(){
-  var canReveal = "IntersectionObserver" in window &&
+  var ok = "IntersectionObserver" in window &&
     !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  if (canReveal) document.documentElement.className += " js-reveal";
+  if (ok) document.documentElement.className += " js-reveal";
 })();
 </script>
 </head>
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
-
-<!-- what the glass refracts -->
-<div class="ambience" aria-hidden="true">
-  <span class="orb orb-a"></span>
-  <span class="orb orb-b"></span>
-  <span class="orb orb-c"></span>
-  <span class="orb orb-d"></span>
-</div>
+<a class="skip" href="#live">Skip to the work</a>
 
 <nav class="nav" aria-label="Sections">
   <div class="nav-in">
     <a class="mark" href="#top">
-      <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
-        <path d="M4 22h5l4-12 4 12 3-6h8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span>Sadhanala Nischay Prasad</span>
+      <span class="mark-dot" aria-hidden="true"></span>
+      <span>Nischay Prasad</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#practice">How I work</a></li>
-      <li><a href="#builds">Builds</a></li>
-      <li><a href="#register">Also built</a></li>
+      <li><a href="#live">Live</a></li>
+      <li><a href="#offline">Also built</a></li>
+      <li><a href="#hardware">Hardware</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <a class="nav-gh" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">GitHub</a>
   </div>
 </nav>
 
-<main class="shell" id="main">
-<span id="top"></span>
+<main id="top">
 
-  <header class="hero">
-    <p class="eyebrow">Embedded systems &amp; IoT &nbsp;&middot;&nbsp; India</p>
-    <h1>Devices that sense,<br>decide, and report.</h1>
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="shell">
+    <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Full-stack engineer &middot; embedded background &middot; India</p>
+    <h1 class="display">
+      Six things I built<br>
+      that you can <em>open right now.</em>
+    </h1>
     <p class="lede">
-      I build hardware that measures something physical and acts on it &mdash; and I write the
-      deciding part so it can be proven before a sensor is ever wired up.
+      I write the whole stack &mdash; Next.js and Postgres on the web, Kotlin on the phone,
+      C++ on the microcontroller. Every project below is deployed, and every claim on this
+      page points at the file it came from.
     </p>
     <div class="cta">
-      <a class="btn btn-solid" href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">Open the live dashboard</a>
-      <a class="btn btn-glass" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">View GitHub &#8250;</a>
+      <a class="btn btn-solid" href="#live">See what&rsquo;s live</a>
+      <a class="btn btn-line" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">GitHub &#8599;</a>
     </div>
 
-    <dl class="readout glass reveal">
-      <div><dt>Public repos</dt><dd>16</dd></div>
-      <div><dt>Hardware builds</dt><dd>5</dd></div>
-      <div><dt>Logic tests green</dt><dd class="tested">87</dd></div>
-      <div><dt>Live dashboards</dt><dd>1</dd></div>
+    <dl class="stats">
+      <div><dt>Live deployments</dt><dd><span class="live-n">6</span></dd></div>
+      <div><dt>Public repositories</dt><dd>23</dd></div>
+      <div><dt>Languages shipped</dt><dd>6</dd></div>
+      <div><dt>Projects detailed here</dt><dd>8</dd></div>
     </dl>
-  </header>
+  </div>
+</header>
 
-  <!-- ============ HOW I WORK ============ -->
-  <section id="practice">
-    <div class="section-head">
-      <h2>Two habits behind every build</h2>
-      <p class="section-sub">They are the reason the numbers above exist at all.</p>
-    </div>
-    <div class="pair">
-      <div class="habit glass reveal">
-        <h3>The decision logic is tested off the hardware.</h3>
-        <p>
-          Thresholds, escalation ladders, and alert de-duplication live in code that runs on a
-          laptop. That is where the 87 passing tests come from &mdash; they prove the rules before
-          anything is flashed, so a failure on the bench is a wiring problem rather than an open
-          question about the firmware.
-        </p>
-      </div>
-      <div class="habit glass reveal">
-        <h3>Every build runs without the parts.</h3>
-        <p>
-          Each project ships a Wokwi diagram or a Python harness alongside the firmware. A reviewer
-          who does not own an HC&#8209;SR04 can still watch the bin fill, the ladder escalate, and
-          the alarm fire. A project a reviewer cannot run is a project they will not read.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ BUILDS ============ -->
-  <section id="builds">
-    <div class="section-head">
-      <h2>Selected builds</h2>
-      <p class="section-sub">Four devices, each framed by the decision that actually mattered.</p>
-    </div>
-
-    <div class="builds">
-
-      <article class="build glass reveal">
-        <div class="build-top">
-          <h3>Smart Dustbin</h3>
-          <span class="chip">ESP32 / UNO</span>
-          <span class="chip">3&times; HC-SR04 &middot; servo &middot; RGB &middot; buzzer</span>
-        </div>
-        <p>
-          A public bin lid is one of the dirtiest surfaces in a building, and fixed-schedule
-          collection burns fuel visiting bins that are nearly empty. This bin opens itself when a
-          hand comes within 25&nbsp;cm, and two more sensors mounted on opposite diagonals inside
-          measure the air above the rubbish. Fusing that pair is the whole point &mdash; a single
-          sensor reads a lopsided pile as full when it is not.
-        </p>
-        <dl class="ev">
-          <div><dt>75 / 90&nbsp;%</dt><dd>Escalation ladder: green below 75%, blinking red from 75%, solid red plus a chirp at 90%</dd></div>
-          <div><dt class="ok">64 tests</dt><dd>Fill fusion, escalation, and lid timing proven on a laptop before anything is flashed</dd></div>
-          <div><dt>75 / 14&nbsp;%</dt><dd>Flash and RAM used on the ESP32 &mdash; room left over for the Wi-Fi stack</dd></div>
-          <div><dt>Wi-Fi</dt><dd>Telemetry to a city dashboard with a bin map and remote control; the whole circuit imports into Wokwi</dd></div>
-        </dl>
-        <p class="links">
-          <a href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">Open the live dashboard &#8250;</a>
-          <a href="https://github.com/SNischayPrasad/Smart-Dustbin-Embedded-System" target="_blank" rel="noopener">Source &#8250;</a>
-        </p>
-      </article>
-
-      <article class="build glass reveal">
-        <div class="build-top">
-          <h3>Smart Parking</h3>
-          <span class="chip">ESP32</span>
-          <span class="chip">4&times; HC-SR04 &middot; 16&times;2 LCD &middot; servo barrier</span>
-        </div>
-        <p>
-          You circle a mall car park with no way to know whether the next floor is full until you
-          have already driven up the ramp. A sensor above each slot compares echo time against a
-          threshold &mdash; a long return means floor, a short one means car roof &mdash; and the
-          entrance LCD reads <span class="mono-inline">Available: 2/4</span> before you commit to
-          the ramp.
-        </p>
-        <dl class="ev">
-          <div><dt>300&nbsp;ms</dt><dd>Full sweep of the deck, firing a 10&nbsp;&micro;s trigger per sensor in turn so the echoes cannot collide</dd></div>
-          <div><dt class="ok">23 / 23</dt><dd>Logic tests passing on slot occupancy and the full-deck alert</dd></div>
-          <div><dt>Outputs</dt><dd>Per-slot red and green LEDs, full-deck alert, servo barrier drop</dd></div>
-        </dl>
-        <p class="links">
-          <a href="https://github.com/SNischayPrasad/Smart-Parking-Ultrasonic-Embedded-System" target="_blank" rel="noopener">Source &#8250;</a>
-        </p>
-      </article>
-
-      <article class="build glass reveal">
-        <div class="build-top">
-          <h3>Anti-Theft Locker</h3>
-          <span class="chip">Arduino UNO</span>
-          <span class="chip">MFRC522 &middot; R305 &middot; SIM800L &middot; solenoid</span>
-        </div>
-        <p>
-          A locker that opens for either an authorised RFID card or an enrolled fingerprint, and
-          texts the owner the moment neither matches. The interesting engineering sits on the
-          failure path rather than the happy one: unknown card IDs go out over GSM behind a
-          cooldown, so a jammed reader cannot flood the owner&rsquo;s phone, and the relay is driven
-          to a known locked state at boot rather than inheriting whatever the pin happened to float
-          to.
-        </p>
-        <dl class="ev">
-          <div><dt>5&nbsp;s</dt><dd>Unlock pulse, then an automatic relock &mdash; the door cannot be left open by walking away</dd></div>
-          <div><dt>Rate-limited</dt><dd>SMS on an unmatched card or finger, with a cooldown between alerts</dd></div>
-          <div><dt>Boot state</dt><dd>Relay forced locked before the readers come up</dd></div>
-        </dl>
-        <p class="links">
-          <a href="https://github.com/SNischayPrasad/Arduino-Anti-Theft-Locker-System" target="_blank" rel="noopener">Source &#8250;</a>
-        </p>
-      </article>
-
-      <article class="build glass reveal">
-        <div class="build-top">
-          <h3>Heartbeat Monitor</h3>
-          <span class="chip">ESP32</span>
-          <span class="chip">PulseSensor &middot; Blynk IoT</span>
-        </div>
-        <p>
-          Reads BPM and pushes a phone notification outside 60&ndash;100. The design problem here was
-          never the sensor, it was the alert: a naive threshold check fires on every sample and
-          buries the phone in duplicates. Alerts are transition-based instead, so a sustained
-          abnormal reading sends once and a return to normal rearms it.
-        </p>
-        <dl class="ev">
-          <div><dt>V2 / V3</dt><dd>Thresholds retune live from the app, with no reflash needed to change them</dd></div>
-          <div><dt class="ok">10 / 10</dt><dd>Alert scenarios verified in Wokwi and a Python harness</dd></div>
-          <div><dt>Scope</dt><dd>Educational prototype &mdash; not a medical device</dd></div>
-        </dl>
-        <p class="links">
-          <a href="https://github.com/SNischayPrasad/Heartbeat-Monitor-with-Alert-System" target="_blank" rel="noopener">Source &#8250;</a>
-        </p>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ============ ALSO BUILT ============ -->
-  <section id="register">
-    <div class="section-head">
-      <h2>Also built</h2>
-      <p class="section-sub">Software, where the same habits show up with no sensor attached.</p>
-    </div>
-
-    <div class="panel glass reveal">
-      <div class="table-wrap">
-        <table>
-          <caption class="sr">Additional projects, with platform, summary, and a link to the source.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Project</th>
-              <th scope="col">Platform</th>
-              <th scope="col">What it does</th>
-              <th scope="col"><span class="sr">Source</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Smart Home Controller</th>
-              <td class="plat">ESP32 &middot; Blynk</td>
-              <td class="what">Two relay channels, DHT11 temperature and humidity, PIR motion; relay state resyncs to the app on reconnect.</td>
-              <td class="src"><a href="https://github.com/SNischayPrasad/Smart-Home-Controller-" target="_blank" rel="noopener">Source<span class="sr"> for Smart Home Controller</span> &#8250;</a></td>
-            </tr>
-            <tr>
-              <th scope="row">Encryption Tool</th>
-              <td class="plat">Java &middot; Swing &middot; JCA</td>
-              <td class="what">AES-256-GCM with PBKDF2-HMAC-SHA-256, a fresh salt and IV per file, and a versioned header authenticated as AAD so it cannot be silently altered.</td>
-              <td class="src"><a href="https://github.com/SNischayPrasad/Encryption-Decryption-Tool-Using-Java-GUI" target="_blank" rel="noopener">Source<span class="sr"> for Encryption Tool</span> &#8250;</a></td>
-            </tr>
-            <tr>
-              <th scope="row">Complaint Management</th>
-              <td class="plat">Java &middot; REST</td>
-              <td class="what">Register and log in for a token, then carry it on protected routes via an <span class="mono-inline">X-Auth</span> header.</td>
-              <td class="src"><a href="https://github.com/SNischayPrasad/Online-Complaint-Management-System-using-Java" target="_blank" rel="noopener">Source<span class="sr"> for Complaint Management</span> &#8250;</a></td>
-            </tr>
-            <tr>
-              <th scope="row">Hotel Booking</th>
-              <td class="plat">Java 17 &middot; console</td>
-              <td class="what">Date-range availability search that rejects overlapping bookings, with billing on <span class="mono-inline">BigDecimal</span> rather than floats.</td>
-              <td class="src"><a href="https://github.com/SNischayPrasad/Hotel-Room-booking-console" target="_blank" rel="noopener">Source<span class="sr"> for Hotel Booking</span> &#8250;</a></td>
-            </tr>
-            <tr>
-              <th scope="row">Socket Chat</th>
-              <td class="plat">Python &middot; TCP</td>
-              <td class="what">Multi-client console chat on raw sockets &mdash; public messages, private messages, and nickname management.</td>
-              <td class="src"><a href="https://github.com/SNischayPrasad/Chat-App-with-Socket-Programming" target="_blank" rel="noopener">Source<span class="sr"> for Socket Chat</span> &#8250;</a></td>
-            </tr>
-            <tr>
-              <th scope="row">Listful &amp; Taskflow</th>
-              <td class="plat">HTML &middot; CSS &middot; JS</td>
-              <td class="what">Two dependency-free task managers with localStorage persistence, JSON import and export, keyboard shortcuts, and labelled accessible controls.</td>
-              <td class="src"><a href="https://github.com/SNischayPrasad/To-Do-List-2" target="_blank" rel="noopener">Source<span class="sr"> for Listful and Taskflow</span> &#8250;</a></td>
-            </tr>
-            <tr>
-              <th scope="row">AI &amp; ML Training</th>
-              <td class="plat">Python</td>
-              <td class="what">Coursework and practice notebooks from machine learning training.</td>
-              <td class="src"><a href="https://github.com/SNischayPrasad/Training-AI-AND-ML" target="_blank" rel="noopener">Source<span class="sr"> for AI and ML Training</span> &#8250;</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ STACK ============ -->
-  <section id="stack">
-    <div class="section-head">
-      <h2>Stack</h2>
-      <p class="section-sub">What I have actually shipped something with.</p>
-    </div>
-
-    <div class="glass reveal">
-      <div class="stack-group">
-        <p class="stack-h">Firmware</p>
-        <ul class="pills">
-          <li>Embedded C / C++</li> <li>ESP32</li> <li>Arduino UNO</li>
-          <li>Arduino IDE &amp; CLI</li> <li>Timed control loops</li> <li>State machines</li>
-        </ul>
-      </div>
-      <div class="stack-group">
-        <p class="stack-h">Sensors</p>
-        <ul class="pills">
-          <li>HC-SR04</li> <li>MFRC522 RFID</li> <li>R305 fingerprint</li> <li>DHT11</li>
-          <li>PIR</li> <li>PulseSensor</li> <li>SIM800L GSM</li> <li>Servo &amp; relay</li>
-          <li>16&times;2 I&sup2;C LCD</li>
-        </ul>
-      </div>
-      <div class="stack-group">
-        <p class="stack-h">Buses</p>
-        <ul class="pills">
-          <li>I&sup2;C</li> <li>SPI</li> <li>UART</li> <li>GPIO / PWM</li> <li>Wi-Fi</li>
-          <li>REST</li> <li>TCP sockets</li>
-        </ul>
-      </div>
-      <div class="stack-group">
-        <p class="stack-h">Software</p>
-        <ul class="pills">
-          <li>Java 17</li> <li>Python</li> <li>JavaScript</li> <li>HTML &amp; CSS</li>
-          <li>Maven</li> <li>Git &amp; GitHub</li> <li>Blynk IoT</li> <li>Wokwi</li> <li>Tinkercad</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section id="contact">
-    <div class="closing glass reveal">
-      <h2>Let&rsquo;s talk</h2>
-      <p>
-        Open to embedded, firmware, and IoT roles, and to internships. The fastest way to judge the
-        work is to
-        <a class="inline" href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">open the live dashboard</a>
-        and watch a bin cross its threshold.
+<!-- ================= LIVE ================= -->
+<section id="live" class="band">
+  <div class="shell">
+    <div class="band-head">
+      <p class="kicker">Deployed</p>
+      <h2 class="h2">Open any of them.</h2>
+      <p class="band-sub">
+        Each frame below is a screenshot of the running app, and the address bar is the real URL.
+        Click it and you are on the deployment.
       </p>
-      <div class="cta" id="contact-actions">
-        <a class="btn btn-solid" href="mailto:nischayprasuna@gmail.com">nischayprasuna@gmail.com</a>
-        <a class="btn btn-glass" href="https://www.linkedin.com/in/sadhanala-nischay-prasad-0b0978389/" target="_blank" rel="noopener">LinkedIn &#8250;</a>
-      </div>
     </div>
-  </section>
+  </div>
 
-  <footer class="foot">
-    <span>Sadhanala Nischay Prasad &nbsp;&middot;&nbsp; Embedded systems &amp; IoT</span>
-    <span><a href="https://github.com/SNischayPrasad/SNischayPrasad.github.io" target="_blank" rel="noopener">Source</a></span>
-  </footer>
+  <!-- ---- feature 1 ---- -->
+  <article class="case shell">
+    <div class="case-media">
+      <figure class="frame">
+        <div class="chrome">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <a class="addr" href="https://social-media-platform-green-ve.vercel.app" target="_blank" rel="noopener">
+            social-media-platform-green-ve.vercel.app
+          </a>
+          <span class="badge">live</span>
+        </div>
+        <a class="shot" href="https://social-media-platform-green-ve.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <img src="assets/shots/commons.webp" width="1600" height="900" loading="lazy" decoding="async"
+               alt="The Commons home page: a dark timeline headed “Everything said here, in the order it was said”, with a sidebar counting 10 people, 24 posts and 89 likes.">
+        </a>
+      </figure>
+    </div>
+    <div class="case-body">
+      <h3 class="case-name">Commons</h3>
+      <p class="case-line">A social platform on one shared, newest-first timeline. Posts, likes, comments, follows.</p>
+      <ul class="tags">
+        <li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Prisma 6</li><li>PostgreSQL</li><li>Tailwind v4</li>
+      </ul>
+      <dl class="notes">
+        <div>
+          <dt>Idempotent by schema</dt>
+          <dd>Likes and follows <span class="m">upsert</span> against composite unique constraints, so a double-tap cannot create a duplicate row. The button rolls its optimistic update back if the request fails.</dd>
+        </div>
+        <div>
+          <dt>One query per feed</dt>
+          <dd>Per-viewer <span class="m">likedByMe</span> resolves inside the same <span class="m">findMany</span> through a filtered relation include, against an explicit descending index on <span class="m">createdAt</span> &mdash; no second round trip.</dd>
+        </div>
+        <div>
+          <dt>Redeploys keep your posts</dt>
+          <dd>A build-time provisioning script pushes the schema and seeds only when the users table is empty, so anything visitors wrote survives the next deploy.</dd>
+        </div>
+      </dl>
+      <p class="case-links">
+        <a href="https://social-media-platform-green-ve.vercel.app" target="_blank" rel="noopener">Open Commons &#8599;</a>
+        <a href="https://github.com/SNischayPrasad/Social-Media-Platform" target="_blank" rel="noopener">Source</a>
+      </p>
+    </div>
+  </article>
+
+  <!-- ---- feature 2 ---- -->
+  <article class="case case-flip shell">
+    <div class="case-media">
+      <figure class="frame">
+        <div class="chrome">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <a class="addr" href="https://snischayprasad.github.io/civicpulse/" target="_blank" rel="noopener">
+            snischayprasad.github.io/civicpulse
+          </a>
+          <span class="badge">live</span>
+        </div>
+        <a class="shot" href="https://snischayprasad.github.io/civicpulse/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <img src="assets/shots/civicpulse.webp" width="1600" height="900" loading="lazy" decoding="async"
+               alt="CivicPulse sign-in page headed “From ‘I reported it’ to ‘We resolved it.’”, with a panel of citizen and municipal-worker demo accounts.">
+        </a>
+      </figure>
+    </div>
+    <div class="case-body">
+      <p class="case-tag">Smart India Hackathon &middot; SIH25031</p>
+      <h3 class="case-name">CivicPulse</h3>
+      <p class="case-line">Photograph a civic problem; a vision model classifies it, routes it to the department that owns it, and checks the repair photos before it can be closed.</p>
+      <ul class="tags">
+        <li>CLIP ViT-B/32</li><li>Transformers.js</li><li>Tesseract</li><li>Express</li><li>Socket.IO</li><li>OpenStreetMap</li>
+      </ul>
+      <dl class="notes">
+        <div>
+          <dt>Refuses what is not civic</dt>
+          <dd>Twelve categories are scored from natural-language prompts, with a twenty-prompt distractor bucket for screenshots, pets and clean roads. Fail that or a 0.35 probability floor and the upload comes back 422 rather than being filed wrong.</dd>
+        </div>
+        <div>
+          <dt>Location from the photo, not the phone</dt>
+          <dd>A hand-written EXIF parser reads the camera&rsquo;s own GPS and outranks the browser fix; Tesseract reads street signage in the frame and geocodes it to snap the pin to a real premises.</dd>
+        </div>
+        <div>
+          <dt>Recycled proof is blocked</dt>
+          <dd>Perceptual hashes compare every &ldquo;after&rdquo; photo against the &ldquo;before&rdquo; set. A Hamming distance of five or less is treated as reused evidence and hard-rejects the closure.</dd>
+        </div>
+      </dl>
+      <p class="case-links">
+        <a href="https://snischayprasad.github.io/civicpulse/" target="_blank" rel="noopener">Open CivicPulse &#8599;</a>
+        <a href="https://github.com/SNischayPrasad/civicpulse" target="_blank" rel="noopener">Source</a>
+      </p>
+    </div>
+  </article>
+
+  <!-- ---- the other four ---- -->
+  <div class="shell">
+    <div class="grid-2">
+
+      <article class="mini">
+        <figure class="frame">
+          <div class="chrome">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <a class="addr" href="https://realtime-chat-app-n.vercel.app" target="_blank" rel="noopener">realtime-chat-app-n.vercel.app</a>
+            <span class="badge">live</span>
+          </div>
+          <a class="shot" href="https://realtime-chat-app-n.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/shots/transmission.webp" width="1600" height="900" loading="lazy" decoding="async"
+                 alt="Transmission sign-in screen, split between a dark panel headed “Rooms that stay live” and a sign-in form.">
+          </a>
+        </figure>
+        <h3 class="mini-name">Transmission</h3>
+        <p class="mini-line">Real-time chat with public rooms and private threads &mdash; built to run where a socket server cannot.</p>
+        <ul class="tags">
+          <li>Next.js 15</li><li>Server-Sent Events</li><li>PostgreSQL</li><li>4 runtime deps</li>
+        </ul>
+        <p class="mini-note">
+          Vercel functions cannot hold a WebSocket open, so Postgres becomes the fan-out point: each stream tails
+          rows past a <span class="m">BIGSERIAL</span> cursor and hands the browser a resume point before the
+          function times out. Private rooms answer <em>not yours</em> and <em>does not exist</em> with a
+          byte-identical 404, so you cannot probe for a conversation.
+        </p>
+        <p class="case-links">
+          <a href="https://realtime-chat-app-n.vercel.app" target="_blank" rel="noopener">Open &#8599;</a>
+          <a href="https://github.com/SNischayPrasad/realtime-chat-app" target="_blank" rel="noopener">Source</a>
+        </p>
+      </article>
+
+      <article class="mini">
+        <figure class="frame">
+          <div class="chrome">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <a class="addr" href="https://secure-user-authentication.vercel.app" target="_blank" rel="noopener">secure-user-authentication.vercel.app</a>
+            <span class="badge">live</span>
+          </div>
+          <a class="shot" href="https://secure-user-authentication.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/shots/secureauth.webp" width="1600" height="900" loading="lazy" decoding="async"
+                 alt="The Credential authentication demo running in the browser.">
+          </a>
+        </figure>
+        <h3 class="mini-name">Credential</h3>
+        <p class="mini-line">An authentication service built around refresh-token theft rather than the usual hash-and-issue demo.</p>
+        <ul class="tags">
+          <li>Express 5</li><li>TypeScript</li><li>Argon2id</li><li>PGlite</li><li>React 19</li>
+        </ul>
+        <p class="mini-note">
+          Refresh tokens are opaque and stored only as digests. Every refresh retires its predecessor inside one
+          transaction; replaying a retired token is read as a copy and revokes the whole rotation family. Access
+          tokens carry a session id that is re-checked on every request, so &ldquo;sign out everywhere&rdquo; is
+          immediate rather than waiting out the token lifetime.
+        </p>
+        <p class="case-links">
+          <a href="https://secure-user-authentication.vercel.app" target="_blank" rel="noopener">Open &#8599;</a>
+          <a href="https://github.com/SNischayPrasad/Secure-User-Authentication" target="_blank" rel="noopener">Source</a>
+        </p>
+      </article>
+
+      <article class="mini">
+        <figure class="frame">
+          <div class="chrome">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <a class="addr" href="https://snischayprasad.github.io/upi-expense-splitter/" target="_blank" rel="noopener">snischayprasad.github.io/upi-expense-splitter</a>
+            <span class="badge">live</span>
+          </div>
+          <a class="shot" href="https://snischayprasad.github.io/upi-expense-splitter/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/shots/splitupi.webp" width="1600" height="900" loading="lazy" decoding="async"
+                 alt="SplitUPI on its first run, headed “Your shared money, settled.” with a prompt to create a group.">
+          </a>
+        </figure>
+        <h3 class="mini-name">SplitUPI</h3>
+        <p class="mini-line">Splits group bills, then works out the fewest UPI transfers that clear everyone.</p>
+        <ul class="tags">
+          <li>Vanilla JS</li><li>Zero dependencies</li><li>PWA</li><li>162 tests in CI</li>
+        </ul>
+        <p class="mini-note">
+          Greedy matching settles a group but not minimally, so the solver runs a bitmask search for disjoint
+          zero-sum subgroups and settles each pocket on its own &mdash; checked against brute force over 381 random
+          ledgers. Money is integer paise throughout, so all six split strategies reconcile to the last paisa.
+          The QR encoder and the UPI deep-link builder are both written from scratch.
+        </p>
+        <p class="case-links">
+          <a href="https://snischayprasad.github.io/upi-expense-splitter/" target="_blank" rel="noopener">Open &#8599;</a>
+          <a href="https://github.com/SNischayPrasad/upi-expense-splitter" target="_blank" rel="noopener">Source</a>
+        </p>
+      </article>
+
+      <article class="mini">
+        <figure class="frame">
+          <div class="chrome">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <a class="addr" href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">snischayprasad.github.io/Smart-Dustbin-Embedded-System</a>
+            <span class="badge">live</span>
+          </div>
+          <a class="shot" href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/shots/dustbin.webp" width="1600" height="900" loading="lazy" decoding="async"
+                 alt="The Smart Dustbin site, headed “It opens by itself. And it tells the city when it is full.”">
+          </a>
+        </figure>
+        <h3 class="mini-name">Smart Dustbin</h3>
+        <p class="mini-line">Touchless ESP32 bin with a fleet dashboard, plus an in-browser twin of the firmware.</p>
+        <ul class="tags">
+          <li>ESP32</li><li>Embedded C++</li><li>Google OAuth</li><li>180 assertions</li>
+        </ul>
+        <p class="mini-note">
+          Rubbish is never flat, so one downward sensor over a peak reads &ldquo;full&rdquo; at half empty. Two
+          sensors on opposite diagonals are fused into one figure, flagging an uneven load when they disagree by
+          more than 25 points and falling back to one sensor rather than going blind. The dashboard maps a
+          sixteen-bin demo fleet &mdash; a simulation of city operations, not live telemetry.
+        </p>
+        <p class="case-links">
+          <a href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">Open &#8599;</a>
+          <a href="https://github.com/SNischayPrasad/Smart-Dustbin-Embedded-System" target="_blank" rel="noopener">Source</a>
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= NOT DEPLOYED, STILL SUBSTANTIAL ================= -->
+<section id="offline" class="band band-alt">
+  <div class="shell">
+    <div class="band-head">
+      <p class="kicker">Not deployable</p>
+      <h2 class="h2">Two that do not live at a URL.</h2>
+      <p class="band-sub">An Android app and a back-office tool. Neither is something you can link to, so here is what is inside them.</p>
+    </div>
+
+    <div class="grid-2">
+      <article class="slab">
+        <div class="slab-head">
+          <h3>ScamShield</h3>
+          <span class="chip">Kotlin &middot; Android</span>
+        </div>
+        <p>
+          Screens incoming SMS and chat notifications for Indian scam patterns entirely on the phone, and explains
+          each warning in English or Hindi.
+        </p>
+        <dl class="notes">
+          <div>
+            <dt>The detector has no network</dt>
+            <dd>The manifest strips <span class="m">INTERNET</span> with a merger directive, so permissions that bundled libraries add are removed. Nothing about a message can leave the device.</dd>
+          </div>
+          <div>
+            <dt>Trilingual rule engine</dt>
+            <dd>Nineteen weighted rules built from forty-four regexes across English, romanised Hinglish and Devanagari. One is negation-aware, so &ldquo;never share this OTP&rdquo; stays quiet.</dd>
+          </div>
+          <div>
+            <dt>Lookalike domains and fake VPAs</dt>
+            <dd>Nine character substitutions are applied before matching a host against twenty-five real brand domains; UPI IDs are checked against a fifty-seven entry allowlist of genuine PSP handles.</dd>
+          </div>
+          <div>
+            <dt>The model may only escalate</dt>
+            <dd>An optional on-device language model rewrites the warning in plain words and can raise a verdict, never lower one. The rules stay in charge.</dd>
+          </div>
+        </dl>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Scam-Shield" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Tally</h3>
+          <span class="chip">Node &middot; SQLite</span>
+        </div>
+        <p>
+          Turns an uploaded supplier invoice into a warehouse picking checklist that staff tick off and photograph,
+          and an admin approves or returns with a note.
+        </p>
+        <dl class="notes">
+          <div>
+            <dt>Reads whatever the supplier sent</dt>
+            <dd>PDFs try a structured model read, then the text layer, then OCR over rendered pages, keeping whichever local read found more. An unreadable file still produces a draft carrying a plain-English warning instead of throwing.</dd>
+          </div>
+          <div>
+            <dt>It proves each row</dt>
+            <dd>A dependency-free parser infers column roles from the header, then confirms a line by finding quantity &times; price &asymp; amount among its numbers &mdash; coping with US, Indian-lakh and European digit grouping.</dd>
+          </div>
+          <div>
+            <dt>Hostile files cannot take the server down</dt>
+            <dd>Every PDF read is forked into a short-lived child process with a memory cap and a timeout, so a decompression bomb fails that one upload rather than the process.</dd>
+          </div>
+          <div>
+            <dt>The live stream re-checks you</dt>
+            <dd>Before every event and every heartbeat, the push stream re-validates the session, that the account is still active, and that the role has not changed &mdash; then ends the stream if any of that fails.</dd>
+          </div>
+        </dl>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/SAD-Delivery-project" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HARDWARE ================= -->
+<section id="hardware" class="band">
+  <div class="shell">
+    <div class="band-head">
+      <p class="kicker">Where I started</p>
+      <h2 class="h2">Firmware, and the habit it taught me.</h2>
+      <p class="band-sub">
+        You cannot attach a debugger to a bin on a street corner, so I learned to write the deciding part
+        separately and prove it on a laptop first. That habit is why the web projects above have test suites.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <article class="brick">
+        <h3>Smart Parking</h3>
+        <p class="brick-bom">ESP32 &middot; 4&times; HC-SR04 &middot; LCD &middot; servo barrier</p>
+        <p>A sensor above each bay compares echo time against a threshold &mdash; a long return is floor, a short one is car roof &mdash; and the entrance display reads the count before you drive up the ramp.</p>
+        <a href="https://github.com/SNischayPrasad/Smart-Parking-Ultrasonic-Embedded-System" target="_blank" rel="noopener">Source &#8599;</a>
+      </article>
+      <article class="brick">
+        <h3>Anti-Theft Locker</h3>
+        <p class="brick-bom">Arduino UNO &middot; RFID &middot; fingerprint &middot; GSM</p>
+        <p>Opens for an authorised card or an enrolled finger, and texts the owner when neither matches. Alerts are rate-limited so a jammed reader cannot flood the phone, and the relay is driven to a known locked state at boot.</p>
+        <a href="https://github.com/SNischayPrasad/Arduino-Anti-Theft-Locker-System" target="_blank" rel="noopener">Source &#8599;</a>
+      </article>
+      <article class="brick">
+        <h3>Heartbeat Monitor</h3>
+        <p class="brick-bom">ESP32 &middot; PulseSensor &middot; Blynk</p>
+        <p>Alerts outside 60&ndash;100 BPM. The problem was never the sensor &mdash; a naive threshold check fires on every sample and buries the phone &mdash; so alerts fire on the transition and rearm on return. Educational prototype, not a medical device.</p>
+        <a href="https://github.com/SNischayPrasad/Heartbeat-Monitor-with-Alert-System" target="_blank" rel="noopener">Source &#8599;</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGISTER ================= -->
+<section class="band band-alt">
+  <div class="shell">
+    <div class="band-head">
+      <p class="kicker">Earlier</p>
+      <h2 class="h2">Also built</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <caption class="sr">Earlier projects with platform and description</caption>
+        <thead>
+          <tr><th scope="col">Project</th><th scope="col">Platform</th><th scope="col">What it does</th><th scope="col"><span class="sr">Source</span></th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Encryption Tool</th>
+            <td class="plat">Java &middot; Swing</td>
+            <td>AES-256-GCM with PBKDF2, a fresh salt and IV per file, and a versioned header authenticated as additional data so it cannot be silently altered.</td>
+            <td class="src"><a href="https://github.com/SNischayPrasad/Encryption-Decryption-Tool-Using-Java-GUI" target="_blank" rel="noopener">Source<span class="sr"> for Encryption Tool</span></a></td>
+          </tr>
+          <tr>
+            <th scope="row">Smart Home Controller</th>
+            <td class="plat">ESP32 &middot; Blynk</td>
+            <td>Two relay channels, temperature and humidity, and motion detection; relay state resyncs to the app on reconnect.</td>
+            <td class="src"><a href="https://github.com/SNischayPrasad/Smart-Home-Controller-" target="_blank" rel="noopener">Source<span class="sr"> for Smart Home Controller</span></a></td>
+          </tr>
+          <tr>
+            <th scope="row">Complaint Management</th>
+            <td class="plat">Java &middot; REST</td>
+            <td>Register and log in for a token, then carry it on protected routes via an auth header.</td>
+            <td class="src"><a href="https://github.com/SNischayPrasad/Online-Complaint-Management-System-using-Java" target="_blank" rel="noopener">Source<span class="sr"> for Complaint Management</span></a></td>
+          </tr>
+          <tr>
+            <th scope="row">Hotel Booking</th>
+            <td class="plat">Java 17 &middot; console</td>
+            <td>Date-range availability search that rejects overlapping bookings, with billing on decimals rather than floats.</td>
+            <td class="src"><a href="https://github.com/SNischayPrasad/Hotel-Room-booking-console" target="_blank" rel="noopener">Source<span class="sr"> for Hotel Booking</span></a></td>
+          </tr>
+          <tr>
+            <th scope="row">Socket Chat</th>
+            <td class="plat">Python &middot; TCP</td>
+            <td>Multi-client console chat on raw sockets: public messages, private messages, nickname management.</td>
+            <td class="src"><a href="https://github.com/SNischayPrasad/Chat-App-with-Socket-Programming" target="_blank" rel="noopener">Source<span class="sr"> for Socket Chat</span></a></td>
+          </tr>
+          <tr>
+            <th scope="row">Listful &amp; Taskflow</th>
+            <td class="plat">HTML &middot; CSS &middot; JS</td>
+            <td>Two dependency-free task managers with local persistence, JSON import and export, keyboard shortcuts and labelled controls.</td>
+            <td class="src"><a href="https://github.com/SNischayPrasad/To-Do-List-2" target="_blank" rel="noopener">Source<span class="sr"> for Listful and Taskflow</span></a></td>
+          </tr>
+          <tr>
+            <th scope="row">AI &amp; ML Training</th>
+            <td class="plat">Python</td>
+            <td>Coursework and practice notebooks from machine learning training.</td>
+            <td class="src"><a href="https://github.com/SNischayPrasad/Training-AI-AND-ML" target="_blank" rel="noopener">Source<span class="sr"> for AI and ML Training</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STACK ================= -->
+<section id="stack" class="band">
+  <div class="shell">
+    <div class="band-head">
+      <p class="kicker">Tools</p>
+      <h2 class="h2">Stack</h2>
+      <p class="band-sub">What I have shipped something with, not what I have read about.</p>
+    </div>
+    <div class="rows">
+      <div class="row"><p class="row-h">Languages</p>
+        <ul class="pills"><li>TypeScript</li><li>JavaScript</li><li>Kotlin</li><li>C / C++</li><li>Java 17</li><li>Python</li><li>SQL</li></ul></div>
+      <div class="row"><p class="row-h">Web</p>
+        <ul class="pills"><li>Next.js 15</li><li>React 19</li><li>Express 5</li><li>Prisma</li><li>Tailwind</li><li>Zod</li><li>Server-Sent Events</li><li>REST</li></ul></div>
+      <div class="row"><p class="row-h">Data</p>
+        <ul class="pills"><li>PostgreSQL</li><li>SQLite</li><li>PGlite</li><li>Firestore</li><li>localStorage</li></ul></div>
+      <div class="row"><p class="row-h">Security</p>
+        <ul class="pills"><li>Argon2id</li><li>bcrypt</li><li>JWT rotation</li><li>AES-256-GCM</li><li>WebCrypto</li><li>OAuth / JWKS</li><li>CSRF &amp; CSP</li></ul></div>
+      <div class="row"><p class="row-h">Mobile &amp; ML</p>
+        <ul class="pills"><li>Jetpack Compose</li><li>MediaPipe</li><li>ML Kit</li><li>CLIP</li><li>Transformers.js</li><li>Tesseract</li></ul></div>
+      <div class="row"><p class="row-h">Embedded</p>
+        <ul class="pills"><li>ESP32</li><li>Arduino</li><li>HC-SR04</li><li>RFID &amp; fingerprint</li><li>GSM</li><li>I&sup2;C / SPI / UART</li><li>Wokwi</li></ul></div>
+      <div class="row"><p class="row-h">Practice</p>
+        <ul class="pills"><li>Git</li><li>GitHub Actions</li><li>Vercel</li><li>GitHub Pages</li><li>node:test</li><li>Vitest</li><li>JUnit</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="band band-alt">
+  <div class="shell about">
+    <p class="kicker">About</p>
+    <p class="about-big">
+      I started on microcontrollers, where you cannot attach a debugger to a bin on a street
+      corner. So I learned to write the deciding part on its own and prove it before it ships.
+    </p>
+    <div class="about-cols">
+      <p>
+        That is the thread through everything here. The settlement solver in SplitUPI is checked against a brute-force
+        search. The token-rotation logic in Credential is driven through a real replay attack in its tests. The bin&rsquo;s
+        firmware has an in-browser twin so the same assertions run without the hardware.
+      </p>
+      <p>
+        Moving to the web did not change the habit, it just changed the language. I am looking for
+        full-stack or backend work, and I am equally happy on the side of a product that talks to hardware.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="band">
+  <div class="shell contact">
+    <h2 class="display display-sm">Let&rsquo;s <em>talk.</em></h2>
+    <p class="contact-sub">Open to full-stack, backend and embedded roles, and to internships.</p>
+    <div class="cta cta-center" id="contact-actions">
+      <a class="btn btn-solid" href="mailto:nischayprasuna@gmail.com">nischayprasuna@gmail.com</a>
+      <a class="btn btn-line" href="https://www.linkedin.com/in/sadhanala-nischay-prasad-0b0978389/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+      <a class="btn btn-line" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">GitHub &#8599;</a>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<script src="script.js?v=4"></script>
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>Sadhanala Nischay Prasad</span>
+    <span class="foot-dim">Screenshots captured from the running deployments &middot;
+      <a href="https://github.com/SNischayPrasad/SNischayPrasad.github.io" target="_blank" rel="noopener">source</a></span>
+  </div>
+</footer>
+
+<script src="script.js?v=5"></script>
 </body>
 </html>

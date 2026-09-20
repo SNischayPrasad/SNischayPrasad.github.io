@@ -1,6 +1,6 @@
 # snischayprasad.github.io
 
-Personal portfolio — Sadhanala Nischay Prasad, embedded systems and IoT.
+Personal portfolio — Sadhanala Nischay Prasad.
 
 Live at **https://snischayprasad.github.io**
 
@@ -8,49 +8,77 @@ Static site, no framework and no build step. Open `index.html` in a browser to
 work on it locally.
 
 ```
-index.html    markup and copy
-styles.css    tokens, liquid glass material, layout
-script.js     scroll reveal, optional profile links
-assets/       put the resume PDF here
+index.html        markup and copy
+styles.css        tokens, browser frame, layout
+script.js         scroll reveal, optional resume link
+assets/shots/     screenshots of the live deployments
+assets/           put the resume PDF here
 ```
 
 ## The design
 
-White ground, Apple-style type (SF Pro on Apple devices, Inter everywhere else),
-and panels built from a liquid glass material rather than flat cards.
+Dark editorial. The page is deliberately near-monochrome so the six product
+screenshots carry all the colour. Green is used in exactly one meaning:
+*deployed*.
 
-The page commits to a single light theme. Every colour is painted explicitly
-instead of inherited, so nothing depends on the visitor's system theme.
+Type is Instrument Serif for editorial headlines, Inter Tight for text, and
+JetBrains Mono for data and labels.
 
-### Liquid glass
+### The browser frame
 
-`.glass` is the material. It combines four things, and all four matter — drop
-any one and it stops reading as glass:
+Each screenshot sits in a frame whose address bar shows the project's real
+deployment URL and links to it. The chrome is the evidence, not decoration — a
+reader can check any claim by clicking the address.
 
-- `backdrop-filter: blur(32px) saturate(185%)` — the frosting
-- a `::before` diagonal specular sweep across the face
-- a `::after` inset rim, brightest along the top edge
-- an outer cast shadow for lift
+To add one:
 
-Glass is invisible over flat white, so `.ambience` sits behind everything: four
-large, slowly drifting colour orbs at 12–16% opacity. They are faint enough that
-the page still reads white, and strong enough that the panels have something to
-refract as you scroll.
+```html
+<figure class="frame">
+  <div class="chrome">
+    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <a class="addr" href="URL" target="_blank" rel="noopener">host/path</a>
+    <span class="badge">live</span>
+  </div>
+  <a class="shot" href="URL" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+    <img src="assets/shots/NAME.webp" width="1600" height="900"
+         loading="lazy" decoding="async" alt="...">
+  </a>
+</figure>
+```
 
-Visitors who set **reduced transparency** get solid white panels and no orbs.
-Visitors who set **reduced motion** get no drift and no reveal animation.
+The `width` and `height` attributes are required — they reserve the box so the
+page does not shift as images arrive.
 
-### Adding a section
+## Refreshing the screenshots
 
-Add a `<section>` inside `.shell`, give its panel `class="glass reveal"`, and
-add a `<li>` to `.nav-links` pointing at its `id`. The reveal is wired by class,
-so nothing in `script.js` needs to change.
+The shots are captured from the running deployments with headless Chrome, then
+cropped to 16:9 and converted to WebP. All six together are about 310 KB.
+
+```bash
+"/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --disable-gpu \
+  --hide-scrollbars --force-device-scale-factor=2 --window-size=1280,820 \
+  --virtual-time-budget=12000 --screenshot="assets/shots/NAME.png" "URL"
+```
+
+Then crop and compress with Pillow:
+
+```python
+from PIL import Image
+im = Image.open("assets/shots/NAME.png").convert("RGB")
+w, h = im.size
+im.crop((0, 0, w, min(int(w * 9 / 16), h))).resize((1600, 900), Image.LANCZOS) \
+  .save("assets/shots/NAME.webp", "WEBP", quality=84, method=6)
+```
+
+Note: capturing the whole portfolio page in one very tall headless window will
+render the screenshots blank. That is a raster-area limit in headless Chrome,
+not a fault in the page — check the deployed site instead.
 
 ## Adding your resume
 
-The resume button is built by JavaScript and is only created when a path is set,
-so an unconfigured link never reaches the page. Drop the PDF into `assets/` and
-edit the `PROFILE` block at the top of `script.js`:
+The resume button is built by JavaScript and is only created when a path is
+set, so an unconfigured link never reaches the page. Drop the PDF into
+`assets/` and edit the `PROFILE` block at the top of `script.js`:
 
 ```js
 var PROFILE = {
@@ -61,10 +89,14 @@ var PROFILE = {
 ## Cache busting
 
 `index.html` links the stylesheet and script with a version query —
-`styles.css?v=4`, `script.js?v=4`. Bump both numbers when you change either
-file, otherwise returning visitors keep the cached copy.
+`styles.css?v=5`, `script.js?v=5`. Bump both when you change either file, or
+returning visitors keep the cached copy.
 
-## Previous design
+## Deploying
 
-The dark PCB homepage — a CSS 3D board that tilted toward the pointer and lit
-its copper traces — is in git history at `b5054b9`.
+Pushing to `main` publishes through GitHub Pages. A build takes about a minute.
+
+## Previous designs
+
+- White ground with liquid glass panels — `11a5b10`
+- Dark PCB homepage with a CSS 3D board — `b5054b9`
