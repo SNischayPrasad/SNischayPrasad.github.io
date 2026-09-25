@@ -361,7 +361,10 @@ a{ color:inherit; }
 .brick a:hover{ color:var(--live); border-bottom-color:var(--live); }
 
 /* ---------- table ---------- */
-.table-wrap{ overflow-x:auto; }
+/* position:relative makes this the containing block for the absolutely
+   positioned .sr labels inside the table. Without it they escape the
+   overflow clip and widen the page to the table's 680px on phones. */
+.table-wrap{ overflow-x:auto; position:relative; }
 table{ border-collapse:collapse; width:100%; min-width:680px; }
 th,td{ text-align:left; vertical-align:top; padding:16px 20px 16px 0; border-bottom:1px solid var(--line-soft); }
 thead th{

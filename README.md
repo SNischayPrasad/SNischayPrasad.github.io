@@ -30,6 +30,11 @@ Each screenshot sits in a frame whose address bar shows the project's real
 deployment URL and links to it. The chrome is the evidence, not decoration — a
 reader can check any claim by clicking the address.
 
+Frames are only for projects with a live deployment. Source-only work — the
+cloud series, ScamShield, Tally — goes in a text `.slab` instead, so a frame
+never implies a URL that does not exist. Green is likewise reserved for
+*deployed*; unfinished work gets the neutral dashed `.chip-wip`.
+
 To add one:
 
 ```html
@@ -89,7 +94,7 @@ var PROFILE = {
 ## Cache busting
 
 `index.html` links the stylesheet and script with a version query —
-`styles.css?v=5`, `script.js?v=5`. Bump both when you change either file, or
+`styles.css?v=7`, `script.js?v=7`. Bump both when you change either file, or
 returning visitors keep the cached copy.
 
 ## Deploying
