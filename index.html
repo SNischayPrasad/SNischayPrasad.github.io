@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sadhanala Nischay Prasad — Full-stack engineer</title>
-<meta name="description" content="Full-stack engineer with an embedded background. Six deployed projects you can open right now — Next.js and Postgres web apps, an on-device Android scam detector, and ESP32 firmware.">
+<meta name="description" content="Full-stack engineer with an embedded background. Six deployed projects you can open right now, five FastAPI cloud services, an on-device Android scam detector, and ESP32 firmware.">
 <meta name="author" content="Sadhanala Nischay Prasad">
 <link rel="canonical" href="https://snischayprasad.github.io/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sadhanala Nischay Prasad — Full-stack engineer">
-<meta property="og:description" content="Six deployed projects you can open right now. Next.js and Postgres web apps, an on-device Android scam detector, and ESP32 firmware.">
+<meta property="og:description" content="Six deployed projects you can open right now, five FastAPI cloud services, an on-device Android scam detector, and ESP32 firmware.">
 <meta property="og:url" content="https://snischayprasad.github.io/">
 <meta property="og:image" content="https://snischayprasad.github.io/assets/shots/commons.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 
 <!-- Arm the scroll reveal only if this browser can undo it. Without the class
      everything renders visible, so a blocked script cannot leave a blank page. -->
@@ -46,6 +46,7 @@
     <ul class="nav-links">
       <li><a href="#live">Live</a></li>
       <li><a href="#offline">Also built</a></li>
+      <li><a href="#cloud">Cloud</a></li>
       <li><a href="#hardware">Hardware</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -65,8 +66,8 @@
       that you can <em>open right now.</em>
     </h1>
     <p class="lede">
-      I write the whole stack &mdash; Next.js and Postgres on the web, Kotlin on the phone,
-      C++ on the microcontroller. Every project below is deployed, and every claim on this
+      I write the whole stack &mdash; Next.js, FastAPI and Postgres on the web, Kotlin on the
+      phone, C++ on the microcontroller. Every project below is deployed, and every claim on this
       page points at the file it came from.
     </p>
     <div class="cta">
@@ -76,9 +77,9 @@
 
     <dl class="stats">
       <div><dt>Live deployments</dt><dd><span class="live-n">6</span></dd></div>
-      <div><dt>Public repositories</dt><dd>23</dd></div>
+      <div><dt>Public repositories</dt><dd>28</dd></div>
       <div><dt>Languages shipped</dt><dd>6</dd></div>
-      <div><dt>Projects detailed here</dt><dd>8</dd></div>
+      <div><dt>Projects detailed here</dt><dd>13</dd></div>
     </dl>
   </div>
 </header>
@@ -291,13 +292,14 @@
         <h3 class="mini-name">Smart Dustbin</h3>
         <p class="mini-line">Touchless ESP32 bin with a fleet dashboard, plus an in-browser twin of the firmware.</p>
         <ul class="tags">
-          <li>ESP32</li><li>Embedded C++</li><li>Google OAuth</li><li>180 assertions</li>
+          <li>ESP32</li><li>Embedded C++</li><li>Firestore</li><li>486 checks</li>
         </ul>
         <p class="mini-note">
           Rubbish is never flat, so one downward sensor over a peak reads &ldquo;full&rdquo; at half empty. Two
           sensors on opposite diagonals are fused into one figure, flagging an uneven load when they disagree by
-          more than 25 points and falling back to one sensor rather than going blind. The dashboard maps a
-          sixteen-bin demo fleet &mdash; a simulation of city operations, not live telemetry.
+          more than 25 points. From 90% the lid refuses a hand; the only ways past are a safety re-open and the
+          collection crew&rsquo;s override. The map shows 48 simulated bins across Hyderabad, identical in every
+          browser, with Firestore sharing what visitors and any real board actually did.
         </p>
         <p class="case-links">
           <a href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener">Open &#8599;</a>
@@ -386,8 +388,152 @@
   </div>
 </section>
 
+<!-- ================= CLOUD SERIES ================= -->
+<section id="cloud" class="band">
+  <div class="shell">
+    <div class="band-head">
+      <p class="kicker">Cloud series</p>
+      <h2 class="h2">Five services, one architecture.</h2>
+      <p class="band-sub">
+        Each is a FastAPI API with a React front end, tested in CI, and its database moves from SQLite to
+        managed Postgres by changing one environment variable. The three that store files do the same from a
+        local folder to an S3-compatible bucket. None is hosted, so here is what each one does differently.
+      </p>
+    </div>
+
+    <div class="grid-2">
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Seatline</h3>
+          <span class="chip">54 tests</span>
+        </div>
+        <p>
+          Event planning with live RSVPs. Organisers publish; attendees answer going, maybe or not going, and
+          every open dashboard updates without a refresh.
+        </p>
+        <dl class="notes">
+          <div>
+            <dt>It cannot oversell the last seat</dt>
+            <dd>A seat is taken with one conditional <span class="m">UPDATE</span> that only succeeds while the going count is below capacity. The loser of a race changes no rows and joins the waitlist, and a <span class="m">CHECK</span> constraint enforces the same rule inside the database.</dd>
+          </div>
+          <div>
+            <dt>Proved with a real race</dt>
+            <dd>The suite releases thirty users on a thread barrier at the same instant, against PostgreSQL in CI, and asserts that exactly the capacity get in.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>FastAPI</li><li>WebSockets</li><li>PostgreSQL</li><li>React 18</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Real-Time-Cloud-Event-RSVP-Tracker" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Smart Plant Care</h3>
+          <span class="chip">70 tests</span>
+        </div>
+        <p>
+          Virtual sensors, or an optional ESP32, report soil moisture, temperature, humidity and light. The
+          cloud decides when to water and sends the pump command back to the device.
+        </p>
+        <dl class="notes">
+          <div>
+            <dt>Watering has hard limits</dt>
+            <dd>The engine stops the pump at a maximum run time to prevent overwatering and enforces a cooldown between waterings, with thresholds set per plant profile.</dd>
+          </div>
+          <div>
+            <dt>Hardware optional, not faked</dt>
+            <dd>A simulator stands in for the sensors and pump, and real ESP32 firmware sits in the same repository. A device that stops reporting is marked offline and raises an alert.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>FastAPI</li><li>ESP32</li><li>IoT simulator</li><li>React</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Cloud-Connected-Smart-Plant-Care" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Assignment Portal</h3>
+          <span class="chip">67 tests</span>
+        </div>
+        <p>
+          Teachers publish assignments, students upload their work, and teachers return marks and written
+          feedback.
+        </p>
+        <dl class="notes">
+          <div>
+            <dt>Private files, short-lived links</dt>
+            <dd>Submissions go to a private bucket and are only reached through signed links that expire after five minutes.</dd>
+          </div>
+          <div>
+            <dt>The server decides what is late</dt>
+            <dd>Lateness is stamped at submission time and kept after grading, so the timestamp is not something to argue about. The same app also runs on AWS Lambda through Mangum.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>FastAPI</li><li>S3-compatible</li><li>AWS Lambda</li><li>React 18</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Cloud-Based-Assignment-Submission-Portal" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Hobby &amp; Skills Tracker</h3>
+          <span class="chip">56 tests</span>
+        </div>
+        <p>
+          Log practice across hobbies, set goals, and share progress on a community feed with likes, comments
+          and follows.
+        </p>
+        <dl class="notes">
+          <div>
+            <dt>Uploads are checked by content</dt>
+            <dd>Files are validated by their first bytes rather than their extension, and served through signed links that expire.</dd>
+          </div>
+          <div>
+            <dt>Retries cannot double anything</dt>
+            <dd>Likes, reports and new posts carry database uniqueness constraints, so a repeated request cannot create a second row.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>FastAPI</li><li>S3-compatible</li><li>Community feed</li><li>React 18</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Cloud-Hobby-Skills-Tracker" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab slab-wide">
+        <div class="slab-head">
+          <h3>Personal Diet Planner</h3>
+          <span class="chip">278 tests</span>
+          <span class="chip chip-wip">In progress</span>
+        </div>
+        <p>
+          Builds a personal meal plan from a user&rsquo;s profile. Its write-up is still a stub, but the code is
+          well past a sketch.
+        </p>
+        <dl class="notes">
+          <div>
+            <dt>Works without the model</dt>
+            <dd>A rule-based engine that needs no internet, API key or GPU generates plans on its own and takes over whenever the optional language model is unavailable. Each plan records which one produced it and why it fell back.</dd>
+          </div>
+          <div>
+            <dt>Tested three ways</dt>
+            <dd>The 278 backend tests run on Python 3.11 and 3.13 against SQLite, and again against PostgreSQL, alongside 31 front-end tests and an end-to-end smoke run.</dd>
+          </div>
+        </dl>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/AI-Powered-Personal-Diet-Planner-with-Cloud-Storage" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- ================= HARDWARE ================= -->
-<section id="hardware" class="band">
+<section id="hardware" class="band band-alt">
   <div class="shell">
     <div class="band-head">
       <p class="kicker">Where I started</p>
@@ -422,7 +568,7 @@
 </section>
 
 <!-- ================= REGISTER ================= -->
-<section class="band band-alt">
+<section class="band">
   <div class="shell">
     <div class="band-head">
       <p class="kicker">Earlier</p>
@@ -484,7 +630,7 @@
 </section>
 
 <!-- ================= STACK ================= -->
-<section id="stack" class="band">
+<section id="stack" class="band band-alt">
   <div class="shell">
     <div class="band-head">
       <p class="kicker">Tools</p>
@@ -495,9 +641,9 @@
       <div class="row"><p class="row-h">Languages</p>
         <ul class="pills"><li>TypeScript</li><li>JavaScript</li><li>Kotlin</li><li>C / C++</li><li>Java 17</li><li>Python</li><li>SQL</li></ul></div>
       <div class="row"><p class="row-h">Web</p>
-        <ul class="pills"><li>Next.js 15</li><li>React 19</li><li>Express 5</li><li>Prisma</li><li>Tailwind</li><li>Zod</li><li>Server-Sent Events</li><li>REST</li></ul></div>
+        <ul class="pills"><li>Next.js 15</li><li>React 19</li><li>FastAPI</li><li>Express 5</li><li>Prisma</li><li>Tailwind</li><li>Zod</li><li>WebSockets</li><li>Server-Sent Events</li><li>REST</li></ul></div>
       <div class="row"><p class="row-h">Data</p>
-        <ul class="pills"><li>PostgreSQL</li><li>SQLite</li><li>PGlite</li><li>Firestore</li><li>localStorage</li></ul></div>
+        <ul class="pills"><li>PostgreSQL</li><li>SQLite</li><li>SQLAlchemy</li><li>PGlite</li><li>Firestore</li><li>S3-compatible storage</li><li>localStorage</li></ul></div>
       <div class="row"><p class="row-h">Security</p>
         <ul class="pills"><li>Argon2id</li><li>bcrypt</li><li>JWT rotation</li><li>AES-256-GCM</li><li>WebCrypto</li><li>OAuth / JWKS</li><li>CSRF &amp; CSP</li></ul></div>
       <div class="row"><p class="row-h">Mobile &amp; ML</p>
@@ -505,13 +651,13 @@
       <div class="row"><p class="row-h">Embedded</p>
         <ul class="pills"><li>ESP32</li><li>Arduino</li><li>HC-SR04</li><li>RFID &amp; fingerprint</li><li>GSM</li><li>I&sup2;C / SPI / UART</li><li>Wokwi</li></ul></div>
       <div class="row"><p class="row-h">Practice</p>
-        <ul class="pills"><li>Git</li><li>GitHub Actions</li><li>Vercel</li><li>GitHub Pages</li><li>node:test</li><li>Vitest</li><li>JUnit</li></ul></div>
+        <ul class="pills"><li>Git</li><li>GitHub Actions</li><li>Docker</li><li>Vercel</li><li>AWS Lambda</li><li>GitHub Pages</li><li>pytest</li><li>node:test</li><li>Vitest</li><li>JUnit</li></ul></div>
     </div>
   </div>
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section id="about" class="band band-alt">
+<section id="about" class="band">
   <div class="shell about">
     <p class="kicker">About</p>
     <p class="about-big">
@@ -533,7 +679,7 @@
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="band">
+<section id="contact" class="band band-alt">
   <div class="shell contact">
     <h2 class="display display-sm">Let&rsquo;s <em>talk.</em></h2>
     <p class="contact-sub">Open to full-stack, backend and embedded roles, and to internships.</p>
@@ -555,6 +701,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=5"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>

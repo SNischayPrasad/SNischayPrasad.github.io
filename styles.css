@@ -328,6 +328,17 @@ a{ color:inherit; }
   border:1px solid var(--line-soft); border-radius:2px; padding:4px 9px;
 }
 .slab > p{ color:var(--paper-2); font-size:16.5px; margin:0 0 20px; }
+.slab .tags{ margin:0 0 18px; }
+
+/* a full-width slab; its notes sit side by side on wide screens */
+.slab-wide{ grid-column:1 / -1; }
+@media (min-width:761px){
+  .slab-wide .notes{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:clamp(24px,3vw,44px); }
+  .slab-wide .notes > div{ border-top:1px solid var(--line); }
+}
+
+/* unfinished work: deliberately neutral, never the green that means deployed */
+.chip-wip{ border-style:dashed; color:var(--paper-2); }
 
 /* ---------- brick (hardware) ---------- */
 .brick{
