@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="styles.css?v=8">
 
 <!-- Arm the scroll reveal only if this browser can undo it. Without the class
      everything renders visible, so a blocked script cannot leave a blank page. -->
@@ -277,7 +277,7 @@
         </p>
       </article>
 
-      <article class="mini">
+      <article class="mini" id="dustbin">
         <figure class="frame">
           <div class="chrome">
             <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -289,8 +289,12 @@
                  alt="The Smart Dustbin site, headed “It opens by itself. And it tells the city when it is full.”">
           </a>
         </figure>
+        <p class="case-tag mini-tag">A Greenve project</p>
         <h3 class="mini-name">Smart Dustbin</h3>
         <p class="mini-line">Touchless ESP32 bin with a fleet dashboard, plus an in-browser twin of the firmware.</p>
+        <p class="mini-credit">
+          Greenve is a startup idea I&rsquo;m building with Reddi Malli Nandini and Rohit Singh, and the Smart Dustbin comes under it.
+        </p>
         <ul class="tags">
           <li>ESP32</li><li>Embedded C++</li><li>Firestore</li><li>486 checks</li>
         </ul>
@@ -675,6 +679,12 @@
         full-stack or backend work, and I am equally happy on the side of a product that talks to hardware.
       </p>
     </div>
+    <p class="about-note">
+      <span class="about-note-k">Greenve</span>
+      I&rsquo;m also building Greenve, a startup idea, with Reddi Malli Nandini and Rohit Singh. The
+      <a href="#dustbin">Smart Dustbin</a> comes under it: a bin that opens without being touched and tells
+      the city when it needs emptying.
+    </p>
   </div>
 </section>
 
@@ -701,6 +711,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=7"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>

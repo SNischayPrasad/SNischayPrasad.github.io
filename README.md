@@ -54,6 +54,13 @@ To add one:
 The `width` and `height` attributes are required — they reserve the box so the
 page does not shift as images arrive.
 
+### Greenve
+
+The Smart Dustbin is a Greenve project. Greenve is a startup idea shared with
+Reddi Malli Nandini and Rohit Singh, so the Dustbin card and the About section
+credit all three. The Dustbin repository itself never mentions Greenve, so keep
+the attribution when you rewrite that card from the repo.
+
 ## Refreshing the screenshots
 
 The shots are captured from the running deployments with headless Chrome, then
@@ -94,7 +101,7 @@ var PROFILE = {
 ## Cache busting
 
 `index.html` links the stylesheet and script with a version query —
-`styles.css?v=7`, `script.js?v=7`. Bump both when you change either file, or
+`styles.css?v=8`, `script.js?v=8`. Bump both when you change either file, or
 returning visitors keep the cached copy.
 
 ## Deploying
