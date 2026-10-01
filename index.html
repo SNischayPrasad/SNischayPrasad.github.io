@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sadhanala Nischay Prasad — Full-stack engineer</title>
-<meta name="description" content="Full-stack engineer with an embedded background. Six deployed projects you can open right now, five FastAPI cloud services, an on-device Android scam detector, and ESP32 firmware.">
+<meta name="description" content="Full-stack engineer with an embedded background. Eight deployed projects you can open right now, including client work and end-to-end encrypted chat, five FastAPI cloud services, six security tools, and ESP32 firmware.">
 <meta name="author" content="Sadhanala Nischay Prasad">
 <link rel="canonical" href="https://snischayprasad.github.io/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sadhanala Nischay Prasad — Full-stack engineer">
-<meta property="og:description" content="Six deployed projects you can open right now, five FastAPI cloud services, an on-device Android scam detector, and ESP32 firmware.">
+<meta property="og:description" content="Eight deployed projects you can open right now, including client work and end-to-end encrypted chat, five FastAPI cloud services, six security tools, and ESP32 firmware.">
 <meta property="og:url" content="https://snischayprasad.github.io/">
 <meta property="og:image" content="https://snischayprasad.github.io/assets/shots/commons.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
 
 <!-- Arm the scroll reveal only if this browser can undo it. Without the class
      everything renders visible, so a blocked script cannot leave a blank page. -->
@@ -45,7 +45,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#live">Live</a></li>
-      <li><a href="#offline">Also built</a></li>
+      <li><a href="#security">Security</a></li>
       <li><a href="#cloud">Cloud</a></li>
       <li><a href="#hardware">Hardware</a></li>
       <li><a href="#stack">Stack</a></li>
@@ -62,7 +62,7 @@
   <div class="shell">
     <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Full-stack engineer &middot; embedded background &middot; India</p>
     <h1 class="display">
-      Six things I built<br>
+      Eight things I built<br>
       that you can <em>open right now.</em>
     </h1>
     <p class="lede">
@@ -76,10 +76,10 @@
     </div>
 
     <dl class="stats">
-      <div><dt>Live deployments</dt><dd><span class="live-n">6</span></dd></div>
-      <div><dt>Public repositories</dt><dd>28</dd></div>
+      <div><dt>Live deployments</dt><dd><span class="live-n">8</span></dd></div>
+      <div><dt>Public repositories</dt><dd>33</dd></div>
       <div><dt>Languages shipped</dt><dd>6</dd></div>
-      <div><dt>Projects detailed here</dt><dd>13</dd></div>
+      <div><dt>Projects detailed here</dt><dd>19</dd></div>
     </dl>
   </div>
 </header>
@@ -186,38 +186,103 @@
     </div>
   </article>
 
+  <!-- ---- feature 3 ---- -->
+  <article class="case shell">
+    <div class="case-media">
+      <figure class="frame">
+        <div class="chrome">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <a class="addr" href="https://realtime-chat-app-n.vercel.app" target="_blank" rel="noopener">
+            realtime-chat-app-n.vercel.app
+          </a>
+          <span class="badge">live</span>
+        </div>
+        <a class="shot" href="https://realtime-chat-app-n.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <img src="assets/shots/transmission.webp" width="1600" height="900" loading="lazy" decoding="async"
+               alt="Transmission sign-in screen headed “Rooms that stay live”, listing live delivery, end-to-end encrypted private conversations, and encrypted voice and video calls.">
+        </a>
+      </figure>
+    </div>
+    <div class="case-body">
+      <h3 class="case-name">Transmission</h3>
+      <p class="case-line">Real-time chat with friends, end-to-end encrypted private conversations, and voice and video calls.</p>
+      <ul class="tags">
+        <li>Next.js 15</li><li>WebCrypto</li><li>WebRTC</li><li>Server-Sent Events</li><li>PostgreSQL</li><li>4 runtime deps</li>
+      </ul>
+      <dl class="notes">
+        <div>
+          <dt>The server stores what it cannot read</dt>
+          <dd>Private messages are encrypted in the sender&rsquo;s browser with AES-GCM under ECDH-derived keys and stored as ciphertext. Once a conversation carries an encrypted message, the server refuses plaintext into it, so an old client cannot quietly downgrade it.</dd>
+        </div>
+        <div>
+          <dt>Keys you can check</dt>
+          <dd>Two friends compare a 60-digit safety number. Swap either person&rsquo;s key and the number changes, which a test asserts.</dd>
+        </div>
+        <div>
+          <dt>Calls without a call server</dt>
+          <dd>Voice and video run browser to browser over WebRTC. The server relays only call setup, and that is sealed too, so it can neither read the network details inside nor swap in its own fingerprint to intercept the media. No crypto or WebRTC library is involved: the whole app has four runtime dependencies.</dd>
+        </div>
+        <div>
+          <dt>Real-time where sockets cannot live</dt>
+          <dd>Serverless functions cannot hold a WebSocket open, so Postgres is the fan-out point: each stream tails rows past a <span class="m">BIGSERIAL</span> cursor and hands the browser a resume point before the function times out.</dd>
+        </div>
+      </dl>
+      <p class="case-links">
+        <a href="https://realtime-chat-app-n.vercel.app" target="_blank" rel="noopener">Open Transmission &#8599;</a>
+        <a href="https://github.com/SNischayPrasad/realtime-chat-app" target="_blank" rel="noopener">Source</a>
+        <a href="https://github.com/SNischayPrasad/realtime-chat-app/blob/main/docs/ENCRYPTION.md" target="_blank" rel="noopener">What the encryption does not protect</a>
+      </p>
+    </div>
+  </article>
+
+  <!-- ---- feature 4: client work ---- -->
+  <article class="case case-flip shell">
+    <div class="case-media">
+      <figure class="frame">
+        <div class="chrome">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <a class="addr" href="https://snischayprasad.github.io/SAD-Delivery-project/" target="_blank" rel="noopener">
+            snischayprasad.github.io/SAD-Delivery-project
+          </a>
+          <span class="badge">live</span>
+        </div>
+        <a class="shot" href="https://snischayprasad.github.io/SAD-Delivery-project/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <img src="assets/shots/steelaccessdoors.webp" width="1600" height="900" loading="lazy" decoding="async"
+               alt="The Steel Access Doors home page: the company name beside a rendered 3D steel double door, with a prompt to scroll to open it.">
+        </a>
+      </figure>
+    </div>
+    <div class="case-body">
+      <p class="case-tag">Client work</p>
+      <h3 class="case-name">Steel Access Doors</h3>
+      <p class="case-line">A redesigned website for Steel Access Doors, a clean-room solutions company in Hyderabad, with a 3D model of every product.</p>
+      <ul class="tags">
+        <li>Three.js</li><li>WebGL</li><li>JavaScript</li><li>No build step</li>
+      </ul>
+      <dl class="notes">
+        <div>
+          <dt>A model for every product</dt>
+          <dd>Each of the 19 products has its own 3D model, built in code to match its product photo, down to the handles and hinges. Visitors can rotate and zoom it, and tap a door or pass box to open it.</dd>
+        </div>
+        <div>
+          <dt>The home page is a doorway</dt>
+          <dd>Scrolling swings open a steel double door and carries the camera into a clean room, showing the product in the setting it is made for.</dd>
+        </div>
+        <div>
+          <dt>Still works without the 3D</dt>
+          <dd>Without WebGL, or if the 3D library cannot load, it falls back to a CSS doorway and product photos, and it respects reduced-motion settings.</dd>
+        </div>
+      </dl>
+      <p class="case-links">
+        <a href="https://snischayprasad.github.io/SAD-Delivery-project/" target="_blank" rel="noopener">Open the site &#8599;</a>
+        <a href="https://github.com/SNischayPrasad/SAD-Delivery-project/tree/gh-pages" target="_blank" rel="noopener">Source</a>
+      </p>
+    </div>
+  </article>
+
   <!-- ---- the other four ---- -->
   <div class="shell">
     <div class="grid-2">
-
-      <article class="mini">
-        <figure class="frame">
-          <div class="chrome">
-            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <a class="addr" href="https://realtime-chat-app-n.vercel.app" target="_blank" rel="noopener">realtime-chat-app-n.vercel.app</a>
-            <span class="badge">live</span>
-          </div>
-          <a class="shot" href="https://realtime-chat-app-n.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="assets/shots/transmission.webp" width="1600" height="900" loading="lazy" decoding="async"
-                 alt="Transmission sign-in screen, split between a dark panel headed “Rooms that stay live” and a sign-in form.">
-          </a>
-        </figure>
-        <h3 class="mini-name">Transmission</h3>
-        <p class="mini-line">Real-time chat with public rooms and private threads &mdash; built to run where a socket server cannot.</p>
-        <ul class="tags">
-          <li>Next.js 15</li><li>Server-Sent Events</li><li>PostgreSQL</li><li>4 runtime deps</li>
-        </ul>
-        <p class="mini-note">
-          Vercel functions cannot hold a WebSocket open, so Postgres becomes the fan-out point: each stream tails
-          rows past a <span class="m">BIGSERIAL</span> cursor and hands the browser a resume point before the
-          function times out. Private rooms answer <em>not yours</em> and <em>does not exist</em> with a
-          byte-identical 404, so you cannot probe for a conversation.
-        </p>
-        <p class="case-links">
-          <a href="https://realtime-chat-app-n.vercel.app" target="_blank" rel="noopener">Open &#8599;</a>
-          <a href="https://github.com/SNischayPrasad/realtime-chat-app" target="_blank" rel="noopener">Source</a>
-        </p>
-      </article>
 
       <article class="mini">
         <figure class="frame">
@@ -311,21 +376,55 @@
         </p>
       </article>
 
+      <article class="mini">
+        <figure class="frame">
+          <div class="chrome">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <a class="addr" href="https://sad-delivery-project.vercel.app" target="_blank" rel="noopener">sad-delivery-project.vercel.app</a>
+            <span class="badge">live</span>
+          </div>
+          <a class="shot" href="https://sad-delivery-project.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/shots/tally.webp" width="1600" height="900" loading="lazy" decoding="async"
+                 alt="The Tally home page: a large TALLY wordmark, admin and staff sign-in panels, and a sample picking checklist with four ticked lines.">
+          </a>
+        </figure>
+        <h3 class="mini-name">Tally</h3>
+        <p class="mini-line">Turns a supplier invoice into a picking checklist that staff tick off and photograph, and an admin signs off.</p>
+        <ul class="tags">
+          <li>Node</li><li>Express 5</li><li>SQLite</li><li>OCR</li><li>Server-Sent Events</li>
+        </ul>
+        <p class="mini-note">
+          It reads whatever the supplier sent: a structured model read, then the PDF text layer, then OCR, keeping
+          the best result. A dependency-free parser proves each line by finding quantity &times; price &asymp; amount
+          among its numbers, across US, Indian-lakh and European digit grouping. Every PDF is opened in a short-lived
+          child process with a memory cap, so a hostile file fails one upload rather than the server.
+        </p>
+        <p class="case-links">
+          <a href="https://sad-delivery-project.vercel.app" target="_blank" rel="noopener">Open &#8599;</a>
+          <a href="https://github.com/SNischayPrasad/SAD-Delivery-project" target="_blank" rel="noopener">Source</a>
+        </p>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- ================= NOT DEPLOYED, STILL SUBSTANTIAL ================= -->
-<section id="offline" class="band band-alt">
+<!-- ================= SECURITY ================= -->
+<section id="security" class="band band-alt">
   <div class="shell">
     <div class="band-head">
-      <p class="kicker">Not deployable</p>
-      <h2 class="h2">Two that do not live at a URL.</h2>
-      <p class="band-sub">An Android app and a back-office tool. Neither is something you can link to, so here is what is inside them.</p>
+      <p class="kicker">Security</p>
+      <h2 class="h2">Security, from the defending side.</h2>
+      <p class="band-sub">
+        ScamShield runs on a phone. The other five are dashboards that run on synthetic data or your own
+        answers, and none of them scans, scrapes or contacts anything real. None is hosted, so here is what
+        each one does.
+      </p>
     </div>
 
     <div class="grid-2">
-      <article class="slab">
+
+      <article class="slab slab-wide">
         <div class="slab-head">
           <h3>ScamShield</h3>
           <span class="chip">Kotlin &middot; Android</span>
@@ -359,35 +458,117 @@
 
       <article class="slab">
         <div class="slab-head">
-          <h3>Tally</h3>
-          <span class="chip">Node &middot; SQLite</span>
+          <h3>Phishing Detector</h3>
+          <span class="chip">57 tests</span>
+        </div>
+        <p>Paste an email and it scores how likely it is to be phishing, then lists exactly why.</p>
+        <dl class="notes">
+          <div>
+            <dt>Every score comes with reasons</dt>
+            <dd>A rule engine flags credential requests, urgency, lookalike senders and suspicious links, and an optional model adds a probability. The final score blends them 60/40, so the rules still drive it.</dd>
+          </div>
+          <div>
+            <dt>It never opens a link</dt>
+            <dd>The analyser makes no network requests at all, and URLs are shown defanged, like <span class="m">hxxp://198[.]51&hellip;</span>, so nothing on screen is clickable.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>Flask</li><li>scikit-learn</li><li>Explainable scoring</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Phishing-Email-Detection-Awareness-Dashboard" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Password Analyzer</h3>
+          <span class="chip">73 tests</span>
+        </div>
+        <p>Scores a password the way attackers actually guess, and says what to change.</p>
+        <dl class="notes">
+          <div>
+            <dt>Nothing worth stealing</dt>
+            <dd>There is no password column anywhere, not even a hash, because people type real passwords into checkers. Only the score and length are kept, and a test proves the column does not exist.</dd>
+          </div>
+          <div>
+            <dt>Entropy that knows about patterns</dt>
+            <dd>It shows the textbook length &times; log&#8322;(alphabet) figure beside a pattern-adjusted one, so you can see why <span class="m">Password123!</span> scores high on the formula and falls to a guess list.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>Flask</li><li>Pattern analysis</li><li>Data minimisation</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Password-Strength-Analyzer-Security-Tool" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Social Media Privacy Risk</h3>
+          <span class="chip">65 tests</span>
+        </div>
+        <p>A questionnaire about your own settings and habits that scores how exposed you are across ten areas.</p>
+        <dl class="notes">
+          <div>
+            <dt>It never asks for the secret</dt>
+            <dd>It asks whether your phone number is public, never what the number is. It does not scrape or track anyone.</dd>
+          </div>
+          <div>
+            <dt>See what fixing it would do</dt>
+            <dd>A what-if simulator re-scores you with improved settings, so you can see how much each change would lower the risk before you make it.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>Flask</li><li>Risk scoring</li><li>Privacy by design</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Social-Media-Privacy-Risk-Assessment" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Threat Intelligence Dashboard</h3>
+          <span class="chip">40 tests</span>
+        </div>
+        <p>Validates, enriches, scores and correlates threat indicators, and teaches people to recognise the same threats.</p>
+        <dl class="notes">
+          <div>
+            <dt>Risk and confidence are separate</dt>
+            <dd>How dangerous an indicator is and how sure we are of it get different scores, with sources graded A to F for reliability. A match is not reported as a confirmed breach.</dd>
+          </div>
+          <div>
+            <dt>Mapped to ATT&amp;CK, never guessed</dt>
+            <dd>Observed behaviours map to named MITRE ATT&amp;CK techniques, and indicators are only checked for syntax: none is ever visited, resolved or contacted.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>Flask</li><li>MITRE ATT&amp;CK</li><li>pandas</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Cybersecurity-Awareness-Threat-Intelligence-Dashboard" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab slab-wide">
+        <div class="slab-head">
+          <h3>Network Intrusion Detection</h3>
+          <span class="chip">37 tests</span>
         </div>
         <p>
-          Turns an uploaded supplier invoice into a warehouse picking checklist that staff tick off and photograph,
-          and an admin approves or returns with a note.
+          A simulated intrusion detection system: it generates synthetic traffic, detects attacks in it, and gives a
+          security analyst a dashboard of scored, grouped incidents. It never captures real packets.
         </p>
         <dl class="notes">
           <div>
-            <dt>Reads whatever the supplier sent</dt>
-            <dd>PDFs try a structured model read, then the text layer, then OCR over rendered pages, keeping whichever local read found more. An unreadable file still produces a draft carrying a plain-English warning instead of throwing.</dd>
+            <dt>Three ways to catch an attack</dt>
+            <dd>Signature rules catch known patterns, a statistical model flags traffic that drifts from a learned baseline, and an optional Random Forest adds a third opinion. All three feed one risk score.</dd>
           </div>
           <div>
-            <dt>It proves each row</dt>
-            <dd>A dependency-free parser infers column roles from the header, then confirms a line by finding quantity &times; price &asymp; amount among its numbers &mdash; coping with US, Indian-lakh and European digit grouping.</dd>
-          </div>
-          <div>
-            <dt>Hostile files cannot take the server down</dt>
-            <dd>Every PDF read is forked into a short-lived child process with a memory cap and a timeout, so a decompression bomb fails that one upload rather than the process.</dd>
-          </div>
-          <div>
-            <dt>The live stream re-checks you</dt>
-            <dd>Before every event and every heartbeat, the push stream re-validates the session, that the account is still active, and that the role has not changed &mdash; then ends the stream if any of that fails.</dd>
+            <dt>Fewer, better alerts</dt>
+            <dd>Alerts about the same activity within a time window are merged into one incident, and the dashboard reports how much that cut the alert count.</dd>
           </div>
         </dl>
+        <ul class="tags"><li>FastAPI</li><li>React</li><li>scikit-learn</li><li>Synthetic traffic</li></ul>
         <p class="case-links">
-          <a href="https://github.com/SNischayPrasad/SAD-Delivery-project" target="_blank" rel="noopener">Source &#8599;</a>
+          <a href="https://github.com/SNischayPrasad/Network-Intrusion-Detection-System-Simulation" target="_blank" rel="noopener">Source &#8599;</a>
         </p>
       </article>
+
     </div>
   </div>
 </section>
@@ -510,12 +691,12 @@
       <article class="slab slab-wide">
         <div class="slab-head">
           <h3>Personal Diet Planner</h3>
-          <span class="chip">278 tests</span>
-          <span class="chip chip-wip">In progress</span>
+          <span class="chip">297 tests</span>
+          <span class="chip">97% coverage</span>
         </div>
         <p>
-          Builds a personal meal plan from a user&rsquo;s profile. Its write-up is still a stub, but the code is
-          well past a sketch.
+          Builds a personal meal plan from a user&rsquo;s profile and stores the plans and files in the cloud. Plans
+          are general-wellness examples, not medical advice.
         </p>
         <dl class="notes">
           <div>
@@ -524,7 +705,7 @@
           </div>
           <div>
             <dt>Tested three ways</dt>
-            <dd>The 278 backend tests run on Python 3.11 and 3.13 against SQLite, and again against PostgreSQL, alongside 31 front-end tests and an end-to-end smoke run.</dd>
+            <dd>The 297 backend tests run on Python 3.11 and 3.13 against SQLite, and again against PostgreSQL, at 97% coverage, alongside 31 front-end tests, an end-to-end smoke run, and the full stack started from its Docker image.</dd>
           </div>
         </dl>
         <p class="case-links">
@@ -645,13 +826,13 @@
       <div class="row"><p class="row-h">Languages</p>
         <ul class="pills"><li>TypeScript</li><li>JavaScript</li><li>Kotlin</li><li>C / C++</li><li>Java 17</li><li>Python</li><li>SQL</li></ul></div>
       <div class="row"><p class="row-h">Web</p>
-        <ul class="pills"><li>Next.js 15</li><li>React 19</li><li>FastAPI</li><li>Express 5</li><li>Prisma</li><li>Tailwind</li><li>Zod</li><li>WebSockets</li><li>Server-Sent Events</li><li>REST</li></ul></div>
+        <ul class="pills"><li>Next.js 15</li><li>React 19</li><li>FastAPI</li><li>Flask</li><li>Express 5</li><li>Prisma</li><li>Tailwind</li><li>Zod</li><li>WebSockets</li><li>Server-Sent Events</li><li>WebRTC</li><li>REST</li></ul></div>
       <div class="row"><p class="row-h">Data</p>
         <ul class="pills"><li>PostgreSQL</li><li>SQLite</li><li>SQLAlchemy</li><li>PGlite</li><li>Firestore</li><li>S3-compatible storage</li><li>localStorage</li></ul></div>
       <div class="row"><p class="row-h">Security</p>
-        <ul class="pills"><li>Argon2id</li><li>bcrypt</li><li>JWT rotation</li><li>AES-256-GCM</li><li>WebCrypto</li><li>OAuth / JWKS</li><li>CSRF &amp; CSP</li></ul></div>
+        <ul class="pills"><li>End-to-end encryption</li><li>Argon2id</li><li>bcrypt</li><li>JWT rotation</li><li>AES-256-GCM</li><li>ECDH</li><li>WebCrypto</li><li>MITRE ATT&amp;CK</li><li>OAuth / JWKS</li><li>CSRF &amp; CSP</li></ul></div>
       <div class="row"><p class="row-h">Mobile &amp; ML</p>
-        <ul class="pills"><li>Jetpack Compose</li><li>MediaPipe</li><li>ML Kit</li><li>CLIP</li><li>Transformers.js</li><li>Tesseract</li></ul></div>
+        <ul class="pills"><li>Jetpack Compose</li><li>MediaPipe</li><li>ML Kit</li><li>CLIP</li><li>Transformers.js</li><li>scikit-learn</li><li>pandas</li><li>Tesseract</li></ul></div>
       <div class="row"><p class="row-h">Embedded</p>
         <ul class="pills"><li>ESP32</li><li>Arduino</li><li>HC-SR04</li><li>RFID &amp; fingerprint</li><li>GSM</li><li>I&sup2;C / SPI / UART</li><li>Wokwi</li></ul></div>
       <div class="row"><p class="row-h">Practice</p>
@@ -711,6 +892,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=8"></script>
+<script src="script.js?v=9"></script>
 </body>
 </html>

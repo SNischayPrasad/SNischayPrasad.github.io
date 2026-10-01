@@ -31,9 +31,14 @@ deployment URL and links to it. The chrome is the evidence, not decoration — a
 reader can check any claim by clicking the address.
 
 Frames are only for projects with a live deployment. Source-only work — the
-cloud series, ScamShield, Tally — goes in a text `.slab` instead, so a frame
-never implies a URL that does not exist. Green is likewise reserved for
+cloud series and the security series — goes in a text `.slab` instead, so a
+frame never implies a URL that does not exist. Green is likewise reserved for
 *deployed*; unfinished work gets the neutral dashed `.chip-wip`.
+
+Test counts on the slabs come from a passing CI run where the repo has one, and
+otherwise from running the suite locally. The security repos have no CI; their
+counts were run by hand on 2026-10-01. The intrusion-detection suite reaches 37
+only after `python -m ml.train_model`; on a fresh clone one test is skipped.
 
 To add one:
 
@@ -60,6 +65,20 @@ The Smart Dustbin is a Greenve project. Greenve is a startup idea shared with
 Reddi Malli Nandini and Rohit Singh, so the Dustbin card and the About section
 credit all three. The Dustbin repository itself never mentions Greenve, so keep
 the attribution when you rewrite that card from the repo.
+
+### Steel Access Doors and Tally
+
+The `SAD-Delivery-project` repo holds two separate things:
+
+- the `gh-pages` branch is a website built for Steel Access Doors, shown as
+  **client work**;
+- `main` is **Tally**, the invoice-to-picking-list app on Vercel. Keep its card
+  generic and do not name the company there.
+
+The Steel Access Doors home page opens with a one-per-session announcement, and
+its hero is WebGL. To capture it, use a DevTools-protocol script that clicks
+"Continue to site" and launches Chrome with `--use-angle=swiftshader
+--enable-unsafe-swiftshader`; plain `--screenshot` catches the pop-up instead.
 
 ## Refreshing the screenshots
 
@@ -101,7 +120,7 @@ var PROFILE = {
 ## Cache busting
 
 `index.html` links the stylesheet and script with a version query —
-`styles.css?v=8`, `script.js?v=8`. Bump both when you change either file, or
+`styles.css?v=9`, `script.js?v=9`. Bump both when you change either file, or
 returning visitors keep the cached copy.
 
 ## Deploying
