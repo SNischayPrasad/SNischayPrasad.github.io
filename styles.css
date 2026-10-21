@@ -539,3 +539,13 @@ section[id], article[id]{ scroll-margin-top:72px; }
 .xp-item > p{ margin:0; color:var(--paper-2); font-size:16px; line-height:1.6; max-width:62ch; }
 .xp-item > p.case-links{ margin-top:6px; }
 @media (max-width:760px){ .xp-item{ grid-template-columns:minmax(0,1fr); } .xp-meta{ grid-row:auto; flex-direction:row; justify-content:space-between; } }
+.xp-where{ font-size:13px; color:var(--paper-3); }
+
+/* ---------- certifications ---------- */
+.certs{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 40px; border-top:1px solid var(--line); }
+.cert{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:4px 16px; align-items:baseline; padding:18px 0; border-bottom:1px solid var(--line-soft); }
+.cert-name{ margin:0; font-size:16px; font-weight:600; letter-spacing:-.01em; }
+.cert-org{ margin:0; grid-column:1; font-size:14px; color:var(--paper-3); }
+.cert-link{ grid-column:2; grid-row:1 / span 2; align-self:center; font-family:var(--mono); font-size:13px; color:var(--paper); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; white-space:nowrap; }
+.cert-link:hover{ color:var(--live); border-bottom-color:var(--live); }
+@media (max-width:760px){ .certs{ grid-template-columns:minmax(0,1fr); } }

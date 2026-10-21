@@ -61,7 +61,7 @@ page does not shift as images arrive.
 
 ### Section order
 
-Experience, live, AI & machine learning, data analytics, security, cloud,
+Experience, certifications, live, AI & machine learning, data analytics, security, cloud,
 hardware, earlier projects, tech stack, about, **Digital Marketing (the last
 content section)**, and **"Let's talk" contact, always the very bottom**. Add new
 engineering sections above Digital Marketing; nothing goes below Contact.
@@ -137,7 +137,7 @@ var PROFILE = {
 ## Cache busting
 
 `index.html` links the stylesheet and script with a version query —
-`styles.css?v=11`, `script.js?v=11`. Bump both when you change either file, or
+`styles.css?v=12`, `script.js?v=12`. Bump both when you change either file, or
 returning visitors keep the cached copy.
 
 ## Deploying
