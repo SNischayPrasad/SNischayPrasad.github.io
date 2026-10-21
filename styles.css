@@ -99,7 +99,7 @@ a{ color:inherit; }
 
 .kicker{
   font-family:var(--mono);
-  font-size:11.5px;
+  font-size:12px;
   letter-spacing:.18em;
   text-transform:uppercase;
   color:var(--paper-3);
@@ -178,7 +178,16 @@ a{ color:inherit; }
   transition:border-color .18s ease;
 }
 .nav-gh:hover{ border-color:var(--paper-2); }
-@media (max-width:880px){ .nav-links{ display:none; } .nav-gh{ margin-left:auto; } }
+@media (max-width:880px){
+  .nav-in{ flex-wrap:wrap; height:auto; padding-top:10px; row-gap:6px; }
+  .nav-gh{ margin-left:auto; }
+  .nav-links{
+    order:3; flex:1 0 100%; margin:0 calc(-1 * var(--gut)); padding:4px var(--gut) 10px;
+    gap:20px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  .nav-links::-webkit-scrollbar{ display:none; }
+  .nav-links a{ display:inline-block; padding:6px 0; white-space:nowrap; font-size:13px; }
+}
 
 /* ---------- hero ---------- */
 .hero{ padding:clamp(64px, 11vw, 132px) 0 clamp(48px, 7vw, 76px); }
@@ -190,7 +199,7 @@ a{ color:inherit; }
 }
 .stats > div{ padding:22px 22px 0 0; }
 .stats dt{
-  font-family:var(--mono); font-size:11px; letter-spacing:.13em;
+  font-family:var(--mono); font-size:12px; letter-spacing:.13em;
   text-transform:uppercase; color:var(--paper-3); margin:0 0 10px;
 }
 .stats dd{
@@ -232,7 +241,7 @@ a{ color:inherit; }
 .dots i{ width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.16); }
 .addr{
   flex:1; min-width:0;
-  font-family:var(--mono); font-size:11.5px; color:var(--paper-2);
+  font-family:var(--mono); font-size:12px; color:var(--paper-2);
   text-decoration:none;
   background:rgba(0,0,0,.35);
   border:1px solid var(--line-soft);
@@ -245,7 +254,7 @@ a{ color:inherit; }
 .badge{
   flex:none;
   display:inline-flex; align-items:center; gap:6px;
-  font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+  font-family:var(--mono); font-size:12px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--live);
 }
 .badge::before{
@@ -265,7 +274,7 @@ a{ color:inherit; }
 .case-flip .case-media{ order:2; }
 
 .case-tag{
-  font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+  font-family:var(--mono); font-size:12px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--live); margin:0 0 10px;
 }
 .case-name{
@@ -277,7 +286,7 @@ a{ color:inherit; }
 
 .tags{ display:flex; flex-wrap:wrap; gap:6px; list-style:none; margin:0 0 24px; padding:0; }
 .tags li{
-  font-family:var(--mono); font-size:11.5px; color:var(--paper-3);
+  font-family:var(--mono); font-size:12px; color:var(--paper-3);
   border:1px solid var(--line-soft); border-radius:2px; padding:4px 9px;
 }
 
@@ -331,7 +340,7 @@ a{ color:inherit; }
   letter-spacing:-.014em; margin:0; line-height:1.1;
 }
 .chip{
-  font-family:var(--mono); font-size:11px; color:var(--paper-3);
+  font-family:var(--mono); font-size:12px; color:var(--paper-3);
   border:1px solid var(--line-soft); border-radius:2px; padding:4px 9px;
 }
 .slab > p{ color:var(--paper-2); font-size:16.5px; margin:0 0 20px; }
@@ -357,7 +366,7 @@ a{ color:inherit; }
   letter-spacing:-.012em; margin:0 0 6px; line-height:1.12;
 }
 .brick-bom{
-  font-family:var(--mono); font-size:11.5px; color:var(--paper-3);
+  font-family:var(--mono); font-size:12px; color:var(--paper-3);
   margin:0 0 14px;
 }
 .brick p{ color:var(--paper-2); font-size:15.5px; line-height:1.58; margin:0 0 16px; }
@@ -375,7 +384,7 @@ a{ color:inherit; }
 table{ border-collapse:collapse; width:100%; min-width:680px; }
 th,td{ text-align:left; vertical-align:top; padding:16px 20px 16px 0; border-bottom:1px solid var(--line-soft); }
 thead th{
-  font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
+  font-family:var(--mono); font-size:12px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--paper-3); font-weight:400;
   border-bottom:1px solid var(--line); padding-top:0;
 }
@@ -425,7 +434,7 @@ td.src a:hover{ color:var(--live); border-bottom-color:var(--live); }
 }
 .about-note-k{
   display:block; margin-bottom:8px;
-  font-family:var(--mono); font-size:11.5px; letter-spacing:.18em;
+  font-family:var(--mono); font-size:12px; letter-spacing:.18em;
   text-transform:uppercase; color:var(--live);
 }
 .about-note a{ color:var(--paper); text-decoration:none; border-bottom:1px solid var(--line); }
@@ -471,8 +480,8 @@ td.src a:hover{ color:var(--live); border-bottom-color:var(--live); }
   body{ font-size:16px; }
   .grid-2{ grid-template-columns:minmax(0,1fr); }
   .grid-3{ grid-template-columns:minmax(0,1fr); }
-  .addr{ font-size:10.5px; padding:4px 10px; }
-  .badge{ font-size:9px; }
+  .addr{ font-size:12px; padding:4px 10px; }
+  .badge{ font-size:12px; }
 }
 @media (max-width:460px){
   .stats{ grid-template-columns:minmax(0,1fr); }
@@ -498,3 +507,21 @@ td.src a:hover{ color:var(--live); border-bottom-color:var(--live); }
   .band-alt{ background:#fff; }
   .case,.mini,.slab,.brick{ break-inside:avoid; }
 }
+
+/* ---------- H1: name and role first (SEO audit fix 2) ---------- */
+.h1-name{
+  display:block; margin:0 0 14px;
+  font-family:var(--sans); font-size:clamp(15px,1.6vw,18px); font-weight:500;
+  letter-spacing:-.005em; line-height:1.4; color:var(--paper-2);
+}
+
+/* ---------- digital marketing ---------- */
+.mk-feature{ padding-inline:0; margin-bottom:clamp(44px,6vw,72px); }
+.mk-sub{
+  font-family:var(--serif); font-weight:400; font-size:clamp(24px,2.6vw,30px);
+  letter-spacing:-.012em; margin:0 0 18px;
+}
+
+/* keep jumped-to sections clear of the sticky nav (two rows on phones) */
+section[id], article[id]{ scroll-margin-top:72px; }
+@media (max-width:880px){ section[id], article[id]{ scroll-margin-top:108px; } }

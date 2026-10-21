@@ -59,6 +59,23 @@ To add one:
 The `width` and `height` attributes are required — they reserve the box so the
 page does not shift as images arrive.
 
+### Section order
+
+Live, AI & machine learning, data analytics, security, cloud, hardware, earlier
+projects, tech stack, about, contact, and then **Digital Marketing, which must
+always stay the last section on the page**. When adding a new engineering
+section, insert it above Contact, never below Digital Marketing.
+
+### SEO
+
+The page applies the fixes from the SEO audit in the `T10` repo: name and role
+in the H1, a description under 155 characters, Person/ProfilePage JSON-LD, real
+favicon files, a 1200x630 `assets/og-image.png` for link previews, non-blocking
+font loading, `robots.txt`, `sitemap.xml`, a `404.html`, a scrollable section
+nav on phones, 12px minimum labels, and `srcset` with an `-800.webp` copy of
+every screenshot. When you add a screenshot, make its `-800.webp` copy too, and
+update `<lastmod>` in `sitemap.xml`.
+
 ### Greenve
 
 The Smart Dustbin is a Greenve project. Greenve is a startup idea shared with
@@ -120,7 +137,7 @@ var PROFILE = {
 ## Cache busting
 
 `index.html` links the stylesheet and script with a version query —
-`styles.css?v=9`, `script.js?v=9`. Bump both when you change either file, or
+`styles.css?v=10`, `script.js?v=10`. Bump both when you change either file, or
 returning visitors keep the cached copy.
 
 ## Deploying

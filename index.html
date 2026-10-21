@@ -3,25 +3,63 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sadhanala Nischay Prasad — Full-stack engineer</title>
-<meta name="description" content="Full-stack engineer with an embedded background. Eight deployed projects you can open right now, including client work and end-to-end encrypted chat, five FastAPI cloud services, six security tools, and ESP32 firmware.">
+<title>Sadhanala Nischay Prasad — Full-stack &amp; AI Engineer Portfolio</title>
+<meta name="description" content="Portfolio of Sadhanala Nischay Prasad, full-stack and AI engineer: 9 live projects, plus machine learning, data, security, cloud and embedded work.">
 <meta name="author" content="Sadhanala Nischay Prasad">
 <link rel="canonical" href="https://snischayprasad.github.io/">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sadhanala Nischay Prasad — Full-stack engineer">
-<meta property="og:description" content="Eight deployed projects you can open right now, including client work and end-to-end encrypted chat, five FastAPI cloud services, six security tools, and ESP32 firmware.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Sadhanala Nischay Prasad — Full-stack &amp; AI Engineer Portfolio">
+<meta property="og:description" content="Portfolio of Sadhanala Nischay Prasad, full-stack and AI engineer: 9 live projects, plus machine learning, data, security, cloud and embedded work.">
 <meta property="og:url" content="https://snischayprasad.github.io/">
-<meta property="og:image" content="https://snischayprasad.github.io/assets/shots/commons.webp">
+<meta property="og:image" content="https://snischayprasad.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sadhanala Nischay Prasad, full-stack and AI engineer, beside a screenshot of the Commons social platform.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A0A0B">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%234ADE80'/%3E%3C/svg%3E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Sadhanala Nischay Prasad",
+    "jobTitle": "Full-stack and AI engineer",
+    "url": "https://snischayprasad.github.io/",
+    "image": "https://snischayprasad.github.io/assets/og-image.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://github.com/SNischayPrasad",
+      "https://www.linkedin.com/in/sadhanala-nischay-prasad-0b0978389/"
+    ],
+    "knowsAbout": [
+      "Full-stack web development",
+      "Machine learning",
+      "Data analytics",
+      "Cybersecurity",
+      "Embedded systems",
+      "Digital marketing"
+    ]
+  }
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=9">
+<!-- fonts load without blocking first paint; the fallback stack shows until they arrive -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css?v=10">
 
 <!-- Arm the scroll reveal only if this browser can undo it. Without the class
      everything renders visible, so a blocked script cannot leave a blank page. -->
@@ -45,11 +83,13 @@
     </a>
     <ul class="nav-links">
       <li><a href="#live">Live</a></li>
+      <li><a href="#ai">AI</a></li>
+      <li><a href="#data">Data</a></li>
       <li><a href="#security">Security</a></li>
       <li><a href="#cloud">Cloud</a></li>
       <li><a href="#hardware">Hardware</a></li>
-      <li><a href="#stack">Stack</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="#marketing">Marketing</a></li>
     </ul>
     <a class="nav-gh" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">GitHub</a>
   </div>
@@ -60,15 +100,17 @@
 <!-- ================= HERO ================= -->
 <header class="hero">
   <div class="shell">
-    <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Full-stack engineer &middot; embedded background &middot; India</p>
+    <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Full-stack &amp; AI engineer &middot; embedded background &middot; India</p>
     <h1 class="display">
-      Eight things I built<br>
+      <span class="h1-name">Sadhanala Nischay Prasad, full-stack &amp; AI engineer</span>
+      Nine things I built<br>
       that you can <em>open right now.</em>
     </h1>
     <p class="lede">
       I write the whole stack &mdash; Next.js, FastAPI and Postgres on the web, Kotlin on the
-      phone, C++ on the microcontroller. Every project below is deployed, and every claim on this
-      page points at the file it came from.
+      phone, C++ on the microcontroller &mdash; and the machine learning that decides things in between.
+      The first nine projects below are deployed, and every claim on this page points at the file it
+      came from.
     </p>
     <div class="cta">
       <a class="btn btn-solid" href="#live">See what&rsquo;s live</a>
@@ -76,10 +118,10 @@
     </div>
 
     <dl class="stats">
-      <div><dt>Live deployments</dt><dd><span class="live-n">8</span></dd></div>
-      <div><dt>Public repositories</dt><dd>33</dd></div>
+      <div><dt>Live deployments</dt><dd><span class="live-n">9</span></dd></div>
+      <div><dt>Public repositories</dt><dd>70</dd></div>
       <div><dt>Languages shipped</dt><dd>6</dd></div>
-      <div><dt>Projects detailed here</dt><dd>19</dd></div>
+      <div><dt>Projects detailed here</dt><dd>30</dd></div>
     </dl>
   </div>
 </header>
@@ -89,7 +131,7 @@
   <div class="shell">
     <div class="band-head">
       <p class="kicker">Deployed</p>
-      <h2 class="h2">Open any of them.</h2>
+      <h2 class="h2">Live projects you can open.</h2>
       <p class="band-sub">
         Each frame below is a screenshot of the running app, and the address bar is the real URL.
         Click it and you are on the deployment.
@@ -109,7 +151,7 @@
           <span class="badge">live</span>
         </div>
         <a class="shot" href="https://social-media-platform-green-ve.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-          <img src="assets/shots/commons.webp" width="1600" height="900" loading="lazy" decoding="async"
+          <img src="assets/shots/commons.webp" srcset="assets/shots/commons-800.webp 800w, assets/shots/commons.webp 1600w" sizes="(max-width: 920px) 92vw, 620px" width="1600" height="900" loading="lazy" decoding="async"
                alt="The Commons home page: a dark timeline headed “Everything said here, in the order it was said”, with a sidebar counting 10 people, 24 posts and 89 likes.">
         </a>
       </figure>
@@ -153,7 +195,7 @@
           <span class="badge">live</span>
         </div>
         <a class="shot" href="https://snischayprasad.github.io/civicpulse/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-          <img src="assets/shots/civicpulse.webp" width="1600" height="900" loading="lazy" decoding="async"
+          <img src="assets/shots/civicpulse.webp" srcset="assets/shots/civicpulse-800.webp 800w, assets/shots/civicpulse.webp 1600w" sizes="(max-width: 920px) 92vw, 620px" width="1600" height="900" loading="lazy" decoding="async"
                alt="CivicPulse sign-in page headed “From ‘I reported it’ to ‘We resolved it.’”, with a panel of citizen and municipal-worker demo accounts.">
         </a>
       </figure>
@@ -198,7 +240,7 @@
           <span class="badge">live</span>
         </div>
         <a class="shot" href="https://realtime-chat-app-n.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-          <img src="assets/shots/transmission.webp" width="1600" height="900" loading="lazy" decoding="async"
+          <img src="assets/shots/transmission.webp" srcset="assets/shots/transmission-800.webp 800w, assets/shots/transmission.webp 1600w" sizes="(max-width: 920px) 92vw, 620px" width="1600" height="900" loading="lazy" decoding="async"
                alt="Transmission sign-in screen headed “Rooms that stay live”, listing live delivery, end-to-end encrypted private conversations, and encrypted voice and video calls.">
         </a>
       </figure>
@@ -247,7 +289,7 @@
           <span class="badge">live</span>
         </div>
         <a class="shot" href="https://snischayprasad.github.io/SAD-Delivery-project/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-          <img src="assets/shots/steelaccessdoors.webp" width="1600" height="900" loading="lazy" decoding="async"
+          <img src="assets/shots/steelaccessdoors.webp" srcset="assets/shots/steelaccessdoors-800.webp 800w, assets/shots/steelaccessdoors.webp 1600w" sizes="(max-width: 920px) 92vw, 620px" width="1600" height="900" loading="lazy" decoding="async"
                alt="The Steel Access Doors home page: the company name beside a rendered 3D steel double door, with a prompt to scroll to open it.">
         </a>
       </figure>
@@ -292,7 +334,7 @@
             <span class="badge">live</span>
           </div>
           <a class="shot" href="https://secure-user-authentication.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="assets/shots/secureauth.webp" width="1600" height="900" loading="lazy" decoding="async"
+            <img src="assets/shots/secureauth.webp" srcset="assets/shots/secureauth-800.webp 800w, assets/shots/secureauth.webp 1600w" sizes="(max-width: 920px) 92vw, 620px" width="1600" height="900" loading="lazy" decoding="async"
                  alt="The Credential authentication demo running in the browser.">
           </a>
         </figure>
@@ -321,7 +363,7 @@
             <span class="badge">live</span>
           </div>
           <a class="shot" href="https://snischayprasad.github.io/upi-expense-splitter/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="assets/shots/splitupi.webp" width="1600" height="900" loading="lazy" decoding="async"
+            <img src="assets/shots/splitupi.webp" srcset="assets/shots/splitupi-800.webp 800w, assets/shots/splitupi.webp 1600w" sizes="(max-width: 920px) 92vw, 620px" width="1600" height="900" loading="lazy" decoding="async"
                  alt="SplitUPI on its first run, headed “Your shared money, settled.” with a prompt to create a group.">
           </a>
         </figure>
@@ -350,7 +392,7 @@
             <span class="badge">live</span>
           </div>
           <a class="shot" href="https://snischayprasad.github.io/Smart-Dustbin-Embedded-System/website/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="assets/shots/dustbin.webp" width="1600" height="900" loading="lazy" decoding="async"
+            <img src="assets/shots/dustbin.webp" srcset="assets/shots/dustbin-800.webp 800w, assets/shots/dustbin.webp 1600w" sizes="(max-width: 920px) 92vw, 620px" width="1600" height="900" loading="lazy" decoding="async"
                  alt="The Smart Dustbin site, headed “It opens by itself. And it tells the city when it is full.”">
           </a>
         </figure>
@@ -384,7 +426,7 @@
             <span class="badge">live</span>
           </div>
           <a class="shot" href="https://sad-delivery-project.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="assets/shots/tally.webp" width="1600" height="900" loading="lazy" decoding="async"
+            <img src="assets/shots/tally.webp" srcset="assets/shots/tally-800.webp 800w, assets/shots/tally.webp 1600w" sizes="(max-width: 920px) 92vw, 620px" width="1600" height="900" loading="lazy" decoding="async"
                  alt="The Tally home page: a large TALLY wordmark, admin and staff sign-in panels, and a sample picking checklist with four ticked lines.">
           </a>
         </figure>
@@ -402,6 +444,260 @@
         <p class="case-links">
           <a href="https://sad-delivery-project.vercel.app" target="_blank" rel="noopener">Open &#8599;</a>
           <a href="https://github.com/SNischayPrasad/SAD-Delivery-project" target="_blank" rel="noopener">Source</a>
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI & MACHINE LEARNING ================= -->
+<section id="ai" class="band band-alt">
+  <div class="shell">
+    <div class="band-head">
+      <p class="kicker">AI &amp; machine learning</p>
+      <h2 class="h2">AI and machine learning projects.</h2>
+      <p class="band-sub">
+        Each one runs on simulated data on an ordinary laptop, with no GPU, and turns a model&rsquo;s output into a
+        decision someone would act on. The figures are from each project&rsquo;s own evaluation.
+      </p>
+    </div>
+
+    <div class="grid-2">
+
+      <article class="slab slab-wide">
+        <div class="slab-head">
+          <h3>Autonomous Navigation System</h3>
+          <span class="chip">20 tests</span>
+        </div>
+        <p>
+          A complete self-driving robot stack in a 2D simulator: it sees, tracks, maps, plans a route and drives it,
+          with a safety layer that can stop it.
+        </p>
+        <dl class="notes">
+          <div>
+            <dt>From camera to steering</dt>
+            <dd>OpenCV perception and object tracking feed an occupancy map built from LiDAR and camera. A* or Dijkstra plans the route, and pure-pursuit control follows it.</dd>
+          </div>
+          <div>
+            <dt>Zero collisions across 33 runs</dt>
+            <dd>Three planners on eleven maps reached the goal every time without a collision. A* found the same optimal path as Dijkstra while expanding 56% fewer nodes, and replans in about 19&nbsp;ms.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>Python</li><li>OpenCV</li><li>A* / Dijkstra</li><li>Pure pursuit</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/ai-autonomous-navigation-system" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Energy Demand Forecasting</h3>
+          <span class="chip">3.4% MAPE</span>
+        </div>
+        <p>Forecasts a city zone&rsquo;s hourly electricity demand a week ahead, then turns it into peak alerts and load-shifting plans.</p>
+        <dl class="notes">
+          <div>
+            <dt>Beats the obvious baseline</dt>
+            <dd>An R&sup2; of 0.95, with error 53% lower than a naive baseline forecast.</dd>
+          </div>
+          <div>
+            <dt>Priced in rupees</dt>
+            <dd>The forecast drives simulated procurement and load shifting, so the result is reported as money saved rather than only as model error.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>scikit-learn</li><li>pandas</li><li>Forecasting</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/AI-Energy-Forecasting" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Predictive Maintenance for IoT</h3>
+          <span class="chip">F1 0.89</span>
+        </div>
+        <p>Predicts which machine will fail and why, from temperature, speed, torque and tool-wear sensors on simulated milling machines.</p>
+        <dl class="notes">
+          <div>
+            <dt>Modelled on a real benchmark</dt>
+            <dd>The simulated data follows the structure of the UCI AI4I 2020 predictive-maintenance dataset, and the real dataset can be dropped in.</dd>
+          </div>
+          <div>
+            <dt>Watches a machine live</dt>
+            <dd>A virtual machine streams readings, and the model raises a maintenance alert before it breaks down.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>scikit-learn</li><li>Random Forest</li><li>IoT simulation</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/AI-Predictive-Maintenance-IoT" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab slab-wide">
+        <div class="slab-head">
+          <h3>AI Threat Detection</h3>
+          <span class="chip">7 tests</span>
+        </div>
+        <p>
+          A machine-learning intrusion detector for simulated network traffic, covering denial of service, port scans,
+          brute force and data exfiltration.
+        </p>
+        <dl class="notes">
+          <div>
+            <dt>Known and unknown attacks</dt>
+            <dd>A Random Forest catches attack types it was trained on, while an Isolation Forest learns what normal traffic looks like and flags anything new.</dd>
+          </div>
+          <div>
+            <dt>Alerts an analyst can use</dt>
+            <dd>Detections become security alerts mapped to MITRE ATT&amp;CK techniques, and the whole pipeline runs in under a minute.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>scikit-learn</li><li>Isolation Forest</li><li>MITRE ATT&amp;CK</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/AI-Cybersecurity-Threat-Detection" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= DATA ANALYTICS ================= -->
+<section id="data" class="band">
+  <div class="shell">
+    <div class="band-head">
+      <p class="kicker">Data analytics</p>
+      <h2 class="h2">Data analytics projects.</h2>
+      <p class="band-sub">
+        End-to-end pipelines: messy data in, cleaned, tested statistically, and out as a Streamlit dashboard and a
+        written set of findings.
+      </p>
+    </div>
+
+    <div class="grid-2">
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Climate Trend Analyzer</h3>
+          <span class="chip">4 Indian cities</span>
+        </div>
+        <p>35 years of climate data for four Indian cities, tested for trends and forecast forward.</p>
+        <dl class="notes">
+          <div>
+            <dt>Warming, measured properly</dt>
+            <dd>Mann-Kendall tests find warming in all four cities, at 0.18 to 0.32&nbsp;&deg;C per decade, with Delhi fastest.</dd>
+          </div>
+          <div>
+            <dt>Catches extremes</dt>
+            <dd>Z-score and Isolation Forest detection found 98% of injected heatwaves, and SARIMA forecasts the years ahead.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>statsmodels</li><li>SARIMA</li><li>Streamlit</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/climate-trend-analyzer" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Retail Forecasting &amp; Inventory</h3>
+          <span class="chip">60 store-products</span>
+        </div>
+        <p>Forecasts daily demand, then turns it into reorder points, safety stock and purchase orders.</p>
+        <dl class="notes">
+          <div>
+            <dt>An honest backtest</dt>
+            <dd>Models are judged on a 56-day recursive backtest against a seasonal baseline, on data that includes festivals, promotions and supplier delays.</dd>
+          </div>
+          <div>
+            <dt>Fewer empty shelves</dt>
+            <dd>In simulation, the new reorder policy cut stockout days from 6.7% to 2.2%.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>Random Forest</li><li>EOQ</li><li>Streamlit</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Retail-Sales-Forecasting-Inventory-Optimization" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Employee Performance Predictor</h3>
+          <span class="chip">76% accuracy</span>
+        </div>
+        <p>Predicts whether an employee will be a low, medium or high performer, and suggests an HR action for each.</p>
+        <dl class="notes">
+          <div>
+            <dt>Four models compared</dt>
+            <dd>Trained on 2,000 synthetic employees and scored on 400 it had never seen, with an F1 of 0.76.</dd>
+          </div>
+          <div>
+            <dt>Findings, not just a score</dt>
+            <dd>Employees in the top quarter for training hours were predicted high performers 49% of the time, against 14% for the bottom quarter.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>scikit-learn</li><li>HR analytics</li><li>Streamlit</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Employee-Performance-Predictor" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Poll Results Visualizer</h3>
+          <span class="chip">Chi-square</span>
+        </div>
+        <p>Turns raw poll and survey responses into vote shares, regional breakdowns and trends.</p>
+        <dl class="notes">
+          <div>
+            <dt>Margins of error included</dt>
+            <dd>Every share comes with a 95% margin of error, and the gap between leader and runner-up is tested for significance.</dd>
+          </div>
+          <div>
+            <dt>Filter it yourself</dt>
+            <dd>A dashboard filters by region, age, gender and date, and accepts your own CSV.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>SciPy</li><li>Plotly</li><li>Streamlit</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Poll-Results-Visualizer" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Expense Tracker Analytics</h3>
+          <span class="chip">Personal finance</span>
+        </div>
+        <p>Analyses a year of spending: category share, budget against actual, savings rate and unusual transactions.</p>
+        <dl class="notes">
+          <div>
+            <dt>Realistic without real data</dt>
+            <dd>Bank data is private, so a seeded simulator reproduces real habits like rent, festive spending and weekend patterns, plus deliberate data-quality problems to clean.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>pandas</li><li>Jupyter</li><li>Streamlit</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/Expense-Tracker-App" target="_blank" rel="noopener">Source &#8599;</a>
+        </p>
+      </article>
+
+      <article class="slab">
+        <div class="slab-head">
+          <h3>Data Preprocessing Study</h3>
+          <span class="chip">ROC-AUC 0.93</span>
+        </div>
+        <p>Cleans and prepares the UCI Adult census dataset, and measures what each preprocessing choice actually changes.</p>
+        <dl class="notes">
+          <div>
+            <dt>Shows how leakage cheats</dt>
+            <dd>Fitting a target encoding before the train/test split inflated the test score by 0.026. Doing it after the split removes that false gain.</dd>
+          </div>
+        </dl>
+        <ul class="tags"><li>pandas</li><li>scikit-learn</li><li>Jupyter</li></ul>
+        <p class="case-links">
+          <a href="https://github.com/SNischayPrasad/ml-week1-data-preprocessing" target="_blank" rel="noopener">Source &#8599;</a>
         </p>
       </article>
 
@@ -757,7 +1053,7 @@
   <div class="shell">
     <div class="band-head">
       <p class="kicker">Earlier</p>
-      <h2 class="h2">Also built</h2>
+      <h2 class="h2">Earlier projects</h2>
     </div>
     <div class="table-wrap">
       <table>
@@ -808,6 +1104,18 @@
             <td>Coursework and practice notebooks from machine learning training.</td>
             <td class="src"><a href="https://github.com/SNischayPrasad/Training-AI-AND-ML" target="_blank" rel="noopener">Source<span class="sr"> for AI and ML Training</span></a></td>
           </tr>
+          <tr>
+            <th scope="row">Oasis Infobyte tasks</th>
+            <td class="plat">Python &middot; ML</td>
+            <td>Data science internship tasks: iris classification, email spam detection with TF-IDF and Naive Bayes, and sales prediction.</td>
+            <td class="src"><a href="https://github.com/SNischayPrasad/OIBSIP" target="_blank" rel="noopener">Source<span class="sr"> for Oasis Infobyte tasks</span></a></td>
+          </tr>
+          <tr>
+            <th scope="row">Model deployment</th>
+            <td class="plat">Flask &middot; scikit-learn</td>
+            <td>A trained classifier saved, then served as a Flask web app that takes inputs and returns predictions.</td>
+            <td class="src"><a href="https://github.com/SNischayPrasad/Final_Project" target="_blank" rel="noopener">Source<span class="sr"> for Model deployment</span></a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -819,7 +1127,7 @@
   <div class="shell">
     <div class="band-head">
       <p class="kicker">Tools</p>
-      <h2 class="h2">Stack</h2>
+      <h2 class="h2">Tech stack</h2>
       <p class="band-sub">What I have shipped something with, not what I have read about.</p>
     </div>
     <div class="rows">
@@ -831,12 +1139,14 @@
         <ul class="pills"><li>PostgreSQL</li><li>SQLite</li><li>SQLAlchemy</li><li>PGlite</li><li>Firestore</li><li>S3-compatible storage</li><li>localStorage</li></ul></div>
       <div class="row"><p class="row-h">Security</p>
         <ul class="pills"><li>End-to-end encryption</li><li>Argon2id</li><li>bcrypt</li><li>JWT rotation</li><li>AES-256-GCM</li><li>ECDH</li><li>WebCrypto</li><li>MITRE ATT&amp;CK</li><li>OAuth / JWKS</li><li>CSRF &amp; CSP</li></ul></div>
-      <div class="row"><p class="row-h">Mobile &amp; ML</p>
-        <ul class="pills"><li>Jetpack Compose</li><li>MediaPipe</li><li>ML Kit</li><li>CLIP</li><li>Transformers.js</li><li>scikit-learn</li><li>pandas</li><li>Tesseract</li></ul></div>
+      <div class="row"><p class="row-h">ML, data &amp; mobile</p>
+        <ul class="pills"><li>scikit-learn</li><li>pandas</li><li>NumPy</li><li>statsmodels</li><li>OpenCV</li><li>Streamlit</li><li>Plotly</li><li>Jupyter</li><li>CLIP</li><li>Transformers.js</li><li>Tesseract</li><li>Jetpack Compose</li><li>MediaPipe</li><li>ML Kit</li></ul></div>
       <div class="row"><p class="row-h">Embedded</p>
         <ul class="pills"><li>ESP32</li><li>Arduino</li><li>HC-SR04</li><li>RFID &amp; fingerprint</li><li>GSM</li><li>I&sup2;C / SPI / UART</li><li>Wokwi</li></ul></div>
       <div class="row"><p class="row-h">Practice</p>
         <ul class="pills"><li>Git</li><li>GitHub Actions</li><li>Docker</li><li>Vercel</li><li>AWS Lambda</li><li>GitHub Pages</li><li>pytest</li><li>node:test</li><li>Vitest</li><li>JUnit</li></ul></div>
+      <div class="row"><p class="row-h">Marketing</p>
+        <ul class="pills"><li>SEO audits</li><li>Keyword research</li><li>Content strategy</li><li>Email campaigns</li><li>Meta Ads</li><li>Canva</li></ul></div>
     </div>
   </div>
 </section>
@@ -873,11 +1183,99 @@
 <section id="contact" class="band band-alt">
   <div class="shell contact">
     <h2 class="display display-sm">Let&rsquo;s <em>talk.</em></h2>
-    <p class="contact-sub">Open to full-stack, backend and embedded roles, and to internships.</p>
+    <p class="contact-sub">Open to full-stack, backend, AI/ML and embedded roles, and to internships.</p>
     <div class="cta cta-center" id="contact-actions">
       <a class="btn btn-solid" href="mailto:nischayprasuna@gmail.com">nischayprasuna@gmail.com</a>
       <a class="btn btn-line" href="https://www.linkedin.com/in/sadhanala-nischay-prasad-0b0978389/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
       <a class="btn btn-line" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">GitHub &#8599;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIGITAL MARKETING (keep this section last on the page) ================= -->
+<section id="marketing" class="band">
+  <div class="shell">
+    <div class="band-head">
+      <p class="kicker">Digital marketing</p>
+      <h2 class="h2">Digital marketing work.</h2>
+      <p class="band-sub">
+        Alongside the engineering, I work through the Digital Marketing track of the Veda Technology
+        internship: strategy, SEO, social media, email and paid campaigns, each for a set business brief. The
+        businesses are fictional, apart from the real brands in the competitor analysis and the audit of this site.
+      </p>
+    </div>
+
+    <article class="case case-flip mk-feature">
+      <div class="case-media">
+        <figure class="frame">
+          <div class="chrome">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <a class="addr" href="https://snischayprasad.github.io/crumb-and-co-digital-marketing-strategy/" target="_blank" rel="noopener">
+              snischayprasad.github.io/crumb-and-co-digital-marketing-strategy
+            </a>
+            <span class="badge">live</span>
+          </div>
+          <a class="shot" href="https://snischayprasad.github.io/crumb-and-co-digital-marketing-strategy/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/shots/crumbandco.webp" srcset="assets/shots/crumbandco-800.webp 800w, assets/shots/crumbandco.webp 1600w" sizes="(max-width: 920px) 92vw, 620px" width="1600" height="900" loading="lazy" decoding="async"
+                 alt="The Crumb &amp; Co. digital marketing strategy site for a fictional home bakery.">
+          </a>
+        </figure>
+      </div>
+      <div class="case-body">
+        <h3 class="case-name">Crumb &amp; Co. strategy</h3>
+        <p class="case-line">A six-month digital marketing strategy for a fictional home bakery launching online, built with free tools only.</p>
+        <ul class="tags"><li>SMART goals</li><li>Personas</li><li>Content pillars</li><li>KPIs</li></ul>
+        <dl class="notes">
+          <div>
+            <dt>Starts from the business goal</dt>
+            <dd>150 online orders a month within six months, a quarter of them from repeat customers, before any platform is chosen.</dd>
+          </div>
+          <div>
+            <dt>Every channel is justified</dt>
+            <dd>Instagram, Google Business Profile and WhatsApp Business, each chosen for how the audience finds and buys. Paid ads are left out because the brief allows only free resources.</dd>
+          </div>
+          <div>
+            <dt>Measured from day one</dt>
+            <dd>Each goal maps to KPIs with a target, a tracking tool and a review schedule, kept in a shared tracker.</dd>
+          </div>
+        </dl>
+        <p class="case-links">
+          <a href="https://snischayprasad.github.io/crumb-and-co-digital-marketing-strategy/" target="_blank" rel="noopener">Open the strategy &#8599;</a>
+          <a href="https://github.com/SNischayPrasad/crumb-and-co-digital-marketing-strategy" target="_blank" rel="noopener">Source</a>
+        </p>
+      </div>
+    </article>
+
+    <h3 class="mk-sub">Internship tasks</h3>
+    <div class="table-wrap">
+      <table>
+        <caption class="sr">Digital marketing internship tasks, grouped by area</caption>
+        <thead>
+          <tr><th scope="col">Task</th><th scope="col">Area</th><th scope="col">Brief</th><th scope="col"><span class="sr">Repository</span></th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Competitor analysis</th><td class="plat">Strategy</td><td>Three Indian D2C skincare brands compared: Minimalist, The Derma Co and Plum.</td><td class="src"><a href="https://github.com/SNischayPrasad/Task_2" target="_blank" rel="noopener">Repo<span class="sr"> for Competitor analysis</span></a></td></tr>
+          <tr><th scope="row">Buyer persona</th><td class="plat">Strategy</td><td>A buyer persona for FitBowl, a meal subscription.</td><td class="src"><a href="https://github.com/SNischayPrasad/Task-3" target="_blank" rel="noopener">Repo<span class="sr"> for Buyer persona</span></a></td></tr>
+          <tr><th scope="row">Marketing funnel</th><td class="plat">Strategy</td><td>A basic funnel for StudyNest, an AI study planner for college students.</td><td class="src"><a href="https://github.com/SNischayPrasad/T18" target="_blank" rel="noopener">Repo<span class="sr"> for Marketing funnel</span></a></td></tr>
+          <tr><th scope="row">SEO homepage copy</th><td class="plat">SEO</td><td>SEO-friendly homepage content for GreenNest Home.</td><td class="src"><a href="https://github.com/SNischayPrasad/T6" target="_blank" rel="noopener">Repo<span class="sr"> for SEO homepage copy</span></a></td></tr>
+          <tr><th scope="row">Keyword research</th><td class="plat">SEO</td><td>Basic keyword research for PureGlow Organic Skincare.</td><td class="src"><a href="https://github.com/SNischayPrasad/T_7" target="_blank" rel="noopener">Repo<span class="sr"> for Keyword research</span></a></td></tr>
+          <tr><th scope="row">Titles &amp; meta descriptions</th><td class="plat">SEO</td><td>Optimised title tags, meta descriptions and target keywords for five pages.</td><td class="src"><a href="https://github.com/SNischayPrasad/T_8" target="_blank" rel="noopener">Repo<span class="sr"> for Titles and meta descriptions</span></a></td></tr>
+          <tr><th scope="row">Heading structure</th><td class="plat">SEO</td><td>A webpage&rsquo;s headings redesigned into a clear H1, H2 and H3 hierarchy.</td><td class="src"><a href="https://github.com/SNischayPrasad/T9" target="_blank" rel="noopener">Repo<span class="sr"> for Heading structure</span></a></td></tr>
+          <tr><th scope="row">SEO audit</th><td class="plat">SEO</td><td>An on-page audit of this portfolio: 15 issues found and prioritised. Its fixes are applied to this page.</td><td class="src"><a href="https://github.com/SNischayPrasad/T10" target="_blank" rel="noopener">Repo<span class="sr"> for SEO audit</span></a></td></tr>
+          <tr><th scope="row">SERP &amp; search intent</th><td class="plat">SEO</td><td>Google first-page results analysed for five keywords, each a different search intent.</td><td class="src"><a href="https://github.com/SNischayPrasad/T11" target="_blank" rel="noopener">Repo<span class="sr"> for SERP analysis</span></a></td></tr>
+          <tr><th scope="row">Blog content plan</th><td class="plat">SEO</td><td>A keyword-led blog plan for BrewNest Coffee.</td><td class="src"><a href="https://github.com/SNischayPrasad/T12" target="_blank" rel="noopener">Repo<span class="sr"> for Blog content plan</span></a></td></tr>
+          <tr><th scope="row">Google Business Profile</th><td class="plat">Local SEO</td><td>An optimisation plan for a local business listing.</td><td class="src"><a href="https://github.com/SNischayPrasad/T13" target="_blank" rel="noopener">Repo<span class="sr"> for Google Business Profile</span></a></td></tr>
+          <tr><th scope="row">Instagram calendar</th><td class="plat">Social</td><td>A 30-day content calendar for The Quiet Cup, a café.</td><td class="src"><a href="https://github.com/SNischayPrasad/T_4" target="_blank" rel="noopener">Repo<span class="sr"> for Instagram calendar</span></a></td></tr>
+          <tr><th scope="row">Social media posts</th><td class="plat">Social</td><td>Five post designs for Brew Haven Café.</td><td class="src"><a href="https://github.com/SNischayPrasad/task_5" target="_blank" rel="noopener">Repo<span class="sr"> for Social media posts</span></a></td></tr>
+          <tr><th scope="row">Hashtag strategy</th><td class="plat">Social</td><td>Researched hashtag categories for Horizon Digital.</td><td class="src"><a href="https://github.com/SNischayPrasad/T14" target="_blank" rel="noopener">Repo<span class="sr"> for Hashtag strategy</span></a></td></tr>
+          <tr><th scope="row">Captions with CTAs</th><td class="plat">Social</td><td>Ten captions, each mapped to an objective, an audience and a call to action.</td><td class="src"><a href="https://github.com/SNischayPrasad/T15" target="_blank" rel="noopener">Repo<span class="sr"> for Captions</span></a></td></tr>
+          <tr><th scope="row">Email campaign</th><td class="plat">Email</td><td>A three-email launch campaign for StudyNest.</td><td class="src"><a href="https://github.com/SNischayPrasad/T16" target="_blank" rel="noopener">Repo<span class="sr"> for Email campaign</span></a></td></tr>
+          <tr><th scope="row">Email newsletter</th><td class="plat">Email</td><td>A mobile-friendly newsletter for Stack Notes, built in HTML.</td><td class="src"><a href="https://github.com/SNischayPrasad/T17" target="_blank" rel="noopener">Repo<span class="sr"> for Email newsletter</span></a></td></tr>
+          <tr><th scope="row">Landing page plan</th><td class="plat">Conversion</td><td>A conversion-focused landing page for Ledgerly, a concept GST invoicing app.</td><td class="src"><a href="https://github.com/SNischayPrasad/T19" target="_blank" rel="noopener">Repo<span class="sr"> for Landing page plan</span></a></td></tr>
+          <tr><th scope="row">Lead generation</th><td class="plat">Conversion</td><td>A free three-day gym trial campaign, with a lead tracker.</td><td class="src"><a href="https://github.com/SNischayPrasad/T20" target="_blank" rel="noopener">Repo<span class="sr"> for Lead generation</span></a></td></tr>
+          <tr><th scope="row">Meta Ads plan</th><td class="plat">Paid</td><td>A basic Meta Ads campaign for FitNest Studio, with three ad creatives.</td><td class="src"><a href="https://github.com/SNischayPrasad/T21" target="_blank" rel="noopener">Repo<span class="sr"> for Meta Ads plan</span></a></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -892,6 +1290,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=9"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>
