@@ -525,3 +525,17 @@ td.src a:hover{ color:var(--live); border-bottom-color:var(--live); }
 /* keep jumped-to sections clear of the sticky nav (two rows on phones) */
 section[id], article[id]{ scroll-margin-top:72px; }
 @media (max-width:880px){ section[id], article[id]{ scroll-margin-top:108px; } }
+
+/* ---------- experience ---------- */
+.xp{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+.xp-item{
+  display:grid; grid-template-columns:260px minmax(0,1fr); gap:6px 40px;
+  padding:26px 0; border-bottom:1px solid var(--line-soft);
+}
+.xp-meta{ grid-row:1 / span 3; display:flex; flex-direction:column; gap:6px; }
+.xp-org{ font-size:16px; font-weight:600; letter-spacing:-.01em; }
+.xp-when{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--paper-3); }
+.xp-role{ font-family:var(--serif); font-weight:400; font-size:clamp(24px,2.6vw,30px); letter-spacing:-.012em; margin:0; line-height:1.15; }
+.xp-item > p{ margin:0; color:var(--paper-2); font-size:16px; line-height:1.6; max-width:62ch; }
+.xp-item > p.case-links{ margin-top:6px; }
+@media (max-width:760px){ .xp-item{ grid-template-columns:minmax(0,1fr); } .xp-meta{ grid-row:auto; flex-direction:row; justify-content:space-between; } }
