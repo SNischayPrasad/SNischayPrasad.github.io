@@ -59,7 +59,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=14">
 
 <!-- Arm the scroll reveal only if this browser can undo it. Without the class
      everything renders visible, so a blocked script cannot leave a blank page. -->
@@ -172,9 +172,9 @@
     <div class="band-head">
       <p class="kicker">Certifications</p>
       <h2 class="h2">Certifications.</h2>
-      <p class="band-sub">Each links to the issuer&rsquo;s own verification page where one exists.</p>
+      <p class="band-sub">From Microsoft, Google Cloud, Cisco, MongoDB, Tata and PNC through Forage, eDC IIT Delhi, Be10x and B.Y.T.E. Each links to the issuer&rsquo;s own verification page where one exists.</p>
     </div>
-    <ul class="certs">
+    <ul class="certs" id="cert-list">
         <li class="cert">
           <p class="cert-name">AI Tools and Claude Workshop</p>
           <p class="cert-org">Be10x &middot; Sep 2026</p>
@@ -227,6 +227,20 @@
   </div>
 </section>
 
+<!-- ================= WORK FILTER ================= -->
+<div class="filter shell" id="filter" hidden>
+  <p class="filter-label" id="filter-label">Show projects in</p>
+  <div class="filter-chips" role="group" aria-labelledby="filter-label">
+    <button type="button" class="fchip" data-f="all" aria-pressed="true">All</button>
+    <button type="button" class="fchip" data-f="web" aria-pressed="false">Web</button>
+    <button type="button" class="fchip" data-f="ai" aria-pressed="false">AI / ML</button>
+    <button type="button" class="fchip" data-f="data" aria-pressed="false">Data</button>
+    <button type="button" class="fchip" data-f="security" aria-pressed="false">Security</button>
+    <button type="button" class="fchip" data-f="embedded" aria-pressed="false">Embedded</button>
+  </div>
+  <p class="filter-count" id="filter-count" aria-live="polite"></p>
+</div>
+
 <!-- ================= LIVE ================= -->
 <section id="live" class="band">
   <div class="shell">
@@ -241,7 +255,7 @@
   </div>
 
   <!-- ---- feature 1 ---- -->
-  <article class="case shell">
+  <article class="case shell" data-cat="web">
     <div class="case-media">
       <figure class="frame">
         <div class="chrome">
@@ -285,7 +299,7 @@
   </article>
 
   <!-- ---- feature 2 ---- -->
-  <article class="case case-flip shell">
+  <article class="case case-flip shell" data-cat="ai web">
     <div class="case-media">
       <figure class="frame">
         <div class="chrome">
@@ -330,7 +344,7 @@
   </article>
 
   <!-- ---- feature 3 ---- -->
-  <article class="case shell">
+  <article class="case shell" data-cat="web security">
     <div class="case-media">
       <figure class="frame">
         <div class="chrome">
@@ -379,7 +393,7 @@
   </article>
 
   <!-- ---- feature 4: client work ---- -->
-  <article class="case case-flip shell">
+  <article class="case case-flip shell" data-cat="web">
     <div class="case-media">
       <figure class="frame">
         <div class="chrome">
@@ -427,7 +441,7 @@
   <div class="shell">
     <div class="grid-2">
 
-      <article class="mini">
+      <article class="mini" data-cat="security web">
         <figure class="frame">
           <div class="chrome">
             <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -456,7 +470,7 @@
         </p>
       </article>
 
-      <article class="mini">
+      <article class="mini" data-cat="web">
         <figure class="frame">
           <div class="chrome">
             <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -485,7 +499,7 @@
         </p>
       </article>
 
-      <article class="mini" id="dustbin">
+      <article class="mini" id="dustbin" data-cat="embedded">
         <figure class="frame">
           <div class="chrome">
             <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -519,7 +533,7 @@
         </p>
       </article>
 
-      <article class="mini">
+      <article class="mini" data-cat="web">
         <figure class="frame">
           <div class="chrome">
             <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -566,7 +580,7 @@
 
     <div class="grid-2">
 
-      <article class="slab slab-wide">
+      <article class="slab slab-wide" data-cat="ai">
         <div class="slab-head">
           <h3>Autonomous Navigation System</h3>
           <span class="chip">20 tests</span>
@@ -591,7 +605,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="ai data">
         <div class="slab-head">
           <h3>Energy Demand Forecasting</h3>
           <span class="chip">3.4% MAPE</span>
@@ -613,7 +627,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="ai embedded">
         <div class="slab-head">
           <h3>Predictive Maintenance for IoT</h3>
           <span class="chip">F1 0.89</span>
@@ -635,7 +649,7 @@
         </p>
       </article>
 
-      <article class="slab slab-wide">
+      <article class="slab slab-wide" data-cat="ai security">
         <div class="slab-head">
           <h3>AI Threat Detection</h3>
           <span class="chip">7 tests</span>
@@ -678,7 +692,7 @@
 
     <div class="grid-2">
 
-      <article class="slab">
+      <article class="slab" data-cat="data">
         <div class="slab-head">
           <h3>Climate Trend Analyzer</h3>
           <span class="chip">4 Indian cities</span>
@@ -700,7 +714,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="data">
         <div class="slab-head">
           <h3>Retail Forecasting &amp; Inventory</h3>
           <span class="chip">60 store-products</span>
@@ -722,7 +736,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="data ai">
         <div class="slab-head">
           <h3>Employee Performance Predictor</h3>
           <span class="chip">76% accuracy</span>
@@ -744,7 +758,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="data">
         <div class="slab-head">
           <h3>Poll Results Visualizer</h3>
           <span class="chip">Chi-square</span>
@@ -766,7 +780,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="data">
         <div class="slab-head">
           <h3>Expense Tracker Analytics</h3>
           <span class="chip">Personal finance</span>
@@ -784,7 +798,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="data ai">
         <div class="slab-head">
           <h3>Data Preprocessing Study</h3>
           <span class="chip">ROC-AUC 0.93</span>
@@ -821,7 +835,7 @@
 
     <div class="grid-2">
 
-      <article class="slab slab-wide">
+      <article class="slab slab-wide" data-cat="security">
         <div class="slab-head">
           <h3>ScamShield</h3>
           <span class="chip">Kotlin &middot; Android</span>
@@ -853,7 +867,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="security ai">
         <div class="slab-head">
           <h3>Phishing Detector</h3>
           <span class="chip">57 tests</span>
@@ -875,7 +889,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="security">
         <div class="slab-head">
           <h3>Password Analyzer</h3>
           <span class="chip">73 tests</span>
@@ -897,7 +911,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="security">
         <div class="slab-head">
           <h3>Social Media Privacy Risk</h3>
           <span class="chip">65 tests</span>
@@ -919,7 +933,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="security">
         <div class="slab-head">
           <h3>Threat Intelligence Dashboard</h3>
           <span class="chip">40 tests</span>
@@ -941,7 +955,7 @@
         </p>
       </article>
 
-      <article class="slab slab-wide">
+      <article class="slab slab-wide" data-cat="security ai">
         <div class="slab-head">
           <h3>Network Intrusion Detection</h3>
           <span class="chip">37 tests</span>
@@ -985,7 +999,7 @@
 
     <div class="grid-2">
 
-      <article class="slab">
+      <article class="slab" data-cat="web">
         <div class="slab-head">
           <h3>Seatline</h3>
           <span class="chip">54 tests</span>
@@ -1010,7 +1024,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="web embedded">
         <div class="slab-head">
           <h3>Smart Plant Care</h3>
           <span class="chip">70 tests</span>
@@ -1035,7 +1049,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="web">
         <div class="slab-head">
           <h3>Assignment Portal</h3>
           <span class="chip">67 tests</span>
@@ -1060,7 +1074,7 @@
         </p>
       </article>
 
-      <article class="slab">
+      <article class="slab" data-cat="web">
         <div class="slab-head">
           <h3>Hobby &amp; Skills Tracker</h3>
           <span class="chip">56 tests</span>
@@ -1085,7 +1099,7 @@
         </p>
       </article>
 
-      <article class="slab slab-wide">
+      <article class="slab slab-wide" data-cat="web ai">
         <div class="slab-head">
           <h3>Personal Diet Planner</h3>
           <span class="chip">297 tests</span>
@@ -1127,19 +1141,19 @@
     </div>
 
     <div class="grid-3">
-      <article class="brick">
+      <article class="brick" data-cat="embedded">
         <h3>Smart Parking</h3>
         <p class="brick-bom">ESP32 &middot; 4&times; HC-SR04 &middot; LCD &middot; servo barrier</p>
         <p>A sensor above each bay compares echo time against a threshold &mdash; a long return is floor, a short one is car roof &mdash; and the entrance display reads the count before you drive up the ramp.</p>
         <a href="https://github.com/SNischayPrasad/Smart-Parking-Ultrasonic-Embedded-System" target="_blank" rel="noopener">Source &#8599;</a>
       </article>
-      <article class="brick">
+      <article class="brick" data-cat="embedded">
         <h3>Anti-Theft Locker</h3>
         <p class="brick-bom">Arduino UNO &middot; RFID &middot; fingerprint &middot; GSM</p>
         <p>Opens for an authorised card or an enrolled finger, and texts the owner when neither matches. Alerts are rate-limited so a jammed reader cannot flood the phone, and the relay is driven to a known locked state at boot.</p>
         <a href="https://github.com/SNischayPrasad/Arduino-Anti-Theft-Locker-System" target="_blank" rel="noopener">Source &#8599;</a>
       </article>
-      <article class="brick">
+      <article class="brick" data-cat="embedded">
         <h3>Heartbeat Monitor</h3>
         <p class="brick-bom">ESP32 &middot; PulseSensor &middot; Blynk</p>
         <p>Alerts outside 60&ndash;100 BPM. The problem was never the sensor &mdash; a naive threshold check fires on every sample and buries the phone &mdash; so alerts fire on the transition and rearm on return. Educational prototype, not a medical device.</p>
@@ -1150,7 +1164,7 @@
 </section>
 
 <!-- ================= REGISTER ================= -->
-<section class="band">
+<section data-filter-all-only class="band">
   <div class="shell">
     <div class="band-head">
       <p class="kicker">Earlier</p>
@@ -1281,7 +1295,7 @@
 </section>
 
 <!-- ================= DIGITAL MARKETING (last content section; only Contact goes below it) ================= -->
-<section id="marketing" class="band band-alt">
+<section id="marketing" data-filter-all-only class="band band-alt">
   <div class="shell">
     <div class="band-head">
       <p class="kicker">Digital marketing</p>
@@ -1383,6 +1397,8 @@
 
 </main>
 
+<a class="to-top" id="to-top" href="#top" hidden><span aria-hidden="true">&uarr;</span><span class="sr">Back to top</span></a>
+
 <footer class="foot">
   <div class="shell foot-in">
     <span>Sadhanala Nischay Prasad</span>
@@ -1391,6 +1407,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=12"></script>
+<script src="script.js?v=14"></script>
 </body>
 </html>

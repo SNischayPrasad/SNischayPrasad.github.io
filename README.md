@@ -66,6 +66,16 @@ hardware, earlier projects, tech stack, about, **Digital Marketing (the last
 content section)**, and **"Let's talk" contact, always the very bottom**. Add new
 engineering sections above Digital Marketing; nothing goes below Contact.
 
+### Filter, compact cards and nav
+
+Every project card carries `data-cat` (any of `web ai data security embedded`),
+which the filter bar above Live uses; sections with `data-filter-all-only`
+(earlier projects, digital marketing) appear only under "All". Give any new
+card a `data-cat`, or the filter will hide it. Cards in the AI, Data, Security
+and Cloud sections start compact with a "Show details" button, Certifications
+start collapsed, and the nav marks the section in view. All of it is added by
+`script.js`; without JavaScript the page shows in full.
+
 ### SEO
 
 The page applies the fixes from the SEO audit in the `T10` repo: name and role
@@ -137,7 +147,7 @@ var PROFILE = {
 ## Cache busting
 
 `index.html` links the stylesheet and script with a version query —
-`styles.css?v=12`, `script.js?v=12`. Bump both when you change either file, or
+`styles.css?v=14`, `script.js?v=14`. Bump both when you change either file, or
 returning visitors keep the cached copy.
 
 ## Deploying
