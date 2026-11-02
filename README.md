@@ -66,6 +66,22 @@ hardware, earlier projects, tech stack, about, **Digital Marketing (the last
 content section)**, and **"Let's talk" contact, always the very bottom**. Add new
 engineering sections above Digital Marketing; nothing goes below Contact.
 
+### 3D hero and motion
+
+`fx3d.js` (Three.js r170 from jsDelivr, loaded through an import map) draws the
+nine live projects as a ring of screenshots in a particle field: it turns on
+its own, leans toward the pointer, spins when dragged, and a click scrolls to
+the project. The ring reads `assets/shots/NAME-800.webp`, and each entry in
+`PROJECTS` points at a card id such as `#p-commons`; add both when a new live
+project appears. `fx.js` (GSAP 3.12.5 + ScrollTrigger) adds the hero intro,
+count-up stats, tilt with glare, magnetic buttons, cursor spotlight, screenshot
+parallax, scrambled section labels, a scroll progress bar and film grain.
+
+Both respect `prefers-reduced-motion` (static ring, no effects), pointer effects
+only run on a mouse or trackpad, the ring pauses off-screen, and if WebGL or the
+CDN fails the stage is removed and the page works as before. Test locally over
+`http://` (`python -m http.server`); textures will not load from `file://`.
+
 ### Filter, compact cards and nav
 
 Every project card carries `data-cat` (any of `web ai data security embedded`),
@@ -147,7 +163,7 @@ var PROFILE = {
 ## Cache busting
 
 `index.html` links the stylesheet and script with a version query —
-`styles.css?v=14`, `script.js?v=14`. Bump both when you change either file, or
+`styles.css?v=15`, `script.js?v=15` (also `fx3d.js?v=15`, `fx.js?v=15`). Bump both when you change either file, or
 returning visitors keep the cached copy.
 
 ## Deploying

@@ -603,3 +603,88 @@ section[id], article[id]{ scroll-margin-top:72px; }
 .slab > p.case-links{ margin-bottom:0; }
 #certifications{ padding-block:clamp(44px,6vw,76px); }
 #experience{ padding-bottom:clamp(44px,6vw,76px); }
+
+/* =========================================================
+   3D hero + motion layer
+   ========================================================= */
+.hero{ position:relative; overflow:hidden; }
+.hero .shell{ position:relative; }
+.hero-copy{ position:relative; z-index:2; }
+.hero-3d{ position:relative; }
+.hero-3d canvas{ display:block; width:100%; height:100%; touch-action:pan-y; }
+.hero-3d-tip{
+  position:absolute; left:50%; bottom:46px; transform:translate(-50%,6px);
+  margin:0; padding:7px 14px; border-radius:980px;
+  background:rgba(10,10,11,.8); border:1px solid rgba(74,222,128,.45);
+  font-family:var(--mono); font-size:13px; color:var(--paper); white-space:nowrap;
+  opacity:0; transition:opacity .2s ease, transform .2s ease; pointer-events:none;
+}
+.hero-3d-tip.on{ opacity:1; transform:translate(-50%,0); }
+.hero-3d-hint{
+  position:absolute; left:0; right:0; bottom:12px; margin:0; text-align:center;
+  font-family:var(--mono); font-size:12px; letter-spacing:.08em; color:var(--paper-3);
+  pointer-events:none;
+}
+.hero-3d:not(.ready) .hero-3d-hint{ display:none; }
+
+@media (min-width:1000px){
+  .hero{ min-height:min(860px, 100vh); }
+  .hero-copy{ max-width:min(600px, 50%); }
+  .hero .display{ font-size:clamp(44px,4.9vw,72px); }
+  .hero-3d{
+    position:absolute; z-index:1; top:-20px; right:calc(-1 * var(--gut));
+    width:58%; height:calc(100% - 150px);
+  }
+  .hero .stats{ position:relative; z-index:2; }
+}
+@media (max-width:999px){
+  .hero-3d{ height:340px; margin:30px calc(-1 * var(--gut)) 0; }
+}
+
+/* intro guard: hero copy waits for the animation; index.html removes this after 2.5 s regardless */
+.fx-intro .hero-copy > *, .fx-intro .hero .stats > div{ opacity:0; }
+
+/* scroll progress */
+.fx-progress{
+  position:fixed; left:0; top:0; z-index:70; height:2px; width:100%;
+  background:linear-gradient(90deg, var(--live), #b6f5cf);
+  transform-origin:0 50%; transform:scaleX(0); pointer-events:none;
+}
+
+/* film grain */
+.fx-grain{
+  position:fixed; inset:-50%; z-index:65; pointer-events:none; opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(6) infinite;
+}
+@keyframes grain{
+  0%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)}
+  60%{transform:translate(-2%,-1%)} 80%{transform:translate(3%,3%)} 100%{transform:translate(0,0)}
+}
+
+/* cursor spotlight */
+.fx-glow{
+  position:fixed; left:0; top:0; z-index:0; width:600px; height:600px; border-radius:50%;
+  pointer-events:none; opacity:0; transition:opacity .4s ease;
+  background:radial-gradient(circle, rgba(74,222,128,.075) 0%, rgba(74,222,128,0) 60%);
+}
+.fx-glow.on{ opacity:1; }
+main{ position:relative; z-index:1; }
+
+/* tilt + glare */
+.fx-tilt{ transform-style:preserve-3d; will-change:transform; position:relative; }
+.fx-tilt::after{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:3;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.09), transparent 45%);
+  opacity:0; transition:opacity .25s ease;
+}
+.fx-tilt.is-tilting::after{ opacity:1; }
+.frame.fx-tilt:hover{ transform:none; }
+.shot{ overflow:hidden; }
+
+/* magnetic buttons ease back */
+.btn, .fchip, .nav-gh, .more{ transition:transform .25s cubic-bezier(.2,.8,.2,1), background-color .2s ease, color .2s ease, border-color .2s ease; }
+
+@media (prefers-reduced-motion:reduce){
+  .fx-grain, .fx-glow{ display:none; }
+}

@@ -59,7 +59,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="styles.css?v=14">
+<link rel="stylesheet" href="styles.css?v=15">
 
 <!-- Arm the scroll reveal only if this browser can undo it. Without the class
      everything renders visible, so a blocked script cannot leave a blank page. -->
@@ -68,6 +68,10 @@
   var ok = "IntersectionObserver" in window &&
     !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   if (ok) document.documentElement.className += " js-reveal";
+  if (ok) {
+    document.documentElement.className += " fx-intro";
+    setTimeout(function(){ document.documentElement.classList.remove("fx-intro"); }, 2500);
+  }
 })();
 </script>
 </head>
@@ -102,6 +106,7 @@
 <!-- ================= HERO ================= -->
 <header class="hero">
   <div class="shell">
+    <div class="hero-copy">
     <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Full-stack &amp; AI engineer &middot; embedded background &middot; India</p>
     <h1 class="display">
       <span class="h1-name">Sadhanala Nischay Prasad, full-stack &amp; AI engineer</span>
@@ -117,6 +122,13 @@
     <div class="cta">
       <a class="btn btn-solid" href="#live">See what&rsquo;s live</a>
       <a class="btn btn-line" href="https://github.com/SNischayPrasad" target="_blank" rel="noopener">GitHub &#8599;</a>
+    </div>
+    </div>
+
+    <div class="hero-3d" id="hero-3d" aria-hidden="true">
+      <canvas id="hero3d"></canvas>
+      <p class="hero-3d-tip" id="hero3d-tip"></p>
+      <p class="hero-3d-hint">Drag to spin &middot; click a project to open it</p>
     </div>
 
     <dl class="stats">
@@ -255,7 +267,7 @@
   </div>
 
   <!-- ---- feature 1 ---- -->
-  <article class="case shell" data-cat="web">
+  <article class="case shell" data-cat="web" id="p-commons">
     <div class="case-media">
       <figure class="frame">
         <div class="chrome">
@@ -299,7 +311,7 @@
   </article>
 
   <!-- ---- feature 2 ---- -->
-  <article class="case case-flip shell" data-cat="ai web">
+  <article class="case case-flip shell" data-cat="ai web" id="p-civicpulse">
     <div class="case-media">
       <figure class="frame">
         <div class="chrome">
@@ -344,7 +356,7 @@
   </article>
 
   <!-- ---- feature 3 ---- -->
-  <article class="case shell" data-cat="web security">
+  <article class="case shell" data-cat="web security" id="p-transmission">
     <div class="case-media">
       <figure class="frame">
         <div class="chrome">
@@ -393,7 +405,7 @@
   </article>
 
   <!-- ---- feature 4: client work ---- -->
-  <article class="case case-flip shell" data-cat="web">
+  <article class="case case-flip shell" data-cat="web" id="p-steel">
     <div class="case-media">
       <figure class="frame">
         <div class="chrome">
@@ -441,7 +453,7 @@
   <div class="shell">
     <div class="grid-2">
 
-      <article class="mini" data-cat="security web">
+      <article class="mini" data-cat="security web" id="p-credential">
         <figure class="frame">
           <div class="chrome">
             <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -470,7 +482,7 @@
         </p>
       </article>
 
-      <article class="mini" data-cat="web">
+      <article class="mini" data-cat="web" id="p-splitupi">
         <figure class="frame">
           <div class="chrome">
             <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -533,7 +545,7 @@
         </p>
       </article>
 
-      <article class="mini" data-cat="web">
+      <article class="mini" data-cat="web" id="p-tally">
         <figure class="frame">
           <div class="chrome">
             <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1307,7 +1319,7 @@
       </p>
     </div>
 
-    <article class="case case-flip mk-feature">
+    <article class="case case-flip mk-feature" id="p-crumb">
       <div class="case-media">
         <figure class="frame">
           <div class="chrome">
@@ -1407,6 +1419,11 @@
   </div>
 </footer>
 
-<script src="script.js?v=14"></script>
+<script src="script.js?v=15"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js"}}</script>
+<script type="module" src="fx3d.js?v=15"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="fx.js?v=15" defer></script>
 </body>
 </html>
