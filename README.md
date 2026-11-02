@@ -82,6 +82,20 @@ only run on a mouse or trackpad, the ring pauses off-screen, and if WebGL or the
 CDN fails the stage is removed and the page works as before. Test locally over
 `http://` (`python -m http.server`); textures will not load from `file://`.
 
+### Pro layer (`pro.js`)
+
+- **Command palette:** Ctrl/Cmd+K or `/` (also the search button in the nav).
+  It indexes every section, card with an `h3`, internship, certificate and
+  marketing task at open time, so new cards are searchable automatically.
+  Clicking a stack pill opens it pre-filled.
+- **Live checks:** each deployment's URL is pinged from the visitor's browser
+  (`no-cors`, so it measures reachability, not status codes) and its badge shows
+  the response time; the hero shows the total. The latest pushed repo comes
+  from the public GitHub API (60 requests an hour per visitor, ample here).
+- **Lenis** smooth scrolling on mouse/trackpad only, synced with ScrollTrigger.
+  Use `window.siteScrollTo(el)` for any programmatic jump.
+- Cursor ring, copy-email button with toast, and a tech marquee in Stack.
+
 ### Filter, compact cards and nav
 
 Every project card carries `data-cat` (any of `web ai data security embedded`),
@@ -163,7 +177,7 @@ var PROFILE = {
 ## Cache busting
 
 `index.html` links the stylesheet and script with a version query —
-`styles.css?v=15`, `script.js?v=15` (also `fx3d.js?v=15`, `fx.js?v=15`). Bump both when you change either file, or
+`styles.css?v=15`, `script.js?v=15` (also `fx3d.js`, `fx.js`, `pro.js`). Bump both when you change either file, or
 returning visitors keep the cached copy.
 
 ## Deploying

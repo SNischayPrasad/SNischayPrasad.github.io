@@ -160,7 +160,7 @@ function init() {
       const hit = pick();
       if (hit) {
         const el = document.querySelector(hit.plane.userData.href);
-        if (el) el.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "start" });
+        if (el) (window.siteScrollTo ? window.siteScrollTo(el) : el.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "start" }));
       }
     }
   });
