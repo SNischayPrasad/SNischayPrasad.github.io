@@ -17,7 +17,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Sadhanala Nischay Prasad, full-stack and AI engineer, beside a screenshot of the Commons social platform.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#070708">
+<meta name="theme-color" content="#FFF7EE">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -56,11 +56,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- fonts load without blocking first paint; the fallback stack shows until they arrive -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Unbounded:wght@500;700;800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Unbounded:wght@500;700;800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Unbounded:wght@500;700;800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.css">
-<link rel="stylesheet" href="styles.css?v=22">
+<link rel="stylesheet" href="styles.css?v=24">
 
 <!-- Arm the scroll reveal only if this browser can undo it. Without the class
      everything renders visible, so a blocked script cannot leave a blank page. -->
@@ -77,27 +77,6 @@
 </script>
 </head>
 <body>
-
-<!-- intro loader (motion-allowed visitors only; always removed within 3.5 s) -->
-<div class="loader" id="loader" aria-hidden="true">
-  <span class="loader-n" id="loader-n">0</span>
-  <p class="loader-t">The <b>developer</b> who turns <b>ideas</b><br>into <b>software</b></p>
-  <span class="loader-bar"><i id="loader-bar"></i></span>
-</div>
-<script>
-(function(){
-  var L=document.getElementById("loader"), still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(still||sessionStorage.getItem("seenLoader")){ L.remove(); return; }
-  try{ sessionStorage.setItem("seenLoader","1"); }catch(e){}
-  document.documentElement.classList.add("fx-loading");
-  var n=document.getElementById("loader-n"), b=document.getElementById("loader-bar"), t0=performance.now(), D=1500;
-  function done(){ document.documentElement.classList.remove("fx-loading"); L.classList.add("out"); setTimeout(function(){ L.remove(); },700); }
-  (function tick(now){ var p=Math.min(1,(now-t0)/D), e=1-Math.pow(1-p,3), v=Math.round(e*100);
-    n.textContent=v; b.style.transform="scaleX("+e+")"; if(p<1) requestAnimationFrame(tick); else setTimeout(done,180); })(t0);
-  setTimeout(function(){ if(document.getElementById("loader")) done(); },3500);
-})();
-</script>
-<canvas class="embers" id="embers" aria-hidden="true"></canvas>
 
 <a class="skip" href="#live">Skip to the work</a>
 
@@ -131,7 +110,7 @@
     <div class="hero-copy">
     <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Full-stack &amp; AI engineer &middot; embedded background &middot; India</p>
     <h1 class="display">
-      <span class="h1-name">Sadhanala Nischay Prasad<span class="h1-role"><span class="sr">, </span>full-stack &amp; AI engineer</span></span>
+      <span class="h1-hi">Hi, I&rsquo;m <span class="wave" aria-hidden="true">&#128075;</span></span><span class="h1-name">Sadhanala Nischay Prasad<span class="h1-role"><span class="sr">, </span>full-stack &amp; AI engineer</span></span>
       Nine things I built<br>
       that you can <em>open right now.</em>
     </h1>
@@ -1441,14 +1420,13 @@
   </div>
 </footer>
 
-<script src="script.js?v=20"></script>
+<script src="script.js?v=23"></script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js"}}</script>
-<script type="module" src="fx3d.js?v=20"></script>
+<script type="module" src="fx3d.js?v=23"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="fx.js?v=20" defer></script>
+<script src="fx.js?v=23" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-<script src="pro.js?v=20" defer></script>
-<script src="theme.js?v=20" defer></script>
+<script src="pro.js?v=23" defer></script>
 </body>
 </html>

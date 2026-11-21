@@ -28,13 +28,14 @@
 
   if (still) { root.classList.remove("fx-intro"); return; }
 
-  /* ---------- film grain + cursor spotlight ---------- */
+  /* ---------- film grain + cursor spotlight (off in the colourful theme) ---------- */
+  var AMBIENT = false;
   var grain = document.createElement("div");
   grain.className = "fx-grain";
   grain.setAttribute("aria-hidden", "true");
-  document.body.appendChild(grain);
+  if (AMBIENT) document.body.appendChild(grain);
 
-  if (fine) {
+  if (fine && AMBIENT) {
     var glow = document.createElement("div");
     glow.className = "fx-glow";
     glow.setAttribute("aria-hidden", "true");
@@ -113,7 +114,7 @@
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if (e.isIntersecting) { scramble(e.target); io.unobserve(e.target); } });
     }, { threshold: 0.6 });
-    [].forEach.call(document.querySelectorAll(".kicker"), function(k){ io.observe(k); });
+    if (AMBIENT) [].forEach.call(document.querySelectorAll(".kicker"), function(k){ io.observe(k); });
   }
 
   /* ---------- count-up stats ---------- */
