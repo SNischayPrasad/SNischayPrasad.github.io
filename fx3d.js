@@ -46,7 +46,7 @@ function init() {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.Fog(0xfff7ee, 11, 22);
+  scene.fog = new THREE.Fog(0x070708, 11, 22);
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 60);
   camera.position.set(0, 0.9, 13.5);
   camera.lookAt(0, 0.2, 0);
@@ -67,7 +67,7 @@ function init() {
     g.position.set(Math.sin(a) * R, 0, Math.cos(a) * R);
     g.rotation.y = a;
 
-    const mat = new THREE.MeshBasicMaterial({ color: 0xece6f7, side: THREE.DoubleSide, transparent: true });
+    const mat = new THREE.MeshBasicMaterial({ color: 0x1a1a1d, side: THREE.DoubleSide, transparent: true });
     loader.load(`assets/shots/${file}-800.webp`, (tex) => {
       tex.colorSpace = THREE.SRGBColorSpace;
       tex.anisotropy = maxAniso;
@@ -80,7 +80,7 @@ function init() {
 
     const edge = new THREE.LineSegments(
       new THREE.EdgesGeometry(new THREE.PlaneGeometry(W * 1.012, H * 1.02)),
-      new THREE.LineBasicMaterial({ color: 0x6c47ff, transparent: true, opacity: 0.0 })
+      new THREE.LineBasicMaterial({ color: 0xff2d44, transparent: true, opacity: 0.0 })
     );
     edge.position.z = 0.002;
 
@@ -92,20 +92,20 @@ function init() {
   /* ---------- particles ---------- */
   const count = small() ? 420 : 1100;
   const pos = new Float32Array(count * 3), col = new Float32Array(count * 3);
-  const PAL = [0x6c47ff, 0xff4f8b, 0x19c3a6, 0xffb020, 0x3d8bff].map((h) => new THREE.Color(h));
+  const green = new THREE.Color(0xff2d44), white = new THREE.Color(0xffb3a8);
   for (let i = 0; i < count; i++) {
     const r = 6 + Math.random() * 9, t = Math.random() * Math.PI * 2, u = Math.acos(2 * Math.random() - 1);
     pos[i * 3] = r * Math.sin(u) * Math.cos(t);
     pos[i * 3 + 1] = r * Math.cos(u) * 0.6;
     pos[i * 3 + 2] = r * Math.sin(u) * Math.sin(t);
-    const c = PAL[i % PAL.length];
+    const c = Math.random() < 0.18 ? green : white;
     col.set([c.r, c.g, c.b], i * 3);
   }
   const pgeo = new THREE.BufferGeometry();
   pgeo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
   pgeo.setAttribute("color", new THREE.BufferAttribute(col, 3));
   const dots = new THREE.Points(pgeo, new THREE.PointsMaterial({
-    size: 0.07, vertexColors: true, transparent: true, opacity: 0.85, depthWrite: false, sizeAttenuation: true,
+    size: 0.045, vertexColors: true, transparent: true, opacity: 0.75, depthWrite: false, sizeAttenuation: true,
   }));
   scene.add(dots);
 

@@ -299,8 +299,8 @@
   var idle = window.requestIdleCallback || function(f){ return setTimeout(f, 600); };
   idle(function(){ runUptime(); runGitHub(); });
 
-  /* ---------- 5. cursor ring (off in the colourful theme) ---------- */
-  if (false && fine && !still) {
+  /* ---------- 5. cursor ring ---------- */
+  if (fine && !still) {
     var ring = document.createElement("div");
     ring.className = "pro-cursor"; ring.setAttribute("aria-hidden", "true");
     document.body.appendChild(ring);
