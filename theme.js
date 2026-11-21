@@ -48,3 +48,17 @@
     requestAnimationFrame(frame);
   })(performance.now());
 })();
+
+/* portrait: panels drift apart slightly with the pointer (parallax depth) */
+(function(){
+  var fig = document.getElementById("hero-photo");
+  if (!fig || matchMedia("(prefers-reduced-motion: reduce)").matches || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  var layers = [[".hp-back", -10], [".hp-panel", 8], [".hp-s1", 18], [".hp-s2", 14], [".hp-cap", 22]].map(function(l){ return [fig.querySelector(l[0]), l[1]]; });
+  var tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+  addEventListener("pointermove", function(e){ tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; if (!raf) raf = requestAnimationFrame(step); }, { passive: true });
+  function step(){
+    raf = 0; x += (tx - x) * .08; y += (ty - y) * .08;
+    layers.forEach(function(l){ if (l[0]) l[0].style.translate = (x * l[1]).toFixed(1) + "px " + (y * l[1]).toFixed(1) + "px"; });
+    if (Math.abs(tx - x) + Math.abs(ty - y) > .002) raf = requestAnimationFrame(step);
+  }
+})();

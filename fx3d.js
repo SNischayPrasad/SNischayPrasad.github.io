@@ -115,8 +115,8 @@ function init() {
     if (!w || !h) return;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    camera.position.z = small() ? 12.5 : 13.5;
-    camera.lookAt(0, 0.2, 0);
+    camera.position.z = small() ? 11 : (stage.closest('.live-ring') ? 9.2 : 13.5);
+    camera.lookAt(0, stage.closest('.live-ring') ? -0.9 : 0.2, 0);
     camera.updateProjectionMatrix();
   }
   new ResizeObserver(resize).observe(stage);

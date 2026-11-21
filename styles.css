@@ -951,3 +951,73 @@ table{ background:var(--glass); border-radius:14px; }
 .h2, .display-sm{ font-size:clamp(28px,4.2vw,54px); }
 .slab-head, .mini-name{ padding-right:clamp(56px,7vw,90px); }
 @media (max-width:600px){ .slab::before, .mini::before, .brick::before{ font-size:40px; } }
+
+/* =========================================================
+   REEL HERO: name left, portrait in red smoke inside
+   angled glass panels right
+   ========================================================= */
+.hero-photo{ position:relative; margin:0; aspect-ratio:3/4; width:100%; max-width:460px; justify-self:end; }
+@media (min-width:1000px){
+  .hero{ min-height:min(900px,100vh); }
+  .hero .shell{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); column-gap:clamp(30px,4vw,70px); align-items:center; }
+  .hero-copy{ max-width:none; }
+  .hero .stats{ grid-column:1 / -1; }
+  .hero-photo{ grid-column:2; grid-row:1; }
+}
+@media (max-width:999px){ .hero-photo{ max-width:340px; margin:34px auto 0; } }
+
+/* red smoke: three blurred blobs drifting slowly */
+.hp-smoke{ position:absolute; inset:-18% -22% -10%; z-index:0; filter:blur(42px); pointer-events:none; }
+.hp-smoke::before, .hp-smoke::after{ content:""; position:absolute; border-radius:50%; }
+.hp-smoke::before{ width:70%; height:60%; left:5%; top:20%; background:radial-gradient(circle, rgba(255,30,55,.85), rgba(255,30,55,0) 70%); animation:smokeA 9s ease-in-out infinite alternate; }
+.hp-smoke::after{ width:65%; height:55%; right:0; top:35%; background:radial-gradient(circle, rgba(200,10,35,.8), rgba(255,90,60,.15) 55%, transparent 72%); animation:smokeB 11s ease-in-out infinite alternate; }
+@keyframes smokeA{ to{ transform:translate(14%,-10%) scale(1.15); } }
+@keyframes smokeB{ to{ transform:translate(-16%,8%) scale(1.2); } }
+
+/* angled glass sheet behind the portrait */
+.hp-back{
+  position:absolute; inset:6% -6% 2% 8%; z-index:1;
+  clip-path:polygon(14% 0,100% 0,100% 86%,86% 100%,0 100%,0 14%);
+  background:linear-gradient(150deg,rgba(255,255,255,.10),rgba(255,40,60,.06) 45%,rgba(0,0,0,.25));
+  border:1px solid rgba(255,255,255,.12);
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+}
+/* portrait panel, chamfered corners, red edge */
+.hp-panel{
+  position:absolute; inset:0 4% 6% 0; z-index:2; overflow:hidden;
+  clip-path:polygon(12% 0,100% 0,100% 88%,88% 100%,0 100%,0 12%);
+  background:#120a0d;
+  box-shadow:0 0 0 1px rgba(255,45,68,.5);
+}
+.hp-panel img{
+  width:100%; height:100%; object-fit:cover; object-position:50% 20%; display:block;
+  filter:contrast(1.08) saturate(.85) brightness(.95);
+  -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 100%); mask-image:linear-gradient(180deg,#000 72%,transparent 100%);
+}
+/* red light washing over the photo from the sides and below */
+.hp-panel::after{
+  content:""; position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen;
+  background:
+    radial-gradient(70% 55% at 100% 70%, rgba(255,30,55,.55), transparent 70%),
+    radial-gradient(60% 50% at 0% 85%, rgba(255,30,55,.45), transparent 70%),
+    linear-gradient(0deg, rgba(255,20,45,.35), transparent 40%);
+}
+.hp-panel::before{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.10) 42%, transparent 52%);
+}
+/* glowing shards like the reel's broken-glass lines */
+.hp-shard{ position:absolute; z-index:3; height:2px; border-radius:2px; background:linear-gradient(90deg,transparent,#ff3048,transparent); box-shadow:0 0 14px #ff3048; pointer-events:none; }
+.hp-s1{ width:58%; left:-14%; top:62%; transform:rotate(-24deg); }
+.hp-s2{ width:44%; right:-10%; top:18%; transform:rotate(-24deg); opacity:.7; }
+.hp-cap{
+  position:absolute; z-index:4; left:-6%; bottom:10%;
+  display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:980px;
+  background:rgba(10,8,10,.72); border:1px solid rgba(255,45,68,.45); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+  font-family:var(--mono); font-size:12px; color:#f4f4f2; white-space:nowrap;
+}
+.hp-dot{ width:7px; height:7px; border-radius:50%; background:var(--ok); box-shadow:0 0 8px rgba(74,222,128,.9); }
+@media (prefers-reduced-motion:reduce){ .hp-smoke::before, .hp-smoke::after{ animation:none; } }
+
+/* 3D ring now opens the Live section */
+.live-ring .hero-3d{ position:relative; top:auto; right:auto; width:auto; height:clamp(320px,42vw,480px); margin:0 calc(-1 * var(--gut)) clamp(24px,4vw,48px); }

@@ -60,7 +60,7 @@
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Unbounded:wght@500;700;800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Unbounded:wght@500;700;800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.css">
-<link rel="stylesheet" href="styles.css?v=22">
+<link rel="stylesheet" href="styles.css?v=25">
 
 <!-- Arm the scroll reveal only if this browser can undo it. Without the class
      everything renders visible, so a blocked script cannot leave a blank page. -->
@@ -147,11 +147,16 @@
     </div>
     </div>
 
-    <div class="hero-3d" id="hero-3d" aria-hidden="true">
-      <canvas id="hero3d"></canvas>
-      <p class="hero-3d-tip" id="hero3d-tip"></p>
-      <p class="hero-3d-hint">Drag to spin &middot; click a project to open it</p>
-    </div>
+    <figure class="hero-photo" id="hero-photo">
+      <div class="hp-smoke" aria-hidden="true"></div>
+      <div class="hp-back" aria-hidden="true"></div>
+      <div class="hp-panel">
+        <img src="assets/me.webp" width="600" height="800" alt="Sadhanala Nischay Prasad" fetchpriority="high">
+      </div>
+      <span class="hp-shard hp-s1" aria-hidden="true"></span>
+      <span class="hp-shard hp-s2" aria-hidden="true"></span>
+      <figcaption class="hp-cap"><span class="hp-dot" aria-hidden="true"></span>Open to roles &middot; Hyderabad</figcaption>
+    </figure>
 
     <dl class="stats">
       <div><dt>Live deployments</dt><dd><span class="live-n">9</span></dd></div>
@@ -285,6 +290,13 @@
         Each frame below is a screenshot of the running app, and the address bar is the real URL.
         Click it and you are on the deployment.
       </p>
+    </div>
+    <div class="live-ring">
+      <div class="hero-3d" id="hero-3d" aria-hidden="true">
+      <canvas id="hero3d"></canvas>
+      <p class="hero-3d-tip" id="hero3d-tip"></p>
+      <p class="hero-3d-hint">Drag to spin &middot; click a project to open it</p>
+    </div>
     </div>
   </div>
 
@@ -1441,14 +1453,14 @@
   </div>
 </footer>
 
-<script src="script.js?v=20"></script>
+<script src="script.js?v=25"></script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js"}}</script>
-<script type="module" src="fx3d.js?v=20"></script>
+<script type="module" src="fx3d.js?v=27"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="fx.js?v=20" defer></script>
+<script src="fx.js?v=25" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-<script src="pro.js?v=20" defer></script>
-<script src="theme.js?v=20" defer></script>
+<script src="pro.js?v=25" defer></script>
+<script src="theme.js?v=25" defer></script>
 </body>
 </html>
