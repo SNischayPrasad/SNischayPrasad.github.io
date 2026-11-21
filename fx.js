@@ -129,7 +129,7 @@
       target.textContent = String(Math.round(n * e));
       if (p < 1) requestAnimationFrame(run);
     }
-    setTimeout(function(){ requestAnimationFrame(run); }, 500);
+    setTimeout(function(){ requestAnimationFrame(run); }, root.classList.contains("fx-loading") ? 2100 : 500);
   });
 
   /* ---------- GSAP: hero intro + scroll parallax ---------- */
@@ -138,8 +138,8 @@
 
   var hero = document.querySelectorAll(".hero-copy > *, .hero .stats > div");
   root.classList.remove("fx-intro");
-  gsap.from(hero, { y: 34, opacity: 0, duration: 1.0, ease: "power3.out", stagger: 0.09, delay: 0.05, clearProps: "transform,opacity" });
-  gsap.from(".hero-3d", { opacity: 0, scale: 0.92, duration: 1.6, ease: "power2.out", delay: 0.2 });
+  gsap.from(hero, { y: 34, opacity: 0, duration: 1.0, ease: "power3.out", stagger: 0.09, delay: root.classList.contains("fx-loading") ? 1.75 : 0.05, clearProps: "transform,opacity" });
+  gsap.from(".hero-3d", { opacity: 0, scale: 0.92, duration: 1.6, ease: "power2.out", delay: root.classList.contains("fx-loading") ? 1.9 : 0.2 });
 
   if (!ST) return;
 

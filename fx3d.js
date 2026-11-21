@@ -46,7 +46,7 @@ function init() {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.Fog(0x0a0a0b, 11, 22);
+  scene.fog = new THREE.Fog(0x070708, 11, 22);
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 60);
   camera.position.set(0, 0.9, 13.5);
   camera.lookAt(0, 0.2, 0);
@@ -80,7 +80,7 @@ function init() {
 
     const edge = new THREE.LineSegments(
       new THREE.EdgesGeometry(new THREE.PlaneGeometry(W * 1.012, H * 1.02)),
-      new THREE.LineBasicMaterial({ color: 0x4ade80, transparent: true, opacity: 0.0 })
+      new THREE.LineBasicMaterial({ color: 0xff2d44, transparent: true, opacity: 0.0 })
     );
     edge.position.z = 0.002;
 
@@ -92,7 +92,7 @@ function init() {
   /* ---------- particles ---------- */
   const count = small() ? 420 : 1100;
   const pos = new Float32Array(count * 3), col = new Float32Array(count * 3);
-  const green = new THREE.Color(0x4ade80), white = new THREE.Color(0xd9d9d4);
+  const green = new THREE.Color(0xff2d44), white = new THREE.Color(0xffb3a8);
   for (let i = 0; i < count; i++) {
     const r = 6 + Math.random() * 9, t = Math.random() * Math.PI * 2, u = Math.acos(2 * Math.random() - 1);
     pos[i * 3] = r * Math.sin(u) * Math.cos(t);
