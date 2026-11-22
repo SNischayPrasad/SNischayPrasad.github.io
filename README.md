@@ -4,117 +4,64 @@ Personal portfolio — Sadhanala Nischay Prasad.
 
 Live at **https://snischayprasad.github.io**
 
-Static site, no framework and no build step. Open `index.html` in a browser to
-work on it locally.
+Static site. `index.html` is generated from the content in `redesign/data.json`
+by a small Python script, so edit the data (or the template) and rebuild rather
+than hand-editing `index.html`.
 
 ```
-index.html        markup and copy
-styles.css        tokens, browser frame, layout
-script.js         scroll reveal, optional resume link
-assets/shots/     screenshots of the live deployments
-assets/           put the resume PDF here
+index.html              generated page (do not edit by hand)
+modern.css              all styles
+modern.js               all interaction and animation
+redesign/data.json      the content: projects, internships, certificates, stack, about
+redesign/build.py       the page template; writes index.html
+redesign/head-meta.html <head> metadata: title, description, Open Graph, JSON-LD, favicons
+assets/me.webp          portrait
+assets/shots/           screenshots of the live deployments (+ -800.webp copies)
+404.html, robots.txt, sitemap.xml
 ```
+
+## Building
+
+```bash
+python redesign/build.py site      # writes index.html at the repo root
+python redesign/build.py preview   # writes redesign/modern/index.html to try changes first
+```
+
+Test locally over `http://` (`python -m http.server`), not `file://`.
 
 ## The design
 
-Dark editorial. The page is deliberately near-monochrome so the six product
-screenshots carry all the colour. Green is used in exactly one meaning:
-*deployed*.
+Paper and ink, meant to feel made by a person rather than generated: a warm
+paper ground, Boska serif headings, Satoshi for text, Caveat as a blue "pen" for
+handwritten notes, a yellow highlighter for emphasis, and project cards set as
+printed sheets at slight angles, some with tape. The hero is a taped polaroid.
 
-Type is Instrument Serif for editorial headlines, Inter Tight for text, and
-JetBrains Mono for data and labels.
+Motion (GSAP 3.12.5 + ScrollTrigger + Flip, Lenis smooth scroll): letter-by-letter
+name reveal, a pen strike-through in the hero line, pen underlines and circles
+that draw themselves on scroll, highlighter sweeps, filter reshuffle, project
+detail pop-ups, tabbed "more projects", a timeline that fills as you scroll,
+word-by-word about text, a scroll-speed marquee, count-up stats, magnetic
+buttons and a copy-email toast. Everything respects `prefers-reduced-motion`,
+and the page is fully readable without JavaScript.
 
-### The browser frame
-
-Each screenshot sits in a frame whose address bar shows the project's real
-deployment URL and links to it. The chrome is the evidence, not decoration — a
-reader can check any claim by clicking the address.
-
-Frames are only for projects with a live deployment. Source-only work — the
-cloud series and the security series — goes in a text `.slab` instead, so a
-frame never implies a URL that does not exist. Green is likewise reserved for
-*deployed*; unfinished work gets the neutral dashed `.chip-wip`.
-
-Test counts on the slabs come from a passing CI run where the repo has one, and
-otherwise from running the suite locally. The security repos have no CI; their
-counts were run by hand on 2026-10-01. The intrusion-detection suite reaches 37
-only after `python -m ml.train_model`; on a fresh clone one test is skipped.
-
-To add one:
-
-```html
-<figure class="frame">
-  <div class="chrome">
-    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-    <a class="addr" href="URL" target="_blank" rel="noopener">host/path</a>
-    <span class="badge">live</span>
-  </div>
-  <a class="shot" href="URL" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-    <img src="assets/shots/NAME.webp" width="1600" height="900"
-         loading="lazy" decoding="async" alt="...">
-  </a>
-</figure>
-```
-
-The `width` and `height` attributes are required — they reserve the box so the
-page does not shift as images arrive.
+Every live project card carries `data-cat` (any of `web ai data security embedded`),
+which drives the filter.
 
 ### Section order
 
-Experience, certifications, live, AI & machine learning, data analytics, security, cloud,
-hardware, earlier projects, tech stack, about, **Digital Marketing (the last
+Hero, live projects, more projects (AI & ML, data, security, cloud, hardware,
+earlier), experience, certifications, stack, about, **Digital Marketing (the last
 content section)**, and **"Let's talk" contact, always the very bottom**. Add new
 engineering sections above Digital Marketing; nothing goes below Contact.
 
-### 3D hero and motion
-
-`fx3d.js` (Three.js r170 from jsDelivr, loaded through an import map) draws the
-nine live projects as a ring of screenshots in a particle field: it turns on
-its own, leans toward the pointer, spins when dragged, and a click scrolls to
-the project. The ring reads `assets/shots/NAME-800.webp`, and each entry in
-`PROJECTS` points at a card id such as `#p-commons`; add both when a new live
-project appears. `fx.js` (GSAP 3.12.5 + ScrollTrigger) adds the hero intro,
-count-up stats, tilt with glare, magnetic buttons, cursor spotlight, screenshot
-parallax, scrambled section labels, a scroll progress bar and film grain.
-
-Both respect `prefers-reduced-motion` (static ring, no effects), pointer effects
-only run on a mouse or trackpad, the ring pauses off-screen, and if WebGL or the
-CDN fails the stage is removed and the page works as before. Test locally over
-`http://` (`python -m http.server`); textures will not load from `file://`.
-
-### Pro layer (`pro.js`)
-
-- **Command palette:** Ctrl/Cmd+K or `/` (also the search button in the nav).
-  It indexes every section, card with an `h3`, internship, certificate and
-  marketing task at open time, so new cards are searchable automatically.
-  Clicking a stack pill opens it pre-filled.
-- **Live checks:** each deployment's URL is pinged from the visitor's browser
-  (`no-cors`, so it measures reachability, not status codes) and its badge shows
-  the response time; the hero shows the total. The latest pushed repo comes
-  from the public GitHub API (60 requests an hour per visitor, ample here).
-- **Lenis** smooth scrolling on mouse/trackpad only, synced with ScrollTrigger.
-  Use `window.siteScrollTo(el)` for any programmatic jump.
-- Cursor ring, copy-email button with toast, and a tech marquee in Stack.
-
-### Filter, compact cards and nav
-
-Every project card carries `data-cat` (any of `web ai data security embedded`),
-which the filter bar above Live uses; sections with `data-filter-all-only`
-(earlier projects, digital marketing) appear only under "All". Give any new
-card a `data-cat`, or the filter will hide it. Cards in the AI, Data, Security
-and Cloud sections start compact with a "Show details" button, Certifications
-start collapsed, and the nav marks the section in view. All of it is added by
-`script.js`; without JavaScript the page shows in full.
-
 ### SEO
 
-The page applies the fixes from the SEO audit in the `T10` repo: name and role
-in the H1, a description under 155 characters, Person/ProfilePage JSON-LD, real
-favicon files, a 1200x630 `assets/og-image.png` for link previews, non-blocking
-font loading, `robots.txt`, `sitemap.xml`, a `404.html`, a scrollable section
-nav on phones, 12px minimum labels, and `srcset` with an `-800.webp` copy of
-every screenshot. When you add a screenshot, make its `-800.webp` copy too, and
-update `<lastmod>` in `sitemap.xml`.
+The `<head>` keeps the fixes from the SEO audit in the `T10` repo: name and role
+in the title and H1, a description under 155 characters, Person/ProfilePage
+JSON-LD, real favicon files, a 1200x630 `assets/og-image.png`, `robots.txt`,
+`sitemap.xml`, a `404.html`, and `srcset` with an `-800.webp` copy of every
+screenshot. When you add a screenshot, make its `-800.webp` copy too, and update
+`<lastmod>` in `sitemap.xml`.
 
 ### Greenve
 
@@ -140,7 +87,7 @@ its hero is WebGL. To capture it, use a DevTools-protocol script that clicks
 ## Refreshing the screenshots
 
 The shots are captured from the running deployments with headless Chrome, then
-cropped to 16:9 and converted to WebP. All six together are about 310 KB.
+cropped to 16:9 and converted to WebP.
 
 ```bash
 "/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --disable-gpu \
@@ -158,27 +105,10 @@ im.crop((0, 0, w, min(int(w * 9 / 16), h))).resize((1600, 900), Image.LANCZOS) \
   .save("assets/shots/NAME.webp", "WEBP", quality=84, method=6)
 ```
 
-Note: capturing the whole portfolio page in one very tall headless window will
-render the screenshots blank. That is a raster-area limit in headless Chrome,
-not a fault in the page — check the deployed site instead.
-
-## Adding your resume
-
-The resume button is built by JavaScript and is only created when a path is
-set, so an unconfigured link never reaches the page. Drop the PDF into
-`assets/` and edit the `PROFILE` block at the top of `script.js`:
-
-```js
-var PROFILE = {
-  resume: "assets/Nischay-Prasad-Resume.pdf"
-};
-```
-
 ## Cache busting
 
-`index.html` links the stylesheet and script with a version query —
-`styles.css?v=15`, `script.js?v=15` (also `fx3d.js`, `fx.js`, `pro.js`). Bump both when you change either file, or
-returning visitors keep the cached copy.
+`build.py` links `modern.css?v=N` and `modern.js?v=N` using its `V` constant.
+Bump `V` when you change either file, or returning visitors keep the cached copy.
 
 ## Deploying
 
@@ -186,5 +116,6 @@ Pushing to `main` publishes through GitHub Pages. A build takes about a minute.
 
 ## Previous designs
 
+- Crimson reel-style hero with 3D project ring — `a40b214`
 - White ground with liquid glass panels — `11a5b10`
 - Dark PCB homepage with a CSS 3D board — `b5054b9`
