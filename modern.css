@@ -122,7 +122,7 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 .hero-visual{ position:relative; display:grid; place-items:center; perspective:1000px; }
 .polaroid{ position:relative; margin:0; width:min(340px,100%); padding:14px 14px 0; background:#fff; rotate:3deg; box-shadow:0 2px 0 rgba(0,0,0,.04), 0 30px 50px -30px rgba(60,44,16,.7); transition:rotate .6s var(--ease); }
 .polaroid:hover{ rotate:0deg; }
-.polaroid img{ width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:50% 8%; background:#8a8c8e; filter:saturate(.92) contrast(1.03); }
+.polaroid img{ width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:50% 0%; background:#F2EDE3; }
 .polaroid figcaption{ padding:10px 4px 14px; text-align:center; font-size:26px; color:var(--ink-2); }
 .tape{ position:absolute; z-index:2; top:-16px; left:50%; width:120px; height:34px; margin-left:-60px; rotate:-5deg; background:rgba(255,226,140,.72); box-shadow:0 1px 2px rgba(0,0,0,.08); }
 .hero-note{ position:absolute; left:-16%; bottom:-2%; display:flex; align-items:flex-end; gap:4px; font-size:24px; line-height:1.05; max-width:150px; rotate:-6deg; }

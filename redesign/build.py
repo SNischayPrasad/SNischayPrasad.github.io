@@ -11,7 +11,7 @@ ROOT = os.path.dirname(HERE)
 mode = sys.argv[1] if len(sys.argv) > 1 else "preview"
 P = "../../" if mode == "preview" else ""
 OUT = os.path.join(HERE, "modern", "index.html") if mode == "preview" else os.path.join(ROOT, "index.html")
-V = "5"
+V = "6"
 
 d = json.load(open(os.path.join(HERE, "data.json"), encoding="utf-8"))
 head_meta = open(os.path.join(HERE, "head-meta.html"), encoding="utf-8").read()
@@ -224,8 +224,8 @@ page = f'''{head_meta}
   <div class="hero-visual" data-hero>
     <figure class="polaroid" data-tilt data-tilt-max="8">
       <span class="tape" aria-hidden="true"></span>
-      <img src="{P}assets/me.webp" width="600" height="800" alt="Sadhanala Nischay Prasad" fetchpriority="high">
-      <figcaption class="hand">that’s me · Hyderabad</figcaption>
+      <img src="{P}assets/me-3d.webp" width="900" height="1200" alt="A 3D character portrait of Sadhanala Nischay Prasad in a navy blazer" fetchpriority="high">
+      <figcaption class="hand">me, in 3D · Hyderabad</figcaption>
     </figure>
     <p class="hero-note hand" aria-hidden="true">currently building Greenve{HAND_ARROW}</p>
   </div>

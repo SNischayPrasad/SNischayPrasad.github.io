@@ -15,7 +15,8 @@ modern.js               all interaction and animation
 redesign/data.json      the content: projects, internships, certificates, stack, about
 redesign/build.py       the page template; writes index.html
 redesign/head-meta.html <head> metadata: title, description, Open Graph, JSON-LD, favicons
-assets/me.webp          portrait
+assets/me-3d.webp       3D portrait (hero)
+assets/me.webp          original photo
 assets/shots/           screenshots of the live deployments (+ -800.webp copies)
 404.html, robots.txt, sitemap.xml
 ```
