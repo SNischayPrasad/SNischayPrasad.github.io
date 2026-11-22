@@ -11,7 +11,7 @@ ROOT = os.path.dirname(HERE)
 mode = sys.argv[1] if len(sys.argv) > 1 else "preview"
 P = "../../" if mode == "preview" else ""
 OUT = os.path.join(HERE, "modern", "index.html") if mode == "preview" else os.path.join(ROOT, "index.html")
-V = "4"
+V = "5"
 
 d = json.load(open(os.path.join(HERE, "data.json"), encoding="utf-8"))
 head_meta = open(os.path.join(HERE, "head-meta.html"), encoding="utf-8").read()
@@ -192,7 +192,7 @@ page = f'''{head_meta}
 
 <header class="nav" id="nav">
   <a class="brand" href="#top" aria-label="Sadhanala Nischay Prasad, home">
-    <span class="brand-mark" aria-hidden="true">sn.</span><span class="brand-name">Sadhanala Nischay Prasad</span>
+    <img class="brand-mark" src="{P}assets/logo.svg" width="36" height="36" alt=""><span class="brand-name">Sadhanala Nischay Prasad</span>
   </a>
   <nav class="nav-links" aria-label="Sections">{nav_html}<span class="nav-pill" aria-hidden="true"></span></nav>
   <a class="nav-resume" href="{P}{RESUME}" download>{DL} Résumé</a>

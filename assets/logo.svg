@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="sn. — Sadhanala Nischay Prasad">
+  <rect x="3" y="3" width="58" height="58" rx="14" fill="#FBF8F2" stroke="#1A1814" stroke-width="3"/>
+  <path d="M11 41.5 L49 37 L50 46.5 L12.5 50 Z" fill="#FFE45C"/>
+  <g transform="rotate(-5 32 34)" fill="none" stroke="#1A1814" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27.5 25.5c-1.6-2.6-8.6-3-9.6.8-1.2 4.4 10.4 4.6 10 10-.4 5-9 5.4-11.4 1.4"/>
+    <path d="M33.5 24.5v19"/>
+    <path d="M33.8 31c1.2-4.2 4.2-6.4 7.4-6.4 3.4 0 5.2 2.4 5.2 6.4v12.6"/>
+  </g>
+  <circle cx="52.4" cy="40.6" r="3.6" fill="#2547E8"/>
+</svg>

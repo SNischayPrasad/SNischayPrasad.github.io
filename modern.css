@@ -70,7 +70,8 @@ ul,ol{ margin:0; padding:0; list-style:none; }
   transition:transform .5s var(--ease); }
 .nav.hide{ transform:translate(-50%,-160%); }
 .brand{ display:flex; align-items:center; gap:10px; font-weight:700; font-size:15px; white-space:nowrap; }
-.brand-mark{ font:italic 700 26px/1 var(--serif); color:var(--blue); }
+.brand-mark{ width:36px; height:36px; flex:none; transform:rotate(-4deg); transition:transform .35s cubic-bezier(.3,1.6,.5,1); }
+.brand:hover .brand-mark{ transform:rotate(6deg) scale(1.08); }
 .nav-links{ position:relative; display:flex; gap:2px; margin-left:auto; }
 .nav-links a{ position:relative; z-index:1; padding:9px 12px; font-size:14.5px; font-weight:500; color:var(--ink-2); transition:color .2s; }
 .nav-links a:hover, .nav-links a.on{ color:var(--ink); }
