@@ -11,7 +11,7 @@ ROOT = os.path.dirname(HERE)
 mode = sys.argv[1] if len(sys.argv) > 1 else "preview"
 P = "../../" if mode == "preview" else ""
 OUT = os.path.join(HERE, "modern", "index.html") if mode == "preview" else os.path.join(ROOT, "index.html")
-V = "2"
+V = "3"
 
 d = json.load(open(os.path.join(HERE, "data.json"), encoding="utf-8"))
 head_meta = open(os.path.join(HERE, "head-meta.html"), encoding="utf-8").read()
@@ -330,7 +330,6 @@ page = f'''{head_meta}
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
 <script src="{P}modern.js?v={V}" defer></script>
 </body>

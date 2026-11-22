@@ -172,8 +172,9 @@
     requestAnimationFrame(f);
   };
 
-  /* ---------------- filters (with Flip) ---------------- */
+  /* ---------------- filters ---------------- */
   const fpill = $('.fpill'), fbtns = $$('.fbtn');
+  let filterTl = null;
   const placePill = (pillEl, btn) => {
     if (!pillEl || !btn) return;
     pillEl.style.width = btn.offsetWidth + 'px';
@@ -184,10 +185,19 @@
     fbtns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
     placePill(fpill, b);
     const f = b.dataset.filter, cards = $$('.pcard');
-    const state = window.Flip && !reduce ? Flip.getState(cards) : null;
-    cards.forEach((c) => c.classList.toggle('is-hidden', f !== 'all' && !c.dataset.cat.split(' ').includes(f)));
-    if (state) Flip.from(state, { duration: .6, ease: 'power3.inOut', scale: true, absolute: true, onEnter: (els) => gsap.fromTo(els, { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, duration: .5 }), onLeave: (els) => gsap.to(els, { opacity: 0, scale: .9, duration: .4 }) });
-    hasGsap() && ScrollTrigger.refresh();
+    const apply = () => cards.forEach((c) => c.classList.toggle('is-hidden', f !== 'all' && !c.dataset.cat.split(' ').includes(f)));
+    if (!hasGsap() || reduce) { apply(); cards.forEach((c) => { c.style.opacity = 1; c.style.transform = 'none'; }); return; }
+    if (filterTl) filterTl.kill();
+    gsap.killTweensOf(cards);
+    const shownNow = cards.filter((c) => !c.classList.contains('is-hidden'));
+    filterTl = gsap.timeline()
+      .to(shownNow, { opacity: 0, y: 14, duration: .18, stagger: .015, ease: 'power1.in' })
+      .call(() => {
+        apply();
+        const shown = cards.filter((c) => !c.classList.contains('is-hidden'));
+        gsap.fromTo(shown, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: .5, stagger: .06, ease: 'power3.out', clearProps: 'transform' });
+        ScrollTrigger.refresh();
+      });
   }));
 
   /* ---------------- tabs ---------------- */
@@ -311,7 +321,6 @@
       return;
     }
     gsap.registerPlugin(ScrollTrigger);
-    window.Flip && gsap.registerPlugin(Flip);
     if (lenis) { lenis.on('scroll', ScrollTrigger.update); }
 
     // hero intro
