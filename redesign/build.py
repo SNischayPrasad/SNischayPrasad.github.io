@@ -11,7 +11,7 @@ ROOT = os.path.dirname(HERE)
 mode = sys.argv[1] if len(sys.argv) > 1 else "preview"
 P = "../../" if mode == "preview" else ""
 OUT = os.path.join(HERE, "modern", "index.html") if mode == "preview" else os.path.join(ROOT, "index.html")
-V = "3"
+V = "4"
 
 d = json.load(open(os.path.join(HERE, "data.json"), encoding="utf-8"))
 head_meta = open(os.path.join(HERE, "head-meta.html"), encoding="utf-8").read()
@@ -23,6 +23,8 @@ ARROW = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 1
 GH = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z" fill="currentColor" stroke="none"/></svg>'
 LI = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z" fill="currentColor" stroke="none"/></svg>'
 MAIL = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>'
+RESUME = "assets/Sadhanala-Nischay-Prasad-Resume.pdf"
+DL = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>'
 COPY = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>'
 
 UNDER = '<svg class="draw under" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 60 7, 110 19, 170 11 S 260 5, 297 13"/></svg>'
@@ -101,7 +103,7 @@ tabs, panels = [], []
 groups = d["groups"] + [{"id": "earlier", "kicker": "Earlier", "title": "Earlier projects", "sub": "", "items": None}]
 for gi, g in enumerate(groups):
     sel = "true" if gi == 0 else "false"
-    label = {"ai": "AI & ML", "data": "Data", "security": "Security", "cloud": "Cloud", "hardware": "Hardware", "earlier": "Earlier"}[g["id"]]
+    label = {"ai": "AI & ML", "data": "Data", "automation": "Automation", "security": "Security", "cloud": "Cloud", "hardware": "Hardware", "earlier": "Earlier"}[g["id"]]
     count = len(g["items"]) if g["items"] else len(d["earlier"])
     tabs.append(f'<button class="tab" role="tab" id="tab-{g["id"]}" aria-controls="panel-{g["id"]}" aria-selected="{sel}" tabindex="{0 if gi == 0 else -1}">{label}<span class="tab-n">{count}</span></button>')
     if g["items"]:
@@ -193,10 +195,11 @@ page = f'''{head_meta}
     <span class="brand-mark" aria-hidden="true">sn.</span><span class="brand-name">Sadhanala Nischay Prasad</span>
   </a>
   <nav class="nav-links" aria-label="Sections">{nav_html}<span class="nav-pill" aria-hidden="true"></span></nav>
+  <a class="nav-resume" href="{P}{RESUME}" download>{DL} Résumé</a>
   <a class="btn btn-ink nav-cta" href="#contact">Get in touch</a>
   <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><i></i><i></i></button>
 </header>
-<div class="mnav" id="mnav" hidden><nav aria-label="Sections">{nav_html}<a href="#contact" class="btn btn-ink">Get in touch</a></nav></div>
+<div class="mnav" id="mnav" hidden><nav aria-label="Sections">{nav_html}<a href="{P}{RESUME}" class="btn btn-line" download>{DL} Download résumé</a><a href="#contact" class="btn btn-ink">Get in touch</a></nav></div>
 
 <main id="main">
 <section class="hero" id="top">
@@ -207,12 +210,13 @@ page = f'''{head_meta}
     <p class="lede" data-hero>Full-stack &amp; AI engineer with an embedded background. Next.js, FastAPI and Postgres on the web, Kotlin on the phone, C++ on the microcontroller, and the machine learning that decides things in between.</p>
     <div class="cta" data-hero>
       <a class="btn btn-ink" href="#work" data-magnetic>See what’s live {ARROW}</a>
+      <a class="btn btn-line" href="{P}{RESUME}" download data-magnetic>{DL} Download résumé</a>
       <a class="btn btn-line" href="https://github.com/SNischayPrasad" {EXT} data-magnetic>{GH} GitHub</a>
       <a class="btn btn-line" href="https://www.linkedin.com/in/sadhanala-nischay-prasad-0b0978389/" {EXT} data-magnetic>{LI} LinkedIn</a>
     </div>
     <dl class="stats" data-hero>
       <div><dd data-count="9">9</dd><dt>live projects</dt></div>
-      <div><dd data-count="70" data-suffix="+">70+</dd><dt>repositories</dt></div>
+      <div><dd data-count="{d["repos"]}">{d["repos"]}</dd><dt>repositories</dt></div>
       <div><dd data-count="{len(d["xp"])}">{len(d["xp"])}</dd><dt>internships</dt></div>
       <div><dd data-count="{len(d["certs_raw"])}">{len(d["certs_raw"])}</dd><dt>certificates</dt></div>
     </dl>
@@ -244,7 +248,7 @@ page = f'''{head_meta}
 <section class="sec" id="more">
   <div class="sec-head">
     <p class="kicker hand" data-reveal>more things I built</p>
-    <h2 class="h2" data-reveal>Machine learning, data, security, cloud <mark class="hl">and hardware.</mark></h2>
+    <h2 class="h2" data-reveal>Machine learning, data, automation, security, cloud <mark class="hl">and hardware.</mark></h2>
   </div>
   <div class="tabs" role="tablist" aria-label="Project categories" data-reveal>{"".join(tabs)}<span class="tab-pill" aria-hidden="true"></span></div>
   <div class="panels">{"".join(panels)}</div>
@@ -312,6 +316,7 @@ page = f'''{head_meta}
   <div class="contact-row" data-reveal>
     <a class="btn btn-ink big" href="mailto:nischayprasuna@gmail.com" data-magnetic>{MAIL} nischayprasuna@gmail.com</a>
     <button class="btn btn-line copy" type="button" data-copy="nischayprasuna@gmail.com" data-magnetic>{COPY} Copy email</button>
+    <a class="btn btn-line" href="{P}{RESUME}" download data-magnetic>{DL} Résumé (PDF)</a>
   </div>
   <div class="contact-row" data-reveal>
     <a class="btn btn-line" href="https://www.linkedin.com/in/sadhanala-nischay-prasad-0b0978389/" {EXT} data-magnetic>{LI} LinkedIn</a>

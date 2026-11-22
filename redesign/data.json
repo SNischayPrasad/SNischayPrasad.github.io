@@ -625,6 +625,164 @@
    ]
   },
   {
+   "id": "automation",
+   "kicker": "Python & automation",
+   "title": "Python automation and analysis tools.",
+   "sub": "Five Python tools that take messy input (an API, a CSV, a folder of resumes) and turn it into a decision, an alert or a report. Each one runs offline on sample data.",
+   "items": [
+    {
+     "id": null,
+     "cats": "ai",
+     "name": "Automated Resume Screening",
+     "chip": "TF-IDF",
+     "desc": "Reads PDF, DOCX and TXT resumes, matches each against a job description, scores it out of 100 and sorts candidates into shortlisted, on hold or rejected.",
+     "notes": [
+      {
+       "t": "Skills with aliases",
+       "d": "sklearn counts as scikit-learn and MySQL as SQL, and must-have skills weigh more than nice-to-haves."
+      },
+      {
+       "t": "A reason for every decision",
+       "d": "A candidate is shortlisted only with a score of 65 or more and at least 60% of the must-have skills, and every result comes with a written reason. All sample resumes are synthetic."
+      }
+     ],
+     "tags": [
+      "Python",
+      "NLP",
+      "TF-IDF",
+      "pdfplumber",
+      "Streamlit"
+     ],
+     "links": [
+      {
+       "label": "Source",
+       "href": "https://github.com/SNischayPrasad/Automated-Resume-Screening-Tool"
+      }
+     ]
+    },
+    {
+     "id": null,
+     "cats": "data",
+     "name": "Weather Forecast & Alerts",
+     "chip": "OpenWeatherMap",
+     "desc": "Fetches current weather and a 5-day forecast for any city, summarises it with pandas and raises HIGH, MEDIUM or LOW alerts for rain, storms, heat, cold, humidity and wind.",
+     "notes": [
+      {
+       "t": "Works without a network",
+       "d": "A simulation mode produces API-identical data for eight sample cities, so the whole pipeline runs offline."
+      },
+      {
+       "t": "Errors handled, not hidden",
+       "d": "No internet, a bad key, an unknown city and rate limits each get their own message. Alert thresholds come from .env or command-line flags."
+      }
+     ],
+     "tags": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "Streamlit",
+      "pytest"
+     ],
+     "links": [
+      {
+       "label": "Source",
+       "href": "https://github.com/SNischayPrasad/Weather-Forecast-Alert-Application"
+      }
+     ]
+    },
+    {
+     "id": null,
+     "cats": "data",
+     "name": "Stock Market Data Analyzer",
+     "chip": "Sharpe · VaR",
+     "desc": "Takes a ticker and a date range, cleans the price history and measures return, trend and risk, then saves seven charts and a plain-English report.",
+     "notes": [
+      {
+       "t": "Risk, measured",
+       "d": "Annualised volatility, maximum drawdown, Sharpe ratio and 95% value at risk, alongside 20, 50 and 200-day moving averages and crossover signals."
+      },
+      {
+       "t": "Runs offline",
+       "d": "Prices come from Yahoo Finance, with a cached or bundled CSV as the fallback. Educational only, not financial advice."
+      }
+     ],
+     "tags": [
+      "Python",
+      "pandas",
+      "yfinance",
+      "Plotly",
+      "Streamlit"
+     ],
+     "links": [
+      {
+       "label": "Source",
+       "href": "https://github.com/SNischayPrasad/Stock-Market-Data-Analyzer"
+      }
+     ]
+    },
+    {
+     "id": null,
+     "cats": "data",
+     "name": "Personal Expense Tracker",
+     "chip": "6 charts",
+     "desc": "Turns six months of messy expense records into clean data, budget alerts, six charts and a plain-English report.",
+     "notes": [
+      {
+       "t": "Cleaning with a log",
+       "d": "Duplicates, inconsistent categories, N/A, negative and missing amounts and bad dates are all fixed, and every fix is counted."
+      },
+      {
+       "t": "The questions people ask",
+       "d": "Where the money goes, month-on-month change, UPI vs card vs cash, weekday vs weekend, budget vs actual and savings rate."
+      }
+     ],
+     "tags": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "Streamlit",
+      "Jupyter"
+     ],
+     "links": [
+      {
+       "label": "Source",
+       "href": "https://github.com/SNischayPrasad/Personal-Expense-Tracker-Visualization"
+      }
+     ]
+    },
+    {
+     "id": null,
+     "cats": "data",
+     "name": "Email Reminder System",
+     "chip": "Dry-run mode",
+     "desc": "Reads contacts and reminders from CSV, fills personalised templates and sends each reminder when it falls due, logging every success and failure.",
+     "notes": [
+      {
+       "t": "Safe by default",
+       "d": "Dry-run mode saves each email as an .eml preview instead of sending it, and SMTP credentials live in environment variables, never in code."
+      },
+      {
+       "t": "One bad row doesn't stop the batch",
+       "d": "Invalid addresses and unknown contacts are marked FAILED and reported while the rest of the run carries on."
+      }
+     ],
+     "tags": [
+      "Python",
+      "pandas",
+      "SMTP",
+      "schedule",
+      "Streamlit"
+     ],
+     "links": [
+      {
+       "label": "Source",
+       "href": "https://github.com/SNischayPrasad/Email-Automation-Reminder-System"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "security",
    "kicker": "Security",
    "title": "Security, from the defending side.",
@@ -1510,7 +1668,7 @@
  ],
  "mk_head": {
   "title": "Digital marketing work.",
-  "sub": "Alongside the engineering, I work through the Digital Marketing track of the Veda Technology internship: strategy, SEO, social media, email and paid campaigns, each for a set business brief. The businesses are fictional, apart from the real brands in the competitor analysis and the audit of this site."
+  "sub": "Alongside the engineering, I work through the Digital Marketing track of the Veda Technology internship: strategy, SEO, social media, email and paid campaigns, each for a set business brief. The businesses are fictional, apart from the real brands in the competitor analysis, Google's GA4 demo store, the Veda Technology campaign and the audit of this site."
  },
  "mk_tasks": [
   {
@@ -1632,6 +1790,96 @@
    "area": "Paid",
    "brief": "A basic Meta Ads campaign for FitNest Studio, with three ad creatives.",
    "href": "https://github.com/SNischayPrasad/T21"
+  },
+  {
+   "name": "Google Search Ads structure",
+   "area": "Paid",
+   "brief": "A Search Ads account for CodeNest Academy: campaigns, ad groups, keywords and ads.",
+   "href": "https://github.com/SNischayPrasad/T22"
+  },
+  {
+   "name": "Ad metrics analysis",
+   "area": "Analytics",
+   "brief": "CTR, CPC, conversion rate and CPA calculated and compared from a sample ad dataset.",
+   "href": "https://github.com/SNischayPrasad/T23"
+  },
+  {
+   "name": "Social media report",
+   "area": "Analytics",
+   "brief": "Forty posts analysed to find the best and worst performers, with recommendations.",
+   "href": "https://github.com/SNischayPrasad/T24"
+  },
+  {
+   "name": "UTM tracking plan",
+   "area": "Analytics",
+   "brief": "UTM tags for NovaBrew Coffee's social, email and ad links, so every visit is attributed to its campaign.",
+   "href": "https://github.com/SNischayPrasad/T25"
+  },
+  {
+   "name": "GA4 reports",
+   "area": "Analytics",
+   "brief": "Acquisition, engagement and conversion metrics read from Google's GA4 demo store.",
+   "href": "https://github.com/SNischayPrasad/T26"
+  },
+  {
+   "name": "Conversion tracking plan",
+   "area": "Analytics",
+   "brief": "The website conversions that matter for LeafLoop Tea Co., and how to track each in GA4 and Tag Manager.",
+   "href": "https://github.com/SNischayPrasad/T27"
+  },
+  {
+   "name": "Tag Manager setup",
+   "area": "Analytics",
+   "brief": "Tags, triggers and variables planned in Google Tag Manager for clicks, forms and downloads.",
+   "href": "https://github.com/SNischayPrasad/T28"
+  },
+  {
+   "name": "Backlink analysis",
+   "area": "SEO",
+   "brief": "A backlink audit that sorts links into strong, weak, relevant and risky, then turns them into a link-building plan.",
+   "href": "https://github.com/SNischayPrasad/T29"
+  },
+  {
+   "name": "Influencer plan",
+   "area": "Social",
+   "brief": "An influencer campaign for MilletBite: creator scoring, brief, budget and measurement.",
+   "href": "https://github.com/SNischayPrasad/T30"
+  },
+  {
+   "name": "YouTube plan",
+   "area": "Social",
+   "brief": "A YouTube channel plan for AI Build Lab, from keyword research to video ideas.",
+   "href": "https://github.com/SNischayPrasad/T31"
+  },
+  {
+   "name": "30-day campaign: Vidyut Labs",
+   "area": "Strategy",
+   "brief": "A 30-day campaign and content calendar for a fictional tech-education business.",
+   "href": "https://github.com/SNischayPrasad/T32"
+  },
+  {
+   "name": "30-day campaign: LearnLoop",
+   "area": "Strategy",
+   "brief": "A 30-day campaign for a fictional EdTech start-up, with a ₹1.5 lakh budget plan.",
+   "href": "https://github.com/SNischayPrasad/T33"
+  },
+  {
+   "name": "Veda Technology growth campaign",
+   "area": "Strategy",
+   "brief": "A 30-day organic campaign for Veda Technology's services, training and internships, across SEO, social, content and lead generation.",
+   "href": "https://github.com/SNischayPrasad/T38"
+  },
+  {
+   "name": "SEO keyword system",
+   "area": "SEO",
+   "brief": "Keyword research, intent and difficulty scoring, competitor gaps and an on-page audit for a sample IT services site.",
+   "href": "https://github.com/SNischayPrasad/T40"
+  },
+  {
+   "name": "Social engagement analytics",
+   "area": "Analytics",
+   "brief": "249 posts across LinkedIn, Instagram and Facebook analysed in Python to find what earns engagement.",
+   "href": "https://github.com/SNischayPrasad/T45"
   }
  ],
  "about": {
@@ -1751,5 +1999,6 @@
    "meta": "Java SE 8 Programmer I",
    "href": null
   }
- ]
+ ],
+ "repos": 99
 }
