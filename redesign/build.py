@@ -11,7 +11,7 @@ ROOT = os.path.dirname(HERE)
 mode = sys.argv[1] if len(sys.argv) > 1 else "preview"
 P = "../../" if mode == "preview" else ""
 OUT = os.path.join(HERE, "modern", "index.html") if mode == "preview" else os.path.join(ROOT, "index.html")
-V = "1"
+V = "2"
 
 d = json.load(open(os.path.join(HERE, "data.json"), encoding="utf-8"))
 head_meta = open(os.path.join(HERE, "head-meta.html"), encoding="utf-8").read()

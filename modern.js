@@ -342,10 +342,14 @@
     gsap.to('.hero-copy', { yPercent: 8, opacity: .25, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
 
     // generic reveals, batched per section
-    ScrollTrigger.batch('[data-reveal]', {
-      start: 'top 88%',
-      onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: .9, stagger: .08, ease: 'power3.out', overwrite: true }),
-    });
+    // IntersectionObserver is reliable even after long jumps (nav links, Home/End keys)
+    let queue = [], qTimer = 0;
+    const revealIO = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { queue.push(en.target); revealIO.unobserve(en.target); } });
+      clearTimeout(qTimer);
+      qTimer = setTimeout(() => { gsap.to(queue, { opacity: 1, y: 0, duration: .9, stagger: .08, ease: 'power3.out', overwrite: true }); queue = []; }, 30);
+    }, { rootMargin: '0px 0px -8% 0px' });
+    $$('[data-reveal]').forEach((el) => revealIO.observe(el));
 
     // marquee driven by scroll velocity
     $$('.mq').forEach((m) => {
